@@ -1,0 +1,42 @@
+{
+  "type": "theorem",
+  "name": "Circulation at the Origin",
+  "hypothesis": [
+    {
+      "type": "let",
+      "variable": "<anonymous>",
+      "value": "$\\dot{x} = -y$",
+      "kind": "differential equation"
+    },
+    {
+      "type": "let",
+      "variable": "<anonymous>",
+      "value": "$\\dot{y} = x$",
+      "kind": "differential equation"
+    }
+  ],
+  "conclusion": "The origin is a circulation for the given system of linear differential equations.",
+  "status": "incomplete proof",
+  "missing": [
+    {
+      "type": "problem",
+      "statement": "Complete the calculation of the eigenvalues of the matrix A.",
+      "solved": false
+    },
+    {
+      "type": "problem",
+      "statement": "Justify the claim that the solution is $X(t) = e^{it} \\begin{pmatrix} 1 \\\\ i \\end{pmatrix}$.",
+      "solved": false
+    },
+    {
+      "type": "problem",
+      "statement": "Explain the steps taken to arrive at the real and imaginary parts of the solution, $X_{Re}(t)$ and $X_{im}(t)$.",
+      "solved": false
+    },
+    {
+      "type": "problem",
+      "statement": "Explain the connection between the obtained solution and the conclusion that the origin is a saddle.",
+      "solved": false
+    }
+  ]
+}

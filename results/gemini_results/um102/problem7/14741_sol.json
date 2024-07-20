@@ -1,0 +1,96 @@
+{
+  "type": "theorem",
+  "name": "Origin as a Source in a Linear System",
+  "hypothesis": [
+    {
+      "type": "let",
+      "variable": "<anonymous>",
+      "kind": "differential equations",
+      "property": "linear differential equations",
+      "value": "$\\dot{x} = x$ and $\\dot{y} = y$"
+    }
+  ],
+  "conclusion": "The origin is a source for the given system of differential equations.",
+  "status": "incomplete proof",
+  "proof": {
+    "type": "proof",
+    "steps": [
+      {
+        "type": "assert",
+        "claim": "The system can be written in matrix form as $\\frac{d}{dt} \\begin{bmatrix} x \\\\ y\\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix}$",
+        "proof-method": "rewriting the given equations in matrix form"
+      },
+      {
+        "type": "let",
+        "variable": "A",
+        "kind": "matrix",
+        "value": "\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}"
+      },
+      {
+        "type": "assert",
+        "claim": "The eigenvalues of A are $\\lambda_1 = \\lambda_2 = 1$ and the eigenspace is 2-dimensional.",
+        "proof-method": "calculating the eigenvalues of the identity matrix"
+      },
+      {
+        "type": "let",
+        "variable": "v_1",
+        "kind": "eigenvector",
+        "value": "(1, 0)"
+      },
+      {
+        "type": "let",
+        "variable": "v_2",
+        "kind": "eigenvector",
+        "value": "(0, 1)"
+      },
+      {
+        "type": "assert",
+        "claim": "The general solution to the system is $x = c_1 e^t$ and $y = c_2 e^t$",
+        "proof-method": "solving the individual differential equations $\\frac{dx}{dt} = x$ and $\\frac{dy}{dt} = y$",
+        "missing steps": [
+          {
+            "type": "problem",
+            "statement": "Show the steps to solve the differential equation $\\frac{dx}{dt}=x$.",
+            "solved": false
+          },
+          {
+            "type": "problem",
+            "statement": "Show the steps to solve the differential equation $\\frac{dy}{dt}=y$.",
+            "solved": false
+          }
+        ]
+      },
+      {
+        "type": "assert",
+        "claim": "$y = \\frac{c_2}{c_1} x = kx$",
+        "errors": [
+          "This claim is only true when $c_1 \\neq 0$. The case where $c_1=0$ needs to be addressed."
+        ]
+      },
+      {
+        "type": "assert",
+        "claim": "Both $|x|$ & $|y|$ increase as $t$ increases.",
+        "proof-method": "from the solutions $x = c_1 e^t$ and $y = c_2 e^t$"
+      },
+      {
+        "type": "assert",
+        "claim": "The trajectories of the system are straight lines emerging from the origin.",
+        "proof-method": "based on the relationship $y=kx$ and the behavior of $|x|$ and $|y|$",
+        "missing steps": [
+          {
+            "type": "problem",
+            "statement": "Provide a more rigorous explanation or visualization to show that the trajectories are straight lines emerging from the origin.",
+            "solved": false
+          }
+        ]
+      },
+      {
+        "type": "conclude",
+        "statement": "Therefore, the origin is a source for the given system.",
+        "errors": [
+          "While the proof suggests the origin might be a source, it lacks the necessary rigor to definitively conclude this. The missing steps and errors need to be addressed for a complete and accurate proof."
+        ]
+      }
+    ]
+  }
+}
