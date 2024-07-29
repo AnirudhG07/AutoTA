@@ -1,0 +1,32 @@
+{
+  "type": "theorem",
+  "name": "Circulation at the Origin",
+  "hypothesis": [
+    {
+      "type": "let",
+      "variable": "x(t)",
+      "kind": "function",
+      "property": "solution to the differential equation $\\dot{x} = -y$"
+    },
+    {
+      "type": "let",
+      "variable": "y(t)",
+      "kind": "function",
+      "property": "solution to the differential equation $\\dot{y} = x$"
+    }
+  ],
+  "conclusion": "The origin (0, 0) is a circulation point for the system of differential equations.",
+  "status": "incomplete proof",
+  "missing": [
+    {
+      "type": "problem",
+      "statement": "The proposed solution in polar coordinates does not satisfy the given differential equations. A correct parameterization needs to be found.",
+      "solved": false
+    },
+    {
+      "type": "problem",
+      "statement": "Even with a correct parameterization, showing that the phase portrait circles the origin does not rigorously prove that the origin is a circulation point. A proof should formally define circulation and demonstrate that the origin meets those criteria.",
+      "solved": false
+    }
+  ]
+}
