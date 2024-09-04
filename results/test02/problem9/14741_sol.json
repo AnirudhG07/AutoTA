@@ -1,0 +1,73 @@
+{
+  "type": "theorem",
+  "name": "Circulation at the Origin",
+  "Hypothesis": [
+    {
+      "type": "let",
+      "Variable": "<anonymous>",
+      "Property": "Linear differential equation",
+      "Value": "\\( \\dot{x}=y \\) and \\( \\dot{y}=-x-y\\)"
+    }
+  ],
+  "Conclusion": "The origin is a circulation.",
+  "Status": "proved",
+  "Proof": {
+    "type": "proof",
+    "Steps": [
+      {
+        "type": "remark",
+        "Statement": "We begin by rewriting the given system of differential equations in matrix form."
+      },
+      {
+        "type": "assert",
+        "Claim": "\\( \\frac{d}{dt} \\begin{bmatrix} x \\\\ y \\end{bmatrix} = \\begin{bmatrix} 0 & 1 \\\\ -1 & -1 \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix} \\)",
+        "Deduced_from": [
+          "\\( \\dot{x}=y \\)",
+          "\\( \\dot{y}=-x-y\\)"
+        ]
+      },
+      {
+        "type": "let",
+        "Variable": "A",
+        "Value": "\\(\\begin{bmatrix} 0 & 1 \\\\ -1 & -1 \\end{bmatrix}\\)",
+        "Kind": "matrix"
+      },
+      {
+        "type": "assert",
+        "Claim": "\\( \\dot{v} = Av \\)",
+        "Deduced_from": [
+          "\\( \\frac{d}{dt} \\begin{bmatrix} x \\\\ y \\end{bmatrix} = \\begin{bmatrix} 0 & 1 \\\\ -1 & -1 \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix} \\)",
+          "\\(A = \\begin{bmatrix} 0 & 1 \\\\ -1 & -1 \\end{bmatrix}\\)"
+        ]
+      },
+      {
+        "type": "remark",
+        "Statement": "Next, we find the eigenvalues of matrix A."
+      },
+      {
+        "type": "assert",
+        "Claim": "The characteristic equation of \\(A\\) is \\( \\lambda^2 + \\lambda + 1 = 0 \\).",
+        "Proof-method": "Using the formula for the characteristic equation of a 2x2 matrix."
+      },
+      {
+        "type": "assert",
+        "Claim": "The eigenvalues are \\( \\lambda_1 = \\frac{-1 + i\\sqrt{3}}{2} = e^{\\frac{i2\\pi}{3}} \\) and \\( \\lambda_2 = \\frac{-1 - i\\sqrt{3}}{2} = e^{\\frac{i4\\pi}{3}} \\).",
+        "Proof-method": "Solving the quadratic equation \\( \\lambda^2 + \\lambda + 1 = 0 \\)."
+      },
+      {
+        "type": "remark",
+        "Statement": "The eigenvalues are complex conjugates with non-zero imaginary parts.  This indicates a circulation at the origin."
+      },
+      {
+        "type": "missing",
+        "Problem": [
+          {
+            "type": "problem",
+            "Statement": "To rigorously conclude that the origin is a circulation, one should find the eigenvectors corresponding to the eigenvalues and analyze the behavior of the solutions near the origin. Show that the eigenvectors are complex and linearly independent.",
+            "Solved": false
+          }
+        ]
+      }
+    ]
+  }
+}

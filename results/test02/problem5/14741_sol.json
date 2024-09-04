@@ -1,0 +1,139 @@
+{
+  "type": "theorem",
+  "name": "Largest Distance on Ellipsoid",
+  "Hypothesis": [],
+  "Conclusion": "The points $(1, 0, 0)$ and $(-1, 0, 0)$ on the ellipsoid $x^{2}+2 y^{2}+3 z^{2}=1$ have the largest distance from the origin.",
+  "status": "proved",
+  "Proof": {
+    "type": "proof",
+    "Steps": [
+      {
+        "type": "let",
+        "Variable": "g",
+        "Kind": "function from $\\mathbb{R}^3$ to $\\mathbb{R}$",
+        "Property": " $g(x,y,z) = x^2 + xy + 2z^2$"
+      },
+      {
+        "type": "let",
+        "Variable": "f",
+        "Kind": "function from $\\mathbb{R}^3$ to $\\mathbb{R}$",
+        "Property": "$f(x,y,z) = x^2 + y^2 + z^2$"
+      },
+      {
+        "type": "remark",
+        "Statement": "Note that for a given point $(x,y,z)$,  $f$ returns the square of the point's distance $d$ from the origin. Maximizing $d$ is equivalent to maximizing $d^2$ since $d \\ge 0$."
+      },
+      {
+        "type": "remark",
+        "Statement": "The problem is to maximize $f$ subject to the constraint $g(x,y,z) = 1$.  We know that at a restricted extremum of $f$, $\\nabla g = \\mathbf{0}$ and $\\nabla f = \\lambda \\nabla g$ (Lagrange multipliers)."
+      },
+      {
+        "type": "assert",
+        "Claim": "$\\nabla g (x,y,z) = \\begin{pmatrix}  2x + y \\\\ x \\\\ 4z \\end{pmatrix}$ and $\\nabla f (x,y,z) = \\begin{pmatrix}  2x \\\\ 2y \\\\ 2z \\end{pmatrix}$",
+        "Proof-method": "Direct calculation of the gradients"
+      },
+      {
+        "type": "assert",
+        "Claim": "$\\begin{pmatrix}  2x \\\\ 2y \\\\ 2z \\end{pmatrix} = \\lambda \\begin{pmatrix}  2x + y \\\\ x \\\\ 4z \\end{pmatrix}$",
+        "Proof-method": "Using the Lagrange multiplier condition $\\nabla f = \\lambda \\nabla g$"
+      },
+      {
+        "type": "assert",
+        "Claim": "$\\begin{cases} 2x = \\lambda 2x \\\\ 4y = \\lambda 2y \\\\ 6z = \\lambda 4z\\end{cases}$",
+        "Proof-method": "Rewriting the vector equation as a system of equations"
+      },
+      {
+        "type": "cases",
+        "On": "$\\lambda$",
+        "Split-kind": "condition",
+        "Proof-cases": [
+          {
+            "type": "case",
+            "Condition": "$\\lambda = 1$ and $y = z = 0$",
+            "Proof": {
+              "type": "proof",
+              "Steps": [
+                {
+                  "type": "assert",
+                  "Claim": "$x^2 = 1$",
+                  "Proof-method": "Substituting $y=z=0$ into $g(x,y,z) = 1$"
+                },
+                {
+                  "type": "assert",
+                  "Claim": "$x = 1$ or $x=-1$",
+                  "Deduced_from": [
+                    "$x^2=1$"
+                  ],
+                  "Proof-method": "Solving for x"
+                },
+                {
+                  "type": "assert",
+                  "Claim": "$f(1,0,0) = f(-1,0,0) = 1$",
+                  "Proof-method": "Substituting $x = \\pm 1$ and $y = z = 0$ into $f(x,y,z)$"
+                }
+              ]
+            }
+          },
+          {
+            "type": "case",
+            "Condition": "$\\lambda = 2$ and $x = z = 0$",
+            "Proof": {
+              "type": "proof",
+              "Steps": [
+                {
+                  "type": "assert",
+                  "Claim": "$2y^2=1$",
+                  "Proof-method": "Substituting $x=z=0$ into $g(x,y,z) = 1$"
+                },
+                {
+                  "type": "assert",
+                  "Claim": "$y^2 = \\frac{1}{2}$ and therefore $y= \\pm\\frac{1}{\\sqrt{2}}$",
+                  "Deduced_from": [
+                    "$2y^2=1$"
+                  ],
+                  "Proof-method": "Solving for y"
+                },
+                {
+                  "type": "assert",
+                  "Claim": "$f(0, \\frac{1}{\\sqrt{2}}, 0) = f(0, \\frac{-1}{\\sqrt{2}}, 0) = \\frac{1}{2}$",
+                  "Proof-method": "Substituting $x=z=0$ and  $y = \\pm \\frac{1}{\\sqrt{2}}$ into $f(x,y,z)$"
+                }
+              ]
+            }
+          },
+          {
+            "type": "case",
+            "Condition": "$\\lambda = 3$ and $x = y = 0$",
+            "Proof": {
+              "type": "proof",
+              "Steps": [
+                {
+                  "type": "assert",
+                  "Claim": "$2z^2=1$",
+                  "Proof-method": "Substituting $x=y=0$ into $g(x,y,z) = 1$"
+                },
+                {
+                  "type": "assert",
+                  "Claim": "$z^2 = \\frac{1}{2}$ and therefore $z= \\pm\\frac{1}{\\sqrt{2}}$",
+                  "Deduced_from": [
+                    "$2z^2=1$"
+                  ],
+                  "Proof-method": "Solving for z"
+                },
+                {
+                  "type": "assert",
+                  "Claim": "$f(0, 0, \\frac{1}{\\sqrt{2}}) = f(0, 0, \\frac{-1}{\\sqrt{2}}) = \\frac{1}{2}$",
+                  "Proof-method": "Substituting $x=y=0$ and $z = \\pm \\frac{1}{\\sqrt{2}}$ into $f(x,y,z)$"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "remark",
+        "Statement": "Since $f$ is maximum in Case 1, the points $(1,0,0)$ and $(-1,0,0)$ have the largest distance from the origin, which is given by $d = 1$."
+      }
+    ]
+  }
+}

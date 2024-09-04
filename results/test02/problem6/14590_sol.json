@@ -1,0 +1,53 @@
+{
+  "type": "theorem",
+  "name": "Saddle Point of a Linear System",
+  "hypothesis": [],
+  "conclusion": "The linear dynamical system given by \\( \\dot{x}=y \\) and \\( \\dot{y}=x\\) has a saddle point at the origin.",
+  "status": "proved",
+  "proof": {
+    "type": "proof",
+    "steps": [
+      {
+        "type": "remark",
+        "statement": "We will rewrite the system in matrix form and analyze the eigenvalues of the coefficient matrix."
+      },
+      {
+        "type": "let",
+        "variable": "\\(\\dot{X}\\)",
+        "value": "\\( \\begin{pmatrix} \\dot{x} \\ \\dot{y} \\end{pmatrix} \\)"
+      },
+      {
+        "type": "let",
+        "variable": "\\(X\\)",
+        "value": "\\( \\begin{pmatrix} x \\ y \\end{pmatrix} \\)"
+      },
+      {
+        "type": "assert",
+        "claim": "The given system can be written as \\( \\dot{X} = \\begin{pmatrix} 0 & 1 \\ 1 & 0 \\end{pmatrix} X \\).",
+        "proof-method": "Substitution"
+      },
+      {
+        "type": "let",
+        "variable": "\\(A\\)",
+        "value": "\\(\\begin{pmatrix} 0 & 1 \\ 1 & 0 \\end{pmatrix} \\)"
+      },
+      {
+        "type": "assert",
+        "claim": "The trace of \\(A\\) is 0 and the determinant of \\(A\\) is -1.",
+        "proof-method": "Direct calculation"
+      },
+      {
+        "type": "assert",
+        "claim": "The eigenvalues of \\(A\\) are 1 and -1.",
+        "deduced_from": [
+          "The trace of \\(A\\) is 0 and the determinant of \\(A\\) is -1."
+        ],
+        "proof-method": "Solving the characteristic equation"
+      },
+      {
+        "type": "conclude",
+        "statement": "Since the eigenvalues of the coefficient matrix have opposite signs, the equilibrium point at the origin is a saddle point."
+      }
+    ]
+  }
+}

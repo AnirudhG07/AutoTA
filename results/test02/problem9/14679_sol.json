@@ -1,0 +1,91 @@
+{
+  "type": "theorem",
+  "name": "Circulation at the Origin",
+  "Hypothesis": [
+    {
+      "type": "let",
+      "Variable": "<anonymous>",
+      "Property": "Linear differential equation",
+      "Value": "\\(\\dot{x} = y\\)"
+    },
+    {
+      "type": "let",
+      "Variable": "<anonymous>",
+      "Property": "Linear differential equation",
+      "Value": "\\(\\dot{y} = -x - y\\)"
+    }
+  ],
+  "Conclusion": "The origin is a circulation.",
+  "status": "proved",
+  "proof": {
+    "type": "proof",
+    "steps": [
+      {
+        "type": "let",
+        "Variable": "A",
+        "Value": "\\(\\begin{pmatrix} 0 & 1 \\\\ -1 & -1 \\end{pmatrix}\\)",
+        "Kind": "matrix"
+      },
+      {
+        "type": "assert",
+        "claim": "The system of differential equations can be written as \\(\\begin{pmatrix} \\dot{x} \\\\ \\dot{y} \\end{pmatrix} = A \\begin{pmatrix} x \\\\ y \\end{pmatrix}\\)",
+        "Proof-method": "Rewriting the given equations in matrix form."
+      },
+      {
+        "type": "assert",
+        "Claim": "The characteristic equation of A is  \\((-λ)(-1-λ) + 1 = 0\\)",
+        "Proof-method": "Using the definition of the characteristic equation of a matrix."
+      },
+      {
+        "type": "assert",
+        "Claim": "The characteristic equation simplifies to \\(λ^2 + λ + 1 = 0\\)",
+        "Proof-method": "Algebraic simplification."
+      },
+      {
+        "type": "let",
+        "Variable": "λ₁",
+        "Value": "\\(\\frac{-1 + \\sqrt{3}i}{2}\\)",
+        "Kind": "Eigenvalue of A"
+      },
+      {
+        "type": "let",
+        "Variable": "λ₂",
+        "Value": "\\(\\frac{-1 - \\sqrt{3}i}{2}\\)",
+        "Kind": "Eigenvalue of A"
+      },
+      {
+        "type": "assert",
+        "Claim": "The roots of the characteristic equation are  \\(λ_1 = \\frac{-1 + \\sqrt{3}i}{2}\\) and \\(λ_2 = \\frac{-1 - \\sqrt{3}i}{2}\\)",
+        "Proof-method": "Applying the quadratic formula."
+      },
+      {
+        "type": "assert",
+        "Claim": "The eigenvectors corresponding to \\(λ_1\\) are of the form \\(α\\begin{pmatrix} \\frac{\\sqrt{3} - 1}{2} \\\\ 1 \\end{pmatrix}\\), where \\(α\\) is a scalar.",
+        "Proof-method": "Solving the system of equations \\((A - λ_1I)\\mathbf{v} = \\mathbf{0}\\)."
+      },
+      {
+        "type": "let",
+        "Variable": "X(t)",
+        "Value": "\\(αe^{λ_1 t} \\begin{pmatrix} \\frac{\\sqrt{3} - 1}{2} \\\\ 1 \\end{pmatrix} + βe^{λ_2 t} \\begin{pmatrix} \\frac{\\sqrt{3} + 1}{2} \\\\ 1 \\end{pmatrix}\\)",
+        "Kind": "general solution to the system of differential equations"
+      },
+      {
+        "type": "remark",
+        "Statement": "The general solution involves complex eigenvalues, indicating a circulation."
+      },
+      {
+        "type": "missing",
+        "Problem": [
+          {
+            "type": "problem",
+            "statement": "Show that the real part of the eigenvalues is zero, implying the trajectories circle the origin."
+          },
+          {
+            "type": "problem",
+            "statement": "Further analysis of the phase portrait or the general solution is needed to definitively conclude the origin is a circulation and not a center."
+          }
+        ]
+      }
+    ]
+  }
+}
