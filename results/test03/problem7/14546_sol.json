@@ -1,0 +1,63 @@
+{
+  "type": "theorem",
+  "name": "Origin as a Source",
+  "status": "incomplete proof",
+  "hypothesis": [
+    {
+      "type": "let",
+      "variable": "<anonymous>",
+      "kind": "linear differential equation",
+      "property": "$\\dot{x}=x$"
+    },
+    {
+      "type": "let",
+      "variable": "<anonymous>",
+      "kind": "linear differential equation",
+      "property": "$\\dot{y}=y$"
+    }
+  ],
+  "conclusion": "The origin is a source.",
+  "missing": [
+    {
+      "type": "problem",
+      "statement": "Show that the real parts of the eigenvalues of the matrix $A$ are both positive."
+    },
+    {
+      "type": "problem",
+      "statement": "Explain how the solution $x(t)$  indicates that the origin is a source."
+    }
+  ],
+  "proof": {
+    "type": "proof",
+    "steps": [
+      {
+        "type": "assert",
+        "claim": "$x=Ax$ where $A=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$",
+        "proof-method": "Rewriting the system of differential equations in matrix form."
+      },
+      {
+        "type": "assert",
+        "claim": "The matrix $A$ has eigenvalues $1,1$ with corresponding eigenvectors $\\begin{pmatrix} 1\\\\ 0 \\end{pmatrix}$, $\\begin{pmatrix} 0\\\\ 1 \\end{pmatrix}$.",
+        "errors": [
+          "The eigenvectors are not unique; any scalar multiple of these vectors is also an eigenvector."
+        ]
+      },
+      {
+        "type": "assert",
+        "claim": "$x\\left(c_1e^tx+c_2te^t\\begin{pmatrix} 1\\\\ 0 \\end{pmatrix}+e^t\\begin{pmatrix} 0\\\\ 1 \\end{pmatrix}\\right)$",
+        "proof-method": "Solving the system of differential equations.",
+        "errors": [
+          "The solution is not correctly expressed. It should be a linear combination of the eigenvectors multiplied by exponential functions of the eigenvalues."
+        ]
+      },
+      {
+        "type": "assert",
+        "claim": "$x(t,(c_1+c_2)-c_1)=0$",
+        "proof-method": "From the previous step.",
+        "errors": [
+          "It's unclear what this equation represents and how it's derived from the previous step. It doesn't seem to directly contribute to proving the origin is a source."
+        ]
+      }
+    ]
+  }
+}

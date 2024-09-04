@@ -1,0 +1,64 @@
+{
+  "type": "theorem",
+  "name": "Circulation at the origin for a linear differential system",
+  "hypothesis": [
+    {
+      "type": "assume",
+      "statement": "$\\dot{x} = -y$"
+    },
+    {
+      "type": "assume",
+      "statement": "$\\dot{y} = x$"
+    }
+  ],
+  "conclusion": "The origin is a circulation point for the system.",
+  "status": "incomplete proof",
+  "proof": {
+    "type": "proof",
+    "steps": [
+      {
+        "type": "assert",
+        "claim": "$\\begin{pmatrix} \\dot{x} \\ \\dot{y} \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\ y \\end{pmatrix}$",
+        "proof-method": "Substitution"
+      },
+      {
+        "type": "assert",
+        "claim": "$|\\mathbf{A}-\\lambda \\mathbf{I}| = 0$",
+        "deduced_from": [
+          "Characteristic equation of a matrix"
+        ]
+      },
+      {
+        "type": "assert",
+        "claim": "$\\begin{vmatrix} -\\lambda & -1 \\ 1 & -\\lambda \\end{vmatrix} = 0$",
+        "proof-method": "Determinant calculation"
+      },
+      {
+        "type": "assert",
+        "claim": "$\\lambda^2 + 1 = 0$",
+        "proof-method": "Simplification of determinant"
+      },
+      {
+        "type": "assert",
+        "claim": "$\\lambda = \\pm i$",
+        "proof-method": "Solving quadratic equation"
+      },
+      {
+        "type": "conclude",
+        "statement": "The eigenvalues are purely imaginary, thus the origin is a circulation point.",
+        "error": "The conclusion that the origin is a circulation point requires more justification, specifically about the nature of the trajectories around the origin, which is not provided here."
+      }
+    ]
+  },
+  "missing": [
+    {
+      "type": "problem",
+      "statement": "Prove that the nature of the trajectories around the origin is circular."
+    }
+  ],
+  "errors": [
+    {
+      "statement": "The proof concludes circulation based only on the eigenvalues being purely imaginary, without discussing the trajectories."
+    }
+  ]
+}
