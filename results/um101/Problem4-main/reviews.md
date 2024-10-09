@@ -14,7 +14,6 @@ For each problem, the review contains the following information with Yes/No and 
 - `A`: Is the Latex generation correct and clean?
 - `B`: Does the structured proof generation contain noticable halucinations?
 - `C`: Are the missing and error statements correctly identified?
-- `D`: Any other comments? (Leave empty if none)
 ```
 
 > Noticable halucinations are the ones that are not present in the original proof and are not trivially derivable from the original proof.
