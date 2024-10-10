@@ -48,7 +48,7 @@ Here are others error statements provided by the model -
       },
       {
         "type": "assert",
-        "claim": "We have $f(\\frac{1}{4}) = 1$, but from the Fundamental Theorem of Calculus, $f(\\frac{1}{4})$ should be $F'(\\frac{1}{4}) = \\frac{1}{4}$.",
+"claim": "We have $f(\\frac{1}{4}) = 1$, but from the Fundamental Theorem of Calculus, $f(\\frac{1}{4})$ should be $F'(\\frac{1}{4}) = \\frac{1}{4}$.",
         "errors": [
           "Misapplication of the Fundamental Theorem of Calculus; $f$ not continuous at $1/4$ means $F$ is not necessarily differentiable there."
         ]

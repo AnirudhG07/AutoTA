@@ -16,4 +16,6 @@ For each problem, the review contains the following information with Yes/No and 
 - `C`: Are the missing and error statements correctly identified?
 ```
 
+At the end, also add a net review on frequency of how often it found errors in correct proofs or accepted incorrect proofs.
+
 > Noticable halucinations are the ones that are not present in the original proof and are not trivially derivable from the original proof.
