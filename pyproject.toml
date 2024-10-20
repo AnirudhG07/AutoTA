@@ -5,8 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "flask>=3.0.3",
     "mistralai>=1.1.0",
     "openai>=1.52.0",
     "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
     "vertexai>=1.70.0",
 ]
