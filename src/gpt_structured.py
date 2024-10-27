@@ -35,13 +35,13 @@ client = OpenAI(
     api_key  = OPENAI_API_KEY,
 )
 
-def image_solution(image_path: str):
+def image_solution(image_path: str, model: str = "gpt-4o"):
     image_path = encode_image(image_path)
     
     gpt_prompt = "Extract text with LaTeX from the given mathematics solution. GIVE ONLY THE PROOF within Latex code block."
 
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -93,7 +93,7 @@ def solution_from_images(image_paths):
 
     return str(gpt_response_gen(task, prompt))
 
-def save_proof(path:str , text_proof:str, structured_proof, pid:str, thm:str):
+def save_proof(path:str , text_proof:str, structured_proof, pid:str, thm:str, model:str = "gpt-4o"):
     if not os.path.exists(path):
         os.makedirs(path)
     with open(join(path, f"{pid}_sol.md"), "w") as f:
@@ -116,7 +116,7 @@ def gen_structure_proof(thm: str, pf: str):
         return "No response from model while generating structured proof"
     response_cleaned = response.strip("```json").strip("```")
     
-    return json.dumps(json.loads(response_cleaned), indent=4)
+    return json.dumps(json.loads(response_cleaned), indent=2)
 
 def structure_prompt_with_knowns(thm, pf, knowns):
     return f"{PROOF_JSON_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n\n---\n\nThe following are known results that can be used without proof, even implicitly. DO NOT report the use of these results as errors or missing steps.\n\n## Known results: \n\n{knowns}\n"
@@ -125,7 +125,7 @@ def truly_missing(knowns, s):
     prompt = f"The following are known results that can be used without proof, even implicitly.  \n\n## Known results: \n\n{knowns}\n\n---\n\nThe following was reported as a missing step in a proof:\n {s}\n\nDoes this result follow from the above known results? Answer 'yes' or 'no'."
     return gpt_response_gen(prompt)
 
-def gen_proof_from_dir(image_path):
+def gen_proof_from_dir(image_path, model: str = "gpt-4o"):
     for problem_dir in os.listdir(image_path):  # problem_dir is Problem1_main
 
         files = os.listdir(join(image_path, problem_dir))
@@ -138,16 +138,26 @@ def gen_proof_from_dir(image_path):
                 pass
             else:
                 pf_imgs = [join(image_path, problem_dir, img) for img in pf_imgs]
-                text_proof = solution_from_images(pf_imgs)
-                print(text_proof)
+                try:
+                    text_proof = solution_from_images(pf_imgs)
+                    print(text_proof)
+                except Exception as e:
+                    text_proof = ""
+                    print("Error in extracting text from images", e)
                 print("*************")
-                structured_proof = gen_structure_proof(prob_thm, text_proof)
-                save_proof(join(results, "uma101_23_main", "selected_problems", problem_dir), text_proof, structured_proof, st, prob_thm)
+
+                try:
+                    structured_proof = gen_structure_proof(prob_thm, text_proof)
+                except Exception as e:
+                    structured_proof = ""
+                    print("Error in structuring proof", e)
+                save_proof(join(results, "uma101_23_main", "selected_problems", problem_dir), text_proof, structured_proof, st, prob_thm, model)
 
     # Temporarily breaking the loop after the first problem
             break
         break
  
 if __name__ == "__main__":
+    model = "gpt-4o"
     image_path = join(data, "uma101_23_main", "selected_problems")
-    gen_proof_from_dir(image_path)
+    gen_proof_from_dir(image_path, model)
