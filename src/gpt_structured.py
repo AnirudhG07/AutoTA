@@ -24,7 +24,8 @@ Follow the below rules while extracting text from the image:
 4. The generated proof will be used to CHECK the correctness of the original proof, so DO NOT make corrections, add unmentioned reasonings complete proofs, only clean up the language.
 """
 
-PROOF_JSON_PROMPT = open(join(homedir, "src", "ProofJsonShorter.md")).read()
+PROOF_JSON_SHORTER_PROMPT = open(join(homedir, "src", "ProofJsonShorter.md")).read()
+JSON_PROOF_INSTRUCTIONS = open(join(homedir, "src", "MathDoc.md")).read()
 
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
@@ -37,7 +38,7 @@ client = OpenAI(
 def image_solution(image_path: str):
     image_path = encode_image(image_path)
     
-    gpt_prompt = "Extract text with LaTeX from the given mathematics solution. GIVE ONLY THE PROOF."
+    gpt_prompt = "Extract text with LaTeX from the given mathematics solution. GIVE ONLY THE PROOF within Latex code block."
 
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -101,12 +102,15 @@ def save_proof(path:str , text_proof:str, structured_proof, pid:str, thm:str):
     with open(join(path, f"{pid}_gpt_sol.json"), "w") as f:
         f.write(structured_proof)
     
+def structure_prompt_proofshorterjson(thm, pf):
+    return f"{PROOF_JSON_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n"
 
-def structure_prompt(thm, pf):
-    return f"{PROOF_JSON_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n"
+def structure_prompt_mathdoc(thm, pf):
+    alert = "Note that the proof may not be complete and may have some errors, which you should note in the appropriate fields."
+    return f"The following is a custom JSON format, which we call `mathDocJSON`, for mathematical documents. Note that a document is translated to a JSON object with a single key 'math_document' and a corresponding value.\n\n {JSON_PROOF_INSTRUCTIONS}\n---\n\nWrite the following theorem and proof into `MathDocJSON` format. {alert} Output JSON only. The theorem and proof are as follows:\n\n## Theorem:\n {thm}\n\n## Proof:\n {pf}\n"
 
 def gen_structure_proof(thm: str, pf: str):
-    response = gpt_response_gen(structure_prompt(thm, pf))
+    response = gpt_response_gen(structure_prompt_mathdoc(thm, pf))
     print(response)
     if response is None:
         return "No response from model while generating structured proof"
@@ -115,7 +119,7 @@ def gen_structure_proof(thm: str, pf: str):
     return json.dumps(json.loads(response_cleaned), indent=4)
 
 def structure_prompt_with_knowns(thm, pf, knowns):
-    return f"{PROOF_JSON_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n\n---\n\nThe following are known results that can be used without proof, even implicitly. DO NOT report the use of these results as errors or missing steps.\n\n## Known results: \n\n{knowns}\n"
+    return f"{PROOF_JSON_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n\n---\n\nThe following are known results that can be used without proof, even implicitly. DO NOT report the use of these results as errors or missing steps.\n\n## Known results: \n\n{knowns}\n"
 
 def truly_missing(knowns, s):
     prompt = f"The following are known results that can be used without proof, even implicitly.  \n\n## Known results: \n\n{knowns}\n\n---\n\nThe following was reported as a missing step in a proof:\n {s}\n\nDoes this result follow from the above known results? Answer 'yes' or 'no'."
