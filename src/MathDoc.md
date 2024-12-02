@@ -1,7 +1,40 @@
-- **Root** Top level
-    - **Child 1** Level 1
-        - **Grandchild 1** Level 2
-            - **Great Grandchild** Level 3
-        - **Grandchild 2** Level 2
-    - **Child 2** Level 1
-        - **Grandchild 2** Level 2
+- **math_document**: A structured math document in a custom JSON format..
+    - **let**: A statement introducing a new variable with given value, type and/or property. For saying that **some** value of the variable is as needed, use a 'some' statement..
+        - **variable**: The variable being defined (use `<anonymous>` if there is no name such as in `We have a group structure on S`).
+        - **value**: The value of the variable being defined.
+        - **kind**: The type of the variable, such as `real number`, `function from S to T`, `element of G` etc..
+        - **properties**: Specific properties of the variable beyond the type..
+    - **some**: A statement introducing a new variable and saying that **some** value of this variable is as required (i.e., an existence statement). This is possibly with given type and/or property. This corresponds to statements like 'for some integer `n` ...' or 'There exists an integer `n` ....'..
+        - **variable**: The variable being defined (use `<anonymous>` if there is no name such as in `We have a group structure on S`).
+        - **kind**: The type of the variable, such as `real number`, `function from S to T`, `element of G` etc..
+        - **properties**: Specific properties of the variable beyond the type..
+    - **assume**: A mathematical assumption being made. In case this is a variable or structure being introduced, use a 'let' statement..
+    - **def**: A mathematical term being defined. In case a definition is being used, use 'assert' or 'theorem' instead..
+        - **statement**: The mathematical definition..
+        - **term**: The term being defined..
+        - **name**: (OPTIONAL) The name of the theorem, lemma or claim. Give a JSON string.
+    - **assert**: A mathematical statement whose proof is a straightforward consequence of given and known results following some method..
+        - **claim**: The mathematical claim being asserted, NOT INCLUDING proofs, justifications or results used. The claim should be purely a logical statement which is the *consequence* obtained..
+        - **proof_method**: The method used to prove the claim. This could be a direct proof, proof by contradiction, proof by induction, etc. this should be a single phrase or a fairly simple sentence; if a longer justification is needed break the step into smaller steps. If the method is deduction from a result, use the 'deduced_using' field.
+        - **deduced_from_results**: A list of elements of type `deduced_from`. Each element of type `deduced_from` is as follows:.
+            - **deduced_from**: A deduction of a mathematical result from assumptions or previously known results..
+                - **result_used**: An assumption or previously known results from which the deduction is made. If more than one result is used, list them in the 'deductions' field as separate `deduction` objects. If the result used needs justification, have a separate `assert` object earlier..
+                - **proved_earlier**: Whether the statement from which deduction has been proved earlier IN THIS DOCUMENT. Answer `true` or `false` (answer `false` if a result from the mathematical literature is being invoked)..
+        - **calculate**: An equation, inequality, short calculation etc. Give a JSON object with exactly one _key-value pair_, with the _key_ one of `inline_calculation`, `calculation_sequence`.
+            - **inline_calculation**: A simple calculation or computation written as a single line..
+            - **calculation_sequence**: A list of elements of type `calculation_step`. Each element of type `calculation_step` is as follows:.
+                - **step**: A step, typically an equality or inequality, in a calculation or computation..
+        - **missing_proofs**: A list of elements of type `missing`. Each element of type `missing` is as follows:.
+            - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field..
+        - **errors**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field..
+    - **theorem**: A mathematical theorem, with a list of hypotheses and a conclusion..
+        - **statement**: The mathematical definition..
+        - **hypothesis**: a JSON list of data and assumptions, i.e., **let** and **assume** statements. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`
+        - **conclusion**: The conclusion of the theorem. Give a JSON string.
+        - **proved**: Whether the theorem has been proved, either here or earlier or by citing the literature. Give a JSON boolean.
+        - **proof**: A proof of a lemma, theorem or claim, having the same structure as (the value for) a `math_document`. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`
+        - **ref**: (OPTIONAL) A reference where the result has been previously proved. Give a JSON string.
+        - **cite**: (OPTIONAL) A citation of a result from the mathematical literature which gives the proof. Give a JSON string.
+        - **missing_proofs**: A list of elements of type `missing`. Each element of type `missing` is as follows:.
+            - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field..
+        - **errors**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field..
