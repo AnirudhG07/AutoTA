@@ -9,48 +9,176 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <style>
+      body {
+        background-color: #1a2b44;
+        color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 20px 0;
+        color: #ffffff;
+      }
+
+      .dropzone {
+        background: #ffffff;
+        border: 2px dashed #1a2b44;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 80%;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      #uploadedImagesContainer {
+        max-width: 80%;
+        margin: 20px auto;
+      }
+
+      #uploadedImagesLabel {
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-align: left;
+        color: #ffffff;
+      }
+
+      #uploadedImages {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        list-style: none;
+        padding: 10px;
+      }
+
+      #uploadedImages li {
+        padding: 10px;
+        margin: 5px 0;
+        background: #f0f0f0;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        cursor: grab;
+        color: #1a2b44;
+      }
+
+      #uploadedImages li:hover {
+        background: #e6e6e6;
+      }
+
+      #generateButton {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background: #ffffff;
+        color: #1a2b44;
+        font-size: 16px;
+        border: 2px solid #1a2b44;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      #generateButton:hover {
+        background: #f0f0f0;
+      }
+
+      #outputContainer {
+        max-width: 80%;
+        margin: 20px auto;
+      }
+
+      #outputLabel {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 10px;
+      }
+
+      #outputText {
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        white-space: pre-wrap;
+        font-family: monospace;
+        color: #1a2b44;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+    </style>
   </head>
   <body>
-    <h1 style="text-align: center">AutoTA</h1>
+    <h1>AutoTA</h1>
     <form action="/upload" class="dropzone" id="imageDropzone"></form>
-    <div
-      id="outputText"
-      style="margin-top: 20px; font-family: monospace; white-space: pre-wrap"
-    ></div>
+
+    <div id="uploadedImagesContainer">
+      <p id="uploadedImagesLabel">
+        You can drag and reorder the images for desired processing order:
+      </p>
+      <ul id="uploadedImages"></ul>
+    </div>
+
+    <button id="generateButton">Generate Text</button>
+
+    <div id="outputContainer">
+      <p id="outputLabel">Image to Text</p>
+      <div id="outputText">Your proof will appear here...</div>
+    </div>
 
     <script>
+      let uploadedFiles = []; // Store uploaded files' paths
+
+      // Dropzone Configuration
       Dropzone.options.imageDropzone = {
         paramName: "images[]",
         maxFilesize: 5, // MB
         acceptedFiles: "image/*",
-        success: function (file, response) {
-          console.log("Response from server:", response); // Debugging: Log the response
-
-          // Check if the response contains the 'output' key
-          if (response.output) {
-            const outputDiv = document.getElementById("outputText");
-
-            // Append the new proof text to the existing content
-            const existingContent = outputDiv.textContent.trim();
-            const newContent = response.output.trim();
-
-            // Combine existing and new content with a line break
-            outputDiv.textContent = existingContent
-              ? existingContent + "\n\n" + newContent
-              : newContent;
-          } else {
-            const outputDiv = document.getElementById("outputText");
-            outputDiv.textContent +=
-              "No proof generated for one of the uploads.\n";
-          }
-        },
-        error: function (file, response) {
-          console.error("Error from server:", response);
-          const outputDiv = document.getElementById("outputText");
-          outputDiv.textContent +=
-            "An error occurred while processing one of the uploads.\n";
+        init: function () {
+          this.on("success", function (file, response) {
+            const uploadedImages = document.getElementById("uploadedImages");
+            const listItem = document.createElement("li");
+            listItem.textContent = file.name;
+            listItem.dataset.file = response.files[uploadedFiles.length];
+            uploadedImages.appendChild(listItem);
+            uploadedFiles.push(response.files[uploadedFiles.length]);
+          });
         },
       };
+
+      // Sortable Uploaded Images List
+      new Sortable(document.getElementById("uploadedImages"), {
+        animation: 150,
+        ghostClass: "sortable-ghost",
+      });
+
+      // Handle Generate Button Click
+      document
+        .getElementById("generateButton")
+        .addEventListener("click", function () {
+          const orderedFiles = Array.from(
+            document.getElementById("uploadedImages").children,
+          ).map((li) => li.dataset.file);
+
+          fetch("/generate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ files: orderedFiles }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const outputDiv = document.getElementById("outputText");
+              outputDiv.textContent = data.output || "No text generated.";
+            })
+            .catch((error) => {
+              console.error("Error generating text:", error);
+            });
+        });
     </script>
   </body>
 </html>

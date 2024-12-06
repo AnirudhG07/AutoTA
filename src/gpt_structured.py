@@ -35,10 +35,9 @@ client = OpenAI(
     api_key  = OPENAI_API_KEY,
 )
 
-def image_solution(image_path: str, model: str = "gpt-4o"):
-    image_path = encode_image(image_path)
+def image_solution(encoded_images: str, model: str = "gpt-4o"):
     
-    gpt_prompt = "Extract text with LaTeX from the given mathematics solution. GIVE ONLY THE PROOF within Latex code block."
+    gpt_prompt = "Extract text with LaTeX from the given mathematics solution. GIVE ONLY THE PROOF concisely WITHOUT any introductory/remarks statements."
 
     response = client.chat.completions.create(
         model=model,
@@ -53,7 +52,7 @@ def image_solution(image_path: str, model: str = "gpt-4o"):
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url":  f"data:image/jpeg;base64,{image_path}"
+                            "url":  f"data:image/jpeg;base64,{encoded_images}"
                         },
                     },
                 ],
@@ -84,9 +83,10 @@ def gpt_response_gen(prompt:str, task:str = "", model:str ="gpt-4o"):
 
 def solution_from_images(image_paths):
     combined_text = ""
+    encoded_images = ""
     for image_path in image_paths:
-        response = image_solution(image_path)
-        combined_text += str(response)
+        encoded_images += encode_image(image_path)
+    combined_text = str(image_solution(encoded_images))
 
     task =f"You are proficient in extracting Mathematical text from images. Your task is to rewrite the extracted text as a clean mathematical proof with full sentences, conjuctions etc. \n {ocr_rules}"
     prompt = f"Proof is: {combined_text}"
@@ -159,6 +159,5 @@ def gen_proof_from_dir(image_path, model: str = "gpt-4o"):
  
 if __name__ == "__main__":
     model = "gpt-4o"
-    image_path = join("..", "data", "test", "test1.png")
-    print(image_solution(image_path, model))
+    image_path = join(data, "uma101_23_main", "selected_problems")
     #gen_proof_from_dir(image_path, model)

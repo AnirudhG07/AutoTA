@@ -19,6 +19,11 @@ Dropzone.options.imageDropzone = {
       if (response.output) {
         const outputDiv = document.getElementById("outputText");
 
+        // Remove placeholder text if present
+        if (outputDiv.textContent === "Processed proofs will appear here...") {
+          outputDiv.textContent = "";
+        }
+
         // Append the new proof text to the existing content
         const existingContent = outputDiv.textContent.trim();
         const newContent = response.output.trim();

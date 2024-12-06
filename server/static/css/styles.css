@@ -26,34 +26,54 @@ h1 {
 }
 
 /* Uploaded Images List */
-#uploadedImages {
+#uploadedImagesContainer {
   max-width: 80%;
   margin: 20px auto;
-  padding: 10px;
+}
+
+#uploadedImagesLabel {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #ffffff;
+}
+
+#uploadedImages {
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   list-style: none;
-  padding: 0;
+  padding: 10px;
 }
 
 #uploadedImages li {
   padding: 10px;
   margin: 5px 0;
-  background: #f9f9f9;
+  background: #f0f0f0;
   border-radius: 5px;
   border: 1px solid #ddd;
   cursor: grab;
+  color: #1a2b44; /* Dark text for visibility */
 }
 
 #uploadedImages li:hover {
   background: #e6e6e6;
 }
 
-/* Output Box */
-#outputText {
+/* Output Section */
+#outputContainer {
   max-width: 80%;
   margin: 20px auto;
+}
+
+#outputLabel {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+#outputText {
   padding: 20px;
   background: #ffffff;
   border-radius: 10px;
