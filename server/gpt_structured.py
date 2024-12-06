@@ -82,10 +82,7 @@ def gpt_response_gen(prompt:str, task:str = "", model:str ="gpt-4o"):
 
 
 def solution_from_images(image_paths):
-    combined_text = ""
-    encoded_images = ""
-    for image_path in image_paths:
-        encoded_images += encode_image(image_path)
+    encoded_images = "".join([encode_image(image_path) for image_path in image_paths])
     combined_text = str(image_solution(encoded_images))
 
     task =f"You are proficient in extracting Mathematical text from images. Your task is to rewrite the extracted text as a clean mathematical proof with full sentences, conjuctions etc. \n {ocr_rules}"
