@@ -1,0 +1,66 @@
+/* Dark Blue Jeans Background */
+body {
+  background-color: #1a2b44; /* Dark blue jeans color */
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centered Heading */
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+/* Dropzone Style */
+.dropzone {
+  background: #ffffff;
+  border: 2px dashed #1a2b44;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 80%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Uploaded Images List */
+#uploadedImages {
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0;
+}
+
+#uploadedImages li {
+  padding: 10px;
+  margin: 5px 0;
+  background: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  cursor: grab;
+}
+
+#uploadedImages li:hover {
+  background: #e6e6e6;
+}
+
+/* Output Box */
+#outputText {
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  white-space: pre-wrap;
+  font-family: monospace;
+  color: #1a2b44;
+  max-height: 400px;
+  overflow-y: auto;
+}
