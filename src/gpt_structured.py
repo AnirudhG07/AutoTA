@@ -108,7 +108,8 @@ def structure_prompt_proofshorterjson(thm, pf):
 
 def structure_prompt_mathdoc(thm, pf):
     alert = "Note that the proof may not be complete and may have some errors, which you should note in the appropriate fields."
-    return f"The following is a custom JSON format, which we call `mathDocJSON`, for mathematical documents. Note that a document is translated to a JSON object with a single key 'math_document' and a corresponding value.\n\n {JSON_PROOF_INSTRUCTIONS}\n---\n\nWrite the following theorem and proof into `MathDocJSON` format. {alert} Output JSON only. The theorem and proof are as follows:\n\n## Theorem:\n {thm}\n\n## Proof:\n {pf}\n"
+    evaluator = "A rubric is provided to you for scoring the proofs and errors. Be strict in pointing errors and missing statements however be linient in giving an overall_score."
+    return f"The following is a custom JSON format, which we call `mathDocJSON`, for mathematical documents. Note that a document is translated to a JSON object with a single key 'math_document' and a corresponding value.\n\n {JSON_PROOF_INSTRUCTIONS}\n---\n\nWrite the following theorem and proof into `MathDocJSON` format. {evaluator}. {alert} Output JSON only. The theorem and proof are as follows:\n\n## Theorem:\n {thm}\n\n## Proof:\n {pf}\n"
 
 def gen_structure_proof(thm: str, pf: str):
     response = gpt_response_gen(structure_prompt_mathdoc(thm, pf))
