@@ -67,9 +67,10 @@ def extract_everything(str_proof_path: str, prob_path: str, sol_path: str):
     }
 
 def check_errors(errors, rubric, solution, problem):
-    prompt = f"You are an expert mathematician and a linient checker. You have corrected a mathematical proof basic on below rubric. ## RUBRIC\n{rubric}\n. Here are the list of errors/missing statemets produced by you for the solution. ## Problem Statement\n{problem} ##Solution:\n {solution}\n ##Review:\n{str(errors)}. Your task is to check if the missing and error statements pointed out are valid or not. Produce a JSON document containing the statement, pointed out error/missing statement, boolean value for validity and an Explanation of your decision IF the error is valid for each error/missing statement seperately."
+    pre_knowledge = "You can assume commonly known knowledge of the topic by the student if directly reason not stated."
+    prompt = f"You are an expert mathematician. The following is a mathematical proof evaluated based on below rubric. ## RUBRIC\n{rubric}\n. Here are the list of errors/missing statemets produced reported for the solution. ## Problem Statement\n{problem} ##Solution:\n {solution}\n ##Review:\n{str(errors)}. {pre_knowledge} Your task is to check if the missing and error statements pointed out are valid or not. Produce a JSON document containing the `statement`, pointed out `error/missing` statement, boolean value for `is_valid` and an `explanation` of the reported error for each error/missing statement seperately IF valid. If the error claims that a detail is omitted when it is normal to omit such details in the mathematical literature, then report `is_valid` as False."
 
-    response = gpt_response_gen(prompt)
+    response = gpt_response_gen(prompt, model = "o1-mini")
     return response
 
 
