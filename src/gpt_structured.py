@@ -24,8 +24,8 @@ Follow the below rules while extracting text from the image:
 4. The generated proof will be used to CHECK the correctness of the original proof, so DO NOT make corrections, add unmentioned reasonings complete proofs, only clean up the language.
 """
 
-PROOF_JSON_SHORTER_PROMPT = open(join(homedir, "src", "ProofJsonShorter.md")).read()
-JSON_PROOF_INSTRUCTIONS = open(join(homedir, "src", "MathDoc.md")).read()
+PROOF_JSON_SHORTER_PROMPT = open(join(homedir, "src", "prompts", "ProofJsonShorter.md")).read()
+JSON_PROOF_INSTRUCTIONS = open(join(homedir, "src", "prompts", "MathDoc.md")).read()
 
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
@@ -59,6 +59,7 @@ def image_solution(image_path: str, model: str = "gpt-4o"):
                 ],
             }
         ],
+        temperature=0.0,
 
     )
 
@@ -156,7 +157,7 @@ def gen_proof_from_dir(image_path, model: str = "gpt-4o"):
     # Temporarily breaking the loop after the first problem
             break
         break
- 
+
 if __name__ == "__main__":
     model = "gpt-4o"
     image_path = join(data, "uma101_23_main", "selected_problems")
