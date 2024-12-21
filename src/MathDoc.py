@@ -251,6 +251,9 @@ root = MathDocTree("AutoTA", "An evaluation of mathematical proof in a structure
 if __name__ == "__main__":
     # Converting the tree to markdown (Always at the bottom)
     mathdoc = root.to_markdown()
+    rubric = rubric_node.to_markdown()
 
     with open("./prompts/MathDoc.md", "w") as f:
         f.write(mathdoc)
+    with open("./prompts/Rubric.md", "w") as f:
+        f.write(rubric)

@@ -1,0 +1,111 @@
+{
+  "math_document": [
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "some": {
+              "variable": "n",
+              "kind": "integer",
+              "properties": "n > 1"
+            }
+          }
+        ],
+        "conclusion": "The sum 1 + 1/2 + ... + 1/n is not an integer",
+        "proved": false,
+        "overall_score": 7.5,
+        "proof": [
+          {
+            "assume": "n > 3"
+          },
+          {
+            "calculate": {
+              "inline_calculation": "1 + 1/2 + ... + 1/n = (n!/1 + n!/2 + ... + n!/n) / n!"
+            }
+          },
+          {
+            "let": {
+              "variable": "r",
+              "properties": "2^r | n! and 2^{r+1} does not divide n!"
+            }
+          },
+          {
+            "let": {
+              "variable": "s",
+              "properties": "2^s is the largest power of 2 less than or equal to n"
+            }
+          },
+          {
+            "assume": "n > 3 implies r > s > 0"
+          },
+          {
+            "def": {
+              "statement": "The only integer in 1,...,n divisible by 2^s is 2^s",
+              "term": "divisibility by 2^s"
+            }
+          },
+          {
+            "assert": {
+              "claim": "For 1 <= k <= n, n!/k is divisible by 2^{r-s}",
+              "deduced_from_results": [
+                {
+                  "deduced_from": {
+                    "result_used": "definition of r and s",
+                    "proved_earlier": true
+                  }
+                }
+              ],
+              "errors": [
+                {
+                  "error": "For some values of k, n!/k not fully explored",
+                  "score_e": 3
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "Every term except 1 is divisible by 2^{r-s+1}",
+              "deduced_from_results": [
+                {
+                  "deduced_from": {
+                    "result_used": "argument about divisibility by 2^s",
+                    "proved_earlier": true
+                  }
+                }
+              ],
+              "errors": [
+                {
+                  "error": "Lack of clarity in divisibility reasoning",
+                  "score_e": 2
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "Fraction is (2j+1)/(2^s * k), with numerator odd and denominator even",
+              "errors": [
+                {
+                  "error": "Justification for terms and odd/even property missing",
+                  "score_e": 2
+                }
+              ]
+            }
+          },
+          {
+            "conclude": {
+              "claim": "The sum is never an integer",
+              "errors": [
+                {
+                  "error": "Incomplete bridging of proof to conclusion",
+                  "score_e": 2
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
