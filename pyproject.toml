@@ -9,7 +9,11 @@ dependencies = [
     "flask>=3.0.3",
     "mistralai>=1.1.0",
     "openai>=1.52.0",
+    "pyperclip>=1.9.0",
     "python-dotenv>=1.0.1",
     "requests>=2.32.3",
+    "streamlit-sortables>=0.2.0",
+    "streamlit>=1.41.1",
     "vertexai>=1.70.0",
+    "watchdog>=6.0.0",
 ]
