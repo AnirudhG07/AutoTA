@@ -1,0 +1,111 @@
+{
+  "math_document": [
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "let": {
+              "variable": "n",
+              "kind": "integer",
+              "properties": "n > 1"
+            }
+          }
+        ],
+        "conclusion": "The sum 1 + 1/2 + ... + 1/n is not an integer.",
+        "proved": false,
+        "proof": [
+          {
+            "remark": "We define S as the sum of the harmonic numbers up to 1/n."
+          },
+          {
+            "let": {
+              "variable": "S",
+              "value": "1 + 1/2 + 1/3 + ... + 1/n"
+            }
+          },
+          {
+            "remark": "Express S as a single fraction."
+          },
+          {
+            "let": {
+              "variable": "S",
+              "value": "a/d"
+            }
+          },
+          {
+            "def": {
+              "statement": "d = lcm(1, 2, ..., n)",
+              "term": "d"
+            }
+          },
+          {
+            "remark": "Calculate the numerator a of the fraction."
+          },
+          {
+            "let": {
+              "variable": "a",
+              "value": "d + d/2 + d/3 + ... + d/n",
+              "properties": "a is an integer"
+            }
+          },
+          {
+            "assert": {
+              "claim": "d is even",
+              "proof_method": "since the LCM includes the factor 2"
+            }
+          },
+          {
+            "contradiction": {
+              "assumption": "a is divisible by d",
+              "proof": [
+                {
+                  "assert": {
+                    "claim": "S is an integer",
+                    "deduced_from_results": [
+                      {
+                        "deduced_from": {
+                          "result_used": "a is divisible by d",
+                          "proved_earlier": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "remark": "Inspect the parity of a and d."
+                },
+                {
+                  "assert": {
+                    "claim": "The parity of a does not match d",
+                    "proof_method": "examine terms divisibility",
+                    "errors": [
+                      {
+                        "error": "Incorrectly assumes parity mismatch without proof."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "assert": {
+                    "claim": "S being a fraction with odd numerator and even denominator cannot be an integer",
+                    "proof_method": "parity argument"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "conclude": {
+              "claim": "S is not an integer."
+            }
+          }
+        ],
+        "errors": [
+          {
+            "error": "Proof of parity mismatch is not given."
+          }
+        ]
+      }
+    }
+  ]
+}
