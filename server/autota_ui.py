@@ -149,12 +149,6 @@ if st.session_state.structured_proof:
     except Exception as e:
         st.warning(f"Failed to display structured proof: {e}")
 
-
-# Credits
-st.markdown("""<footer style='text-align: left; font-size: small; color: gray;'>
-    <h5>Credits</h5><b>Anirudh Gupta</b> (anirudhgupta@iisc.ac.in), Prof. <b>Siddhartha Gadgil</b> (gadgil@iisc.ac.in).
-</footer>""", unsafe_allow_html=True)
-
 # Delete temporary directory
 if os.path.exists(temp_dir):
     for file in os.listdir(temp_dir):
