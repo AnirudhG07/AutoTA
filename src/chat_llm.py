@@ -8,14 +8,14 @@ load_dotenv()
 
 app = Flask(__name__)
 
-API_KEY = os.getenv("API_KEY")
+THIRD_PARTY_API_KEY = os.getenv("API_KEY")
 THIRD_PARTY_API_URL = os.getenv("THIRD_PARTY_API_URL")
 
 
 def call_model_api(message, model):
     # Create an OpenAI client with your deepinfra token and endpoint
     openai = OpenAI(
-        api_key=API_KEY,
+        api_key=THIRD_PARTY_API_KEY,
         base_url=THIRD_PARTY_API_URL,
     )
 

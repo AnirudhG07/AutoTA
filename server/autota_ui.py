@@ -1,5 +1,7 @@
 import json
 import os
+import sys
+from pathlib import Path
 
 import pyperclip
 import streamlit as st
@@ -9,37 +11,59 @@ from streamlit_sortables import sort_items
 
 load_dotenv()
 
+homedir = Path("..")
+src_dir = os.path.join(homedir, "src")
+sys.path.append(src_dir)
 from gpt_structured import gen_structure_proof, solution_from_images
 
 # Streamlit App
 st.title("AutoTA")
 
+provider_info = {
+    "OPENAI": {
+        "name": "OpenAI",
+        "default_model": "gpt-4o",
+        "default_api_key": os.getenv("OPENAI_API_KEY", ""),
+    },
+    "Gemini": {
+        "name": "Gemini",
+        "default_model": "gemini-1.5-pro",
+        "default_api_key": os.getenv("GEMINI_API_KEY", ""),
+    },
+}
+
 # API Credentials Section
 with st.expander("Credentials"):
     # Provider selection
-    provider = st.selectbox("Select Provider:", ["OPENAI", "Gemini"], index=0)
+    provider = st.selectbox("Select Provider:", list(provider_info.keys()), index=0)
 
-    # API Key Input with masked display
-    default_api_key = os.getenv("OPENAI_API_KEY", "")
-    api_key = st.text_input(
-        "API Key:",
-        value=default_api_key if default_api_key else "",
-        type="password",
-        help="Hover to see the key, edit if needed."
-    )
+    # Dynamically update API Key and Model fields based on the provider
+    selected_provider = provider_info[provider]
 
-    # Model selection text boxes
-    model_image_to_text = st.text_input(
-        "Model for Image to Text:",
-        value="gpt-4o",
-        help="Specify the model for Image to Text. Check out list of OpenAI Models [↗](https://platform.openai.com/docs/models)"
-    )
-    model_json_generator = st.text_input(
-        "Model for JSON Generator:",
-        value="gpt-4o",
-        help="Specify the model for JSON Generator. Check out list of OpenAI Models [↗](https://platform.openai.com/docs/models)"
-    )
+    if provider == "Gemini":
+        # Warning if Gemini is selected
+        st.warning("Gemini API is not yet supported. Please select OpenAI for now.")
+    else:
+        # API Key Input with masked display
+        api_key_placeholder = f"{selected_provider['default_api_key'][:15]}{'*' * (len(selected_provider['default_api_key']) - 15)}" if selected_provider['default_api_key'] else ""
+        api_key = st.text_input(
+            "API Key:",
+            value=api_key_placeholder,
+            type="password",
+            help="Hover to see the key, edit if needed."
+        )
 
+        # Model selection text boxes
+        model_image_to_text = st.text_input(
+            "Model for Image to Text:",
+            value=selected_provider["default_model"],
+            help="Specify the model for Image to Text. Check out list of OpenAI Models [↗](https://platform.openai.com/docs/models)"
+        )
+        model_json_generator = st.text_input(
+            "Model for JSON Generator:",
+            value=selected_provider["default_model"],
+            help="Specify the model for JSON Generator. Check out list of OpenAI Models [↗](https://platform.openai.com/docs/models)"
+        )
 # Function to copy text to clipboard and show confirmation
 def copy_to_clipboard(text):
     try:
@@ -154,3 +178,11 @@ if os.path.exists(temp_dir):
     for file in os.listdir(temp_dir):
         os.remove(os.path.join(temp_dir, file))
     os.rmdir(temp_dir)
+
+# Footer
+st.markdown("""
+    <hr style="border: 0; border-top: 1px solid #ccc;" />
+    <div style="text-align: center; color: #888; font-size: 0.9em;">
+        Credits:
+    </div>
+""", unsafe_allow_html=True)
