@@ -17,8 +17,8 @@ cd server # To navigate to the server directory
 4. (Recommended) Create a virtual environment and activate it
 
 ```bash
-python3 -m venv autota
-source autota/bin/activate
+python3 -m venv venv
+source .venv/bin/activate
 ```
 
 3. Install the required packages
