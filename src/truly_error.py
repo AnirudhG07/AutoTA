@@ -2,11 +2,10 @@ import json
 from os.path import join
 from pathlib import Path
 
-from berkeley_test import extract_problem, extract_solution
+from berkeley_test import BERKELEY_DATA, extract_problem, extract_solution
 from gpt_structured import gpt_response_gen
 
 homedir = Path("..")
-berekeley_data = join(homedir, "data", "berkeley")
 
 def extract_error(str_proof_path: str):
     with open(str_proof_path, 'r') as file:
@@ -23,14 +22,14 @@ def extract_error(str_proof_path: str):
                 errors.append({
                     "claim": claim,
                     "error": error["error"],
-                    "score_e": error["score_e"]
+                    "error_level": error["error_level"]
                 })
         elif "missing_proofs" in step[claim_key]:
             for miss in step[claim_key]["missing_proofs"]:
                 missing.append({
                     "claim": claim,
                     "missing": miss["missing"],
-                    "score_m": miss["score_m"]
+                    "missing_level": miss["missing_level"]
                 })
         else:
             pass
@@ -68,18 +67,21 @@ def extract_everything(str_proof_path: str, prob_path: str, sol_path: str):
 
 def check_errors(errors, rubric, solution, problem):
     pre_knowledge = "You can assume commonly known knowledge of the topic by the student if directly reason not stated."
-    prompt = f"You are an expert mathematician. The following is a mathematical proof evaluated based on below rubric. ## RUBRIC\n{rubric}\n. Here are the list of errors/missing statemets produced reported for the solution. ## Problem Statement\n{problem} ##Solution:\n {solution}\n ##Review:\n{str(errors)}. {pre_knowledge} Your task is to check if the missing and error statements pointed out are valid or not. Produce a JSON document containing the `statement`, pointed out `error/missing` statement, boolean value for `is_valid` and an `explanation` of the reported error for each error/missing statement seperately IF valid. If the error claims that a detail is omitted when it is normal to omit such details in the mathematical literature, then report `is_valid` as False."
+    prompt = f"You are an expert mathematician. The following is a mathematical proof evaluated based on below rubric. ## RUBRIC\n{rubric}\n. Here are the list of errors/missing statemets produced reported for the solution. ## Problem Statement\n{problem} ##Solution:\n {solution}\n ##Review:\n{str(errors)}. {pre_knowledge} Your task is to check if the missing and error statements pointed out are valid or not. Produce a JSON document containing the `statement`, pointed out `error/missing` statement, boolean value for `is_valid` and compulsarily an `explanation` of the reported error for each error/missing statement seperately IF valid. If the error claims that a detail is omitted when it is normal to omit such details in the mathematical literature, then report `is_valid` as False."
 
     response = gpt_response_gen(prompt, model = "o1-mini")
     return response
 
 
 if __name__ == "__main__":
-    prob = "alg_1"
+
+    prob = "linalg_2_2"
     sol_path = prob + ".md"
     prob_path = prob
-    str_proof_path = join(berekeley_data, prob, "correct_str_alg_1.json")
+    str_proof_path = join(BERKELEY_DATA, prob, f"correct_str_{prob}.json")
 
     elements = extract_everything(str_proof_path, prob_path, sol_path)
     print(check_errors(**elements))
+    with open(join(BERKELEY_DATA, prob, "truly_error_check.json"), "w") as f:
+        json.dump(elements, f)
 

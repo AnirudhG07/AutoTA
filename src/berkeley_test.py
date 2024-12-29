@@ -4,10 +4,10 @@ from pathlib import Path
 from gpt_structured import gen_structure_proof
 
 homedir = Path("..")
-berekeley_data = join(homedir, "data", "berkeley")
 
+BERKELEY_DATA = join(homedir, "data/berkeley/berkeley_errorsIncluded/")
 def extract_problem(prob):
-    with open (join(berekeley_data, prob, f"{prob}.md"), "r") as f:
+    with open (join(BERKELEY_DATA, prob, f"{prob}.md"), "r") as f:
         p = f.read()
 
     start = p.find("## Problem") + len("## Problem")
@@ -17,7 +17,7 @@ def extract_problem(prob):
 
 def extract_solution(prob, sol_path):
     # sol_path may be same as prob, for correct solution case
-    with open (join(berekeley_data, prob, sol_path), "r") as f:
+    with open (join(BERKELEY_DATA, prob, sol_path), "r") as f:
         sol = f.read()
 
     start = sol.find("## Solution") + len("## Solution")
@@ -31,7 +31,7 @@ def extract_solution(prob, sol_path):
     return sol[start:end]
 
 def test_correct_solution(prob):
-    with open (join(berekeley_data, prob, f"{prob}.md"), "r") as f:
+    with open (join(BERKELEY_DATA, prob, f"{prob}.md"), "r") as f:
         p = f.read()
 
     prob_text = extract_problem(prob)
@@ -39,7 +39,9 @@ def test_correct_solution(prob):
 
     str_proof = gen_structure_proof(prob_text, p[sol_text:])
 
-    with open(join(berekeley_data, prob, f"correct_str_{prob}.json"), "w") as f:
+    if not Path(join(BERKELEY_DATA, prob)).exists():
+        Path(join(BERKELEY_DATA, prob)).mkdir()
+    with open(join(BERKELEY_DATA, prob, f"correct_str_{prob}.json"), "w") as f:
         f.write(str_proof)
     return str_proof
 
@@ -51,13 +53,13 @@ def save_str_proof(prob, sol_path):
 
     structured_proof = gen_structure_proof(prob_text, sol_text)
 
-    with open(join(berekeley_data, prob, sol_path), "w") as f:
+    with open(join(BERKELEY_DATA, prob, sol_path), "w") as f:
         f.write(structured_proof)
 
     return structured_proof
 
 if __name__ == "__main__":
-    prob = "alg_1"
+    prob = "linalg_2_2"
     sol_path = prob + ".md" # In case of correct solution, sol_num = prob, else sol_num = "wrong_sol_{number}.md"
     #save_str_proof(prob, sol_path)
     test_correct_solution(prob)

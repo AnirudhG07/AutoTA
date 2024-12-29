@@ -1,0 +1,92 @@
+{
+  "math_document": [
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "assume": "n > 1 is an integer."
+          }
+        ],
+        "conclusion": "The sum \\(1+\\frac{1}{2}+\\cdots+\\frac{1}{n}\\) is not an integer.",
+        "proved": false,
+        "overall_score": 7.5,
+        "proof": [
+          {
+            "remark": "Converting the sum into a single fraction, we get \\(\\frac{n!/1+n!/2+\\cdots+n!/n}{n!}.\\)"
+          },
+          {
+            "let": {
+              "variable": "r",
+              "properties": "2^{r}|n! but 2^{r+1} does not divide n!"
+            }
+          },
+          {
+            "let": {
+              "variable": "s",
+              "properties": "2^{s} is the largest power of 2 less than or equal to n"
+            }
+          },
+          {
+            "assert": {
+              "claim": "The only integer in \\(1,\\ldots,n\\), divisible by \\(2^{s}\\) is \\(2^{s}\\).",
+              "proof_method": "Observation based on the properties of powers of 2.",
+              "errors": [
+                {
+                  "error": "Omission of consideration of lower limits of k where n!/k can have different divisibility properties.",
+                  "error_level": 3
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "For \\(1\\leq k\\leq n\\), \\(n!/k\\) is divisible by \\(2^{r-s}\\), and every term is divisible by \\(2^{r-s+1}\\).",
+              "proof_method": "Divisibility properties inferred from the definitions of r and s.",
+              "missing_proofs": [
+                {
+                  "missing": "Detailed divisibility argument showing \\(n!/k\\) is divisible by \\(2^{r-s}\\) for each term.",
+                  "missing_level": 3
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "The simplified fraction is \\(\\frac{2j+1}{2^{s}k}\\) for some integers j and k.",
+              "proof_method": "Algebraic simplification.",
+              "errors": [
+                {
+                  "error": "A step may be missing to justify conversion from \\(\\frac{n!/1+n!/2+\\cdots+n!/n}{n!}\\) to \\(\\frac{2j+1}{2^{s}k}\\)",
+                  "error_level": 2
+                }
+              ]
+            }
+          },
+          {
+            "conclude": {
+              "claim": "The numerator is odd and the denominator is even, so this fraction is never an integer.",
+              "missing_proofs": [
+                {
+                  "missing": "A rigorous justification is required to validate the algebraic transition.",
+                  "missing_level": 3
+                }
+              ]
+            }
+          }
+        ],
+        "missing_proofs": [
+          {
+            "missing": "Full divisibility arguments for each term \\(n!/k\\).",
+            "missing_level": 3
+          }
+        ],
+        "errors": [
+          {
+            "error": "Inconsistent use of the power terms without sufficient backing.",
+            "error_level": 3
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -129,13 +129,13 @@ calculate = MathDocTree("calculate", "An equation, inequality, short calculation
 
 ### Missing Proofs
 missing = MathDocTree("missing", "A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field.", give_json="string")
-score_missing = MathDocTree("score_m", "The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously.", give_json="number")
-missing_proofs = MathDocTree("missing_proofs", node_sequence_txt("missing"), [missing, score_missing], optional=True)
+missing_level = MathDocTree("missing_level", "The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously.", give_json="number")
+missing_proofs = MathDocTree("missing_proofs", node_sequence_txt("missing"), [missing, missing_level], optional=True)
 
 ### Errors
 error = MathDocTree("error", "An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field.", give_json = "string")
-score_error = MathDocTree("score_e", "The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously.", give_json="number")
-errors = MathDocTree("errors", node_sequence_txt("error"), children = [error, score_error], optional=True)
+error_level = MathDocTree("error_level", "The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously.", give_json="number")
+errors = MathDocTree("errors", node_sequence_txt("error"), children = [error, error_level], optional=True)
 
 ### Assert
 

@@ -43,10 +43,10 @@
           - **calculation_step**: A step, typically an equality or inequality, in a calculation or computation. Give a JSON string.
       - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
         - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-        - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-        - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **theorem**: A mathematical theorem, with a list of hypotheses and a conclusion. Give a JSON object. The keys and corresponding values are as follows.
       - **hypothesis**: a JSON list of data and assumptions, i.e., **let** and **assume** statements. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`.
       - **conclusion**: The conclusion of the theorem. Give a JSON string.
@@ -58,10 +58,10 @@
       - **cite**: (OPTIONAL) A citation of a result from the mathematical literature which gives the proof. Give a JSON string.
       - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
         - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-        - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-        - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **problem**: A mathematical problem, with a statement and an answer. Give a JSON object. The keys and corresponding values are as follows.
       - **statement**: The statement of the problem. Give a JSON string.
       - **solved**: Whether the problem has been solved Give a JSON boolean.
@@ -69,10 +69,10 @@
       - **proof**: (OPTIONAL) A proof of a lemma, theorem or claim, having the same structure as (the value for) a `math_document`. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`.
       - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
         - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-        - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-        - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **cases**: A proof by cases or proof by induction, with a list of cases. Give a JSON object. The keys and corresponding values are as follows.
       - **split_kind**: one of 'implication_direction' (for two sides of an 'iff' implication), 'match' (for pattern matching), 'condition' (if based on a condition being true or false) and 'groups' (for more complex cases)..
       - **on**: The variable or expression on which the cases are being done. Write 'implication direction' for an 'iff' statement. Give a JSON string.
@@ -82,17 +82,17 @@
           - **proof**: (OPTIONAL) A proof of a lemma, theorem or claim, having the same structure as (the value for) a `math_document`. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`.
           - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
             - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-            - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+            - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
           - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
             - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-            - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+            - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **exhaustiveness**: (OPTIONAL) Proof that the cases are exhaustive, similar to (the value for) 'math_document'. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`.
       - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
         - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-        - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-        - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **induction**: The variable or expression on which induction is being done. Give a JSON object. The keys and corresponding values are as follows.
       - **on**: The variable or expression on which induction is being done. Give a JSON string.
       - **proof_cases**: (OPTIONAL) A list of elements of type `case`. Each element of type `case` is as follows:.
@@ -101,19 +101,19 @@
           - **proof**: (OPTIONAL) A proof of a lemma, theorem or claim, having the same structure as (the value for) a `math_document`. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`.
           - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
             - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-            - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+            - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
           - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
             - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-            - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+            - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **contradiction**: A proof by contradiction, with an assumption and a proof of the contradiction. Give a JSON object. The keys and corresponding values are as follows.
       - **assumption**: The assumption being made for the contradiction. Give a JSON string.
       - **proof**: The proof of the contradiction given the assumption. Give a JSON list, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`.
       - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
         - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-        - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-        - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **calculate**: (OPTIONAL) An equation, inequality, short calculation etc. Give a JSON object, with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of `inline_calculation`, `calculation_sequence`.
       - **inline_calculation**: A simple calculation or computation written as a single line. Give a JSON string.
       - **calculation_sequence**: A list of elements of type `calculation_step`. Each element of type `calculation_step` is as follows:.
@@ -122,8 +122,8 @@
       - **claim**: The conclusion of the proof. Give a JSON string.
       - **missing_proofs**: (OPTIONAL) A list of elements of type `missing`. Each element of type `missing` is as follows:.
         - **missing**: A  problem that need to be solved or results that need to be proved to complete the proof. Standard results/criteria may be omitted from the proof: include them in the 'deduced_from' field. Give a JSON string.
-        - **score_m**: The severity of the missing proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **missing_level**: The severity of the missing statement in the proof, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
       - **errors**: (OPTIONAL) A list of elements of type `error`. Each element of type `error` is as follows:.
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a JSON string.
-        - **score_e**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
+        - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a JSON number.
     - **remark**: A remark or comment that is NOT MATHEMATICAL, instead being for motivation, attention, sectioning etc. Give a JSON string.
