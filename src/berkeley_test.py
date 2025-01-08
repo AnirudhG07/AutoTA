@@ -1,7 +1,7 @@
 from os.path import join
 from pathlib import Path
 
-from gpt_structured import gen_structure_proof
+from gpt_structured_xml import gen_structure_proof
 
 homedir = Path("..")
 
@@ -30,7 +30,7 @@ def extract_solution(prob, sol_path):
 
     return sol[start:end]
 
-def test_correct_solution(prob):
+def test_correct_solution(prob, xml: bool = False):
     with open (join(BERKELEY_DATA, prob, f"{prob}.md"), "r") as f:
         p = f.read()
 
@@ -41,7 +41,9 @@ def test_correct_solution(prob):
 
     if not Path(join(BERKELEY_DATA, prob)).exists():
         Path(join(BERKELEY_DATA, prob)).mkdir()
-    with open(join(BERKELEY_DATA, prob, f"correct_str_{prob}.json"), "w") as f:
+
+    format_type = "xml" if xml else "json"
+    with open(join(BERKELEY_DATA, prob, f"correct_str_{prob}.{format_type}"), "w") as f:
         f.write(str_proof)
     return str_proof
 
@@ -59,8 +61,8 @@ def save_str_proof(prob, sol_path):
     return structured_proof
 
 if __name__ == "__main__":
-    prob = "linalg_2_2"
+    prob = "linalg_1_1"
     sol_path = prob + ".md" # In case of correct solution, sol_num = prob, else sol_num = "wrong_sol_{number}.md"
     #save_str_proof(prob, sol_path)
-    test_correct_solution(prob)
+    test_correct_solution(prob, xml=True)
     print("Done")

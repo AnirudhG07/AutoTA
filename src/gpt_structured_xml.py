@@ -24,8 +24,8 @@ Follow the below rules while extracting text from the image:
 4. The generated proof will be used to CHECK the correctness of the original proof, so DO NOT make corrections, add unmentioned reasonings complete proofs, only clean up the language.
 """
 
-PROOF_xml_SHORTER_PROMPT = open(join(homedir, "src", "prompts", "ProofxmlShorter.md")).read()
-xml_PROOF_INSTRUCTIONS = open(join(homedir, "src", "prompts", "MathDoc.md")).read()
+PROOF_XML_SHORTER_PROMPT = open(join(homedir, "src", "prompts", "ProofxmlShorter.md")).read()
+XML_PROOF_INSTRUCTIONS = open(join(homedir, "src", "prompts", "MathDoc_xml.md")).read()
 
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
@@ -104,12 +104,12 @@ def save_proof(path:str , text_proof:str, structured_proof, pid:str, thm:str, mo
         f.write(structured_proof)
     
 def structure_prompt_proofshorterxml(thm, pf):
-    return f"{PROOF_xml_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n"
+    return f"{PROOF_XML_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n"
 
 def structure_prompt_mathdoc(thm, pf):
     alert = "Note that the proof may not be complete and may have some errors, which you should note in the appropriate fields."
     evaluator = "A rubric is provided to you for scoring the proofs and errors. Be strict in pointing errors and missing statements however be linient in giving an overall_score."
-    return f"The following is a custom xml format, which we call `mathDocxml`, for mathematical documents. Note that a document is translated to a xml object with a single key 'math_document' and a corresponding value.\n\n {xml_PROOF_INSTRUCTIONS}\n---\n\nWrite the following theorem and proof into `MathDocxml` format. {evaluator}. {alert} Output xml only. The theorem and proof are as follows:\n\n## Theorem:\n {thm}\n\n## Proof:\n {pf}\n"
+    return f"The following is a custom xml format, which we call `mathDocxml`, for mathematical documents. Note that a document is translated to a xml object with a single key 'math_document' and a corresponding value.\n\n {XML_PROOF_INSTRUCTIONS}\n---\n\nWrite the following theorem and proof into `MathDocxml` format. {evaluator}. {alert} Output xml only. The theorem and proof are as follows:\n\n## Theorem:\n {thm}\n\n## Proof:\n {pf}\n"
 
 
 def gen_structure_proof(thm: str, pf: str):
@@ -123,7 +123,7 @@ def gen_structure_proof(thm: str, pf: str):
     return ET.tostring(root, encoding='unicode', method='xml')
 
 def structure_prompt_with_knowns(thm, pf, knowns):
-    return f"{PROOF_xml_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n\n---\n\nThe following are known results that can be used without proof, even implicitly. DO NOT report the use of these results as errors or missing steps.\n\n## Known results: \n\n{knowns}\n"
+    return f"{PROOF_XML_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n\n---\n\nThe following are known results that can be used without proof, even implicitly. DO NOT report the use of these results as errors or missing steps.\n\n## Known results: \n\n{knowns}\n"
 
 def truly_missing(knowns, s):
     prompt = f"The following are known results that can be used without proof, even implicitly.  \n\n## Known results: \n\n{knowns}\n\n---\n\nThe following was reported as a missing step in a proof:\n {s}\n\nDoes this result follow from the above known results? Answer 'yes' or 'no'."

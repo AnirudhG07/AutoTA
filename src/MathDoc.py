@@ -1,3 +1,9 @@
+__about__ = """
+This file contains the structure of the MathDocTree, which is a tree structure that represents the structure of a mathematical document.
+
+NOTE: To generate JSON format file, change the default value of `xml` to False. If you want `XML` format, keep it as True.
+"""
+
 class MathDocTree:
     def __init__(self,
                  name: str,
@@ -6,7 +12,7 @@ class MathDocTree:
                  key_value_str: list = [],
                  optional: bool = False,
                  give_json: str = "",
-                 xml: bool = False,
+                 xml: bool = True, # Change to False to generate JSON
                  post_text: str = ""):
         """Initialise a node in the MathDocTree."""
         self.name = name
@@ -55,12 +61,14 @@ class MathDocTree:
         post_text = f" {self.post_text}" if self.post_text != "" else ""
         give_json_text = f" Give a {format_type} {self.give_json}" if self.give_json else ""
         key_value_pair_str = key_value_pair_txt(self.key_value_str) 
+
         if key_value_pair_str == "": 
             punct = "."
         else:
             punct = ","
-        # name is bolded
-        line = f"{indent}- **{self.name}**:{optional_text} {self.desc}{give_json_text}{punct}{key_value_pair_str}{post_text}"
+
+        # Replace any file formats in the content, if written. USE :: {{format_type}} :: to denote position to replace
+        line = f"{indent}- **{self.name}**:{optional_text} {self.desc}{give_json_text}{punct}{key_value_pair_str}{post_text}".replace("{{format_type}}", format_type)
         lines = [line]
 
         for child in self.children:
@@ -149,7 +157,7 @@ root_child.append(assert_type)
 
 ## Theorem
 
-hypothesis = MathDocTree("hypothesis", "a JSON list of data and assumptions, i.e., **let** and **assume** statements.", give_json = "list", key_value_str=["let", "some", "assume"])
+hypothesis = MathDocTree("hypothesis", "a {{format_type}} list of data and assumptions, i.e., **let** and **assume** statements.", give_json = "list", key_value_str=["let", "some", "assume"])
 
 conclusion = MathDocTree("conclusion", "The conclusion of the theorem.", give_json="string")
 proved = MathDocTree("proved", "Whether the theorem has been proved, either here or earlier or by citing the literature.", give_json="boolean")
@@ -216,7 +224,7 @@ root_child.append(remark)
 
 ## Mathdoc Root 
 # Tree initialisation from root.
-mathdoc_root = MathDocTree("math_document", "A structured math document in a custom JSON format.", children=root_child, key_value_str=md_blobnames, give_json="list")
+mathdoc_root = MathDocTree("math_document", "A structured math document in a custom {{format_type}} format.", children=root_child, key_value_str=md_blobnames, give_json="list")
 mathdoc_root.post_text = "The descriptions for the choices of _key_ and corresponding _value_ are as follows:"
 
 ## Rubric 
@@ -256,7 +264,7 @@ if __name__ == "__main__":
     mathdoc = root.to_markdown()
     rubric = rubric_node.to_markdown()
 
-    with open("./prompts/MathDoc.md", "w") as f:
+    with open("./prompts/MathDoc_xml.md", "w") as f:
         f.write(mathdoc)
-    with open("./prompts/Rubric.md", "w") as f:
+    with open("./prompts/Rubric_xml.md", "w") as f:
         f.write(rubric)

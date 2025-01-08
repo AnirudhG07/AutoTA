@@ -1,0 +1,65 @@
+<math_document>
+  <theorem>
+    <hypothesis>
+      <let>
+        <variable>E</variable>
+        <kind>vector space</kind>
+      </let>
+      <let>
+        <variable>F</variable>
+        <kind>vector space</kind>
+      </let>
+      <let>
+        <variable>S</variable>
+        <kind>linear transformation</kind>
+        <properties>from E to F</properties>
+      </let>
+    </hypothesis>
+    <conclusion>
+      1. \(S(E)\) is a vector space.
+      2. The kernel of \(S\) is \(\{0\}\) if and only if \(S\) is injective.
+      3. If \(S\) is injective, then \(S^{-1}:S(E)\to E\) is linear.
+    </conclusion>
+    <proved>false</proved>
+    <overall_score>7.5</overall_score>
+    <proof>
+      <assert>
+        <claim>\(S(E)\) is a vector space.</claim>
+        <deduced_from_results>
+          <deduced_from>
+            <result_used>The image of a vector space under a linear transformation is a vector space</result_used>
+            <proved_earlier>false</proved_earlier>
+          </deduced_from>
+        </deduced_from_results>
+      </assert>
+      <assert>
+        <claim>The kernel of \(S\) is \(\{0\}\) if and only if \(S\) is injective.</claim>
+        <proof_method>argument by definition of injectivity and the kernel</proof_method>
+        <missing_proofs>
+          <missing>Formal proof that the kernel of \(S\) is \(\{0\}\) implies \(S\) is injective and vice versa</missing>
+          <missing_level>3</missing_level>
+        </missing_proofs>
+      </assert>
+      <assert>
+        <claim>If \(S\) is injective, then \(S^{-1}:S(E) \to E\) is linear.</claim>
+        <proof_method>direct proof</proof_method>
+        <calculate>
+          <calculation_sequence>
+            <calculation_step>S^{-1}(av+bw) = S^{-1}(aS(x)+bS(y))</calculation_step>
+            <calculation_step>= S^{-1}(S(ax+by))</calculation_step>
+            <calculation_step>= ax+by</calculation_step>
+            <calculation_step>= aS^{-1}(v)+bS^{-1}(w)</calculation_step>
+          </calculation_sequence>
+        </calculate>
+        <missing_proofs>
+          <missing>Proof that \(S^{-1}\) is well-defined on \(S(E)\)</missing>
+          <missing_level>4</missing_level>
+        </missing_proofs>
+        <errors>
+          <error>The calculation assumes \(S(x) = v\) and \(S(y) = w\) without verifying these assignments uniquely identify \(x\) and \(y\)</error>
+          <error_level>3</error_level>
+        </errors>
+      </assert>
+    </proof>
+  </theorem>
+</math_document>
