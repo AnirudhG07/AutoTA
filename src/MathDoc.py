@@ -6,6 +6,7 @@ class MathDocTree:
                  key_value_str: list = [],
                  optional: bool = False,
                  give_json: str = "",
+                 xml: bool = False,
                  post_text: str = ""):
         """Initialise a node in the MathDocTree."""
         self.name = name
@@ -13,6 +14,7 @@ class MathDocTree:
         self.children = []
         self.optional = optional
         self.give_json = give_json
+        self.xml = xml
         self.key_value_str = key_value_str
         self.post_text = post_text
         for child in children:
@@ -41,16 +43,17 @@ class MathDocTree:
     def _to_markdown(self, depth=0):
         """Helper function to generate Markdown with proper indentation."""
 
+        format_type = "XML" if self.xml else "JSON"
         def key_value_pair_txt(keys: list) -> str:
             if keys == []:
                 return ""
-            return " with each element of the list is a JSON object with exactly one _key-value pair_, with the _key_ one of " + ", ".join([f"`{key}`" for key in keys]) + "."
+            return f" with each element of the list is a {format_type} object with exactly one _key-value pair_, with the _key_ one of " + ", ".join([f"`{key}`" for key in keys]) + "."
 
         # Children are indented by 2 spaces * depth
         indent = " " * 2 * depth
         optional_text = " (OPTIONAL)" if self.optional else ""
         post_text = f" {self.post_text}" if self.post_text != "" else ""
-        give_json_text = f" Give a JSON {self.give_json}" if self.give_json else ""
+        give_json_text = f" Give a {format_type} {self.give_json}" if self.give_json else ""
         key_value_pair_str = key_value_pair_txt(self.key_value_str) 
         if key_value_pair_str == "": 
             punct = "."
