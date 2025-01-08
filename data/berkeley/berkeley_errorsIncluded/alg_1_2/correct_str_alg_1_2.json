@@ -1,0 +1,89 @@
+{
+  "math_document": [
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "let": {
+              "variable": "n",
+              "kind": "integer",
+              "properties": "n > 1"
+            }
+          }
+        ],
+        "conclusion": "The sum 1 + 1/2 + ... + 1/n is not an integer.",
+        "proved": true,
+        "overall_score": 6.0,
+        "proof": [
+          {
+            "assume": "n > 3"
+          },
+          {
+            "assert": {
+              "claim": "The sum 1 + 1/2 + ... + 1/n can be written as a fraction with n! in the denominator.",
+              "calculate": {
+                "inline_calculation": "(n!/1 + n!/2 + ... + n!/n)/n!"
+              }
+            }
+          },
+          {
+            "let": {
+              "variable": "r",
+              "properties": "2^r divides n! but 2^(r+1) does not divide n!"
+            }
+          },
+          {
+            "let": {
+              "variable": "s",
+              "properties": "2^s is the largest power of 2 \u2264 n"
+            }
+          },
+          {
+            "assert": {
+              "claim": "For 1 \u2264 k \u2264 n, n!/k is divisible by 2^(r-s), and every term except 1 is divisible by 2^(r-s+1).",
+              "errors": [
+                {
+                  "error": "The claim lacks detailed justification for the divisibility statements.",
+                  "error_level": 3
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "The expression (n!/1 + n!/2 + ... + n!/n)/n! simplifies to (2j+1)/(2^s k) for some real numbers j and k.",
+              "missing_proofs": [
+                {
+                  "missing": "Complete justification for the simplification to (2j+1)/(2^s k).",
+                  "missing_level": 2
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "The fraction (2j+1)/(2^s k) is not an integer because the denominator is divisible by 2 but the numerator is not.",
+              "missing_proofs": [
+                {
+                  "missing": "Clarification why the numerator is not divisible by 2 when the denominator is.",
+                  "missing_level": 2
+                }
+              ]
+            }
+          },
+          {
+            "conclude": {
+              "claim": "The sum 1 + 1/2 + ... + 1/n is not an integer."
+            }
+          }
+        ],
+        "errors": [
+          {
+            "error": "There is a logical oversight in assuming n > 3 without addressing n = 2 or n = 3.",
+            "error_level": 3
+          }
+        ]
+      }
+    }
+  ]
+}

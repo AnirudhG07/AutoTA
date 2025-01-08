@@ -1,0 +1,90 @@
+{
+  "math_document": [
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "let": {
+              "variable": "E",
+              "kind": "vector space"
+            }
+          },
+          {
+            "let": {
+              "variable": "F",
+              "kind": "vector space"
+            }
+          },
+          {
+            "let": {
+              "variable": "S",
+              "kind": "linear transformation",
+              "properties": "S: E -> F"
+            }
+          }
+        ],
+        "conclusion": "1. S(E) is a vector space. 2. S has kernel {0} if and only if S is injective. 3. If S is injective, then S^{-1}: S(E) -> E is linear.",
+        "proved": false,
+        "overall_score": 6.5,
+        "proof": [
+          {
+            "assert": {
+              "claim": "The image S(E) forms a vector space.",
+              "proof_method": "Direct proof based on properties of linear transformations."
+            }
+          },
+          {
+            "assert": {
+              "claim": "S has kernel {0} if and only if S is injective.",
+              "proof_method": "Direct proof and argument extension.",
+              "missing_proofs": [
+                {
+                  "missing": "Explanation of why S is injective implies Kernel(S) = {0}.",
+                  "missing_level": 2
+                },
+                {
+                  "missing": "Complete extension of argument to show injectivity prevents other mapping to 0.",
+                  "missing_level": 3
+                }
+              ]
+            }
+          },
+          {
+            "assert": {
+              "claim": "S^{-1} is linear.",
+              "calculate": {
+                "calculation_sequence": [
+                  {
+                    "calculation_step": "S^{-1}(av+bw) = S^{-1}(aS(x)+bS(y))"
+                  },
+                  {
+                    "calculation_step": "= S^{-1}(S(ax+by))"
+                  },
+                  {
+                    "calculation_step": "= ax+by"
+                  },
+                  {
+                    "calculation_step": "= aS^{-1}(v)+bS^{-1}(w)"
+                  }
+                ]
+              },
+              "errors": [
+                {
+                  "error": "The existence of S^{-1} requires S to be bijective, not just injective.",
+                  "error_level": 4
+                }
+              ]
+            }
+          }
+        ],
+        "errors": [
+          {
+            "error": "The definition and conditions required for inverse S^{-1} require S to be bijective, but it was only assumed to be injective.",
+            "error_level": 4
+          }
+        ]
+      }
+    }
+  ]
+}
+

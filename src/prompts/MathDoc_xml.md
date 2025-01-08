@@ -15,7 +15,7 @@
     - **Score 5**: Critical Errors.
       - **description**: Flaws that fully invalidate the proof or its conclusion.
       - **Example**: Proving the wrong statement, misinterpreting the problem, or contradictory logic.
-  - **math_document**: A structured math document in a custom JSON format. Give a XML list, with each element of the list is a XML object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`. The descriptions for the choices of _key_ and corresponding _value_ are as follows:
+  - **math_document**: A structured math document in a custom XML format. Give a XML list, with each element of the list is a XML object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`, `def`, `assert`, `theorem`, `problem`, `cases`, `induction`, `contradiction`, `calculate`, `conclude`, `remark`. The descriptions for the choices of _key_ and corresponding _value_ are as follows:
     - **let**: A statement introducing a new variable with given value, type and/or property. For saying that **some** value of the variable is as needed, use a 'some' statement. Give a XML object. The keys and corresponding values are as follows.
       - **variable**: The variable being defined (use `<anonymous>` if there is no name such as in `We have a group structure on S`) Give a XML string.
       - **value**: (OPTIONAL) The value of the variable being defined Give a XML string.
@@ -48,7 +48,7 @@
         - **error**: An error in a proof or calculation. Report only actual errors, with missing steps reported in the 'missing' field. Give a XML string.
         - **error_level**: The severity of the error, on a scale of 1 to 5, with 1 being the least severe and 5 being the most severe. Follow the RUBRIC mentioned previously. Give a XML number.
     - **theorem**: A mathematical theorem, with a list of hypotheses and a conclusion. Give a XML object. The keys and corresponding values are as follows.
-      - **hypothesis**: a JSON list of data and assumptions, i.e., **let** and **assume** statements. Give a XML list, with each element of the list is a XML object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`.
+      - **hypothesis**: a XML list of data and assumptions, i.e., **let** and **assume** statements. Give a XML list, with each element of the list is a XML object with exactly one _key-value pair_, with the _key_ one of `let`, `some`, `assume`.
       - **conclusion**: The conclusion of the theorem. Give a XML string.
       - **proved**: Whether the theorem has been proved, either here or earlier or by citing the literature. Give a XML boolean.
       - **overall_score**: The overall score (upto 1 decimal point) of the proof out of 10 based on the correctness of the proof. Give a XML number.

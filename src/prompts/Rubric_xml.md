@@ -1,0 +1,16 @@
+- **rubric**: A rubric containing the criteria for scoring the proof for errors and missing proofs. The rubric is as follows:
+  - **Score 1**: Minor Formal Errors.
+    - **description**: Notation/terminology issues without affecting logic.
+    - **Example**: Mislabeling variables, missing definitions, or minor imprecision.
+  - **Score 2**: Incomplete Details.
+    - **description**: Missing obvious steps or intermediate details.
+    - **Example**: Skipping base cases, omitting domains, or straightforward simplifications.
+  - **Score 3**: Logical Oversights.
+    - **description**: Missing important considerations but proof is mostly valid.
+    - **Example**: Ignoring edge cases, unproven minor lemmas, or weak case handling.
+  - **Score 4**: Substantial Flaws.
+    - **description**: Incorrect logic or invalid steps undermining the proof.
+    - **Example**: Using wrong theorems, circular reasoning, or overlooking critical conditions.
+  - **Score 5**: Critical Errors.
+    - **description**: Flaws that fully invalidate the proof or its conclusion.
+    - **Example**: Proving the wrong statement, misinterpreting the problem, or contradictory logic.

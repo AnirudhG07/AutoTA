@@ -1,0 +1,215 @@
+{
+  "math_document": [
+    {
+      "some": {
+        "variable": "F",
+        "kind": "field",
+        "properties": "Field over which matrices are considered"
+      }
+    },
+    {
+      "let": {
+        "variable": "m",
+        "kind": "positive integer"
+      }
+    },
+    {
+      "let": {
+        "variable": "n",
+        "kind": "positive integer"
+      }
+    },
+    {
+      "let": {
+        "variable": "M_{m \\times n}",
+        "kind": "vector space of m \\times n matrices over F"
+      }
+    },
+    {
+      "let": {
+        "variable": "A, B",
+        "kind": "matrices in M_{m \\times n}"
+      }
+    },
+    {
+      "def": {
+        "term": "T",
+        "statement": "Linear transformation from M_{n \\times m} to M_{m \\times n} defined by T(X) = AXB",
+        "name": "Linear Transformation T"
+      }
+    },
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "let": {
+              "variable": "T",
+              "kind": "linear transformation from M_{n \\times m} to M_{m \\times n}",
+              "properties": "T(X) = AXB"
+            }
+          },
+          {
+            "assume": "m \\neq n"
+          }
+        ],
+        "conclusion": "T is not invertible",
+        "proved": false,
+        "overall_score": 6.0,
+        "proof": [
+          {
+            "cases": {
+              "split_kind": "condition",
+              "on": "m and n",
+              "proof_cases": [
+                {
+                  "case": {
+                    "condition": "m > n",
+                    "proof": [
+                      {
+                        "let": {
+                          "variable": "T_{2}",
+                          "kind": "linear transformation from M_{m \\times n} to M_{m \\times m}",
+                          "properties": "T_{2}(X) = BX"
+                        }
+                      },
+                      {
+                        "let": {
+                          "variable": "T_{1}",
+                          "kind": "linear transformation from M_{n \\times n} to M_{n \\times m}",
+                          "properties": "T_{1}(Y) = AY"
+                        }
+                      },
+                      {
+                        "assert": {
+                          "claim": "T = T_{1}T_{2}",
+                          "proof_method": "Composition of linear transformations",
+                          "calculate": {
+                            "inline_calculation": "dim M_{n \\times m} = nm > n^2 = dim M_{n \\times n}"
+                          },
+                          "deduced_from_results": [
+                            {
+                              "deduced_from": {
+                                "result_used": "Rank-nullity theorem",
+                                "proved_earlier": false
+                              }
+                            }
+                          ],
+                          "missing_proofs": [
+                            {
+                              "missing": "Proof that T_2 has a nontrivial kernel directly",
+                              "missing_level": 3
+                            }
+                          ],
+                          "errors": []
+                        }
+                      },
+                      {
+                        "assert": {
+                          "claim": "T has a nontrivial kernel",
+                          "proof_method": "From nontrivial kernel of T_{2}",
+                          "deduced_from_results": [
+                            {
+                              "deduced_from": {
+                                "result_used": "T_2 has a nontrivial kernel",
+                                "proved_earlier": false
+                              }
+                            }
+                          ],
+                          "errors": []
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "case": {
+                    "condition": "m < n",
+                    "proof": [
+                      {
+                        "let": {
+                          "variable": "T_{1}",
+                          "kind": "linear transformation from M_{n \\times n} to M_{n \\times m}",
+                          "properties": "T_{1}(Y) = AY"
+                        }
+                      },
+                      {
+                        "let": {
+                          "variable": "T_{2}",
+                          "kind": "linear transformation from M_{m \\times n} to M_{m \\times m}",
+                          "properties": "T_{2}(X) = BX"
+                        }
+                      },
+                      {
+                        "assert": {
+                          "claim": "T = T_{2}T_{1}",
+                          "proof_method": "Composition of linear transformations",
+                          "calculate": {
+                            "inline_calculation": "dim M_{n \\times m} = nm > m^2 = dim M_{m \\times m}"
+                          },
+                          "deduced_from_results": [
+                            {
+                              "deduced_from": {
+                                "result_used": "Rank-nullity theorem",
+                                "proved_earlier": false
+                              }
+                            }
+                          ],
+                          "missing_proofs": [
+                            {
+                              "missing": "Proof that T_1 has a nontrivial kernel directly",
+                              "missing_level": 3
+                            }
+                          ],
+                          "errors": []
+                        }
+                      },
+                      {
+                        "assert": {
+                          "claim": "T has a nontrivial kernel",
+                          "proof_method": "From nontrivial kernel of T_{1}",
+                          "deduced_from_results": [
+                            {
+                              "deduced_from": {
+                                "result_used": "T_1 has a nontrivial kernel",
+                                "proved_earlier": false
+                              }
+                            }
+                          ],
+                          "errors": []
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "missing_proofs": [],
+              "errors": [
+                {
+                  "error": "Incorrect naming of transformations T_1 and T_2 in the statement line",
+                  "error_level": 1
+                },
+                {
+                  "error": "Logical gap in using transformations without concrete definitions",
+                  "error_level": 3
+                }
+              ]
+            }
+          },
+          {
+            "conclude": {
+              "claim": "T is not invertible due to having a nontrivial kernel in all cases",
+              "missing_proofs": []
+            }
+          }
+        ],
+        "missing_proofs": [],
+        "errors": [
+          {
+            "error": "Incomplete proof step details",
+            "error_level": 2
+          }
+        ]
+      }
+    }
+  ]
+}

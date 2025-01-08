@@ -1,0 +1,96 @@
+{
+  "math_document": [
+    {
+      "theorem": {
+        "hypothesis": [
+          {
+            "let": {
+              "variable": "n",
+              "kind": "integer",
+              "properties": "n > 1"
+            }
+          }
+        ],
+        "conclusion": "The sum 1 + 1/2 + 1/3 + ... + 1/n is not an integer.",
+        "proved": false,
+        "overall_score": 7.0,
+        "proof": [
+          {
+            "let": {
+              "variable": "S",
+              "value": "1 + 1/2 + 1/3 + ... + 1/n"
+            }
+          },
+          {
+            "assert": {
+              "claim": "S can be written as S = a/d where d = lcm(1,2,...,n) and a is an integer",
+              "proof_method": "Rewrite S as a single fraction",
+              "calculate": {
+                "calculation_sequence": [
+                  {
+                    "calculation_step": "d = lcm(1, 2, ..., n)"
+                  },
+                  {
+                    "calculation_step": "a = d + d/2 + d/3 + ... + d/n"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "assert": {
+              "claim": "d is an even integer",
+              "proof_method": "Since d includes the factor 2 from the LCM",
+              "deduced_from_results": [
+                {
+                  "deduced_from": {
+                    "result_used": "lcm(1, 2, ..., n) includes at least one factor of 2",
+                    "proved_earlier": false
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "assume": "a is divisible by d"
+          },
+          {
+            "assert": {
+              "claim": "If a is divisible by d, then S = a/d is an integer",
+              "proof_method": "Direct consequence of definition of divisibility"
+            }
+          },
+          {
+            "assert": {
+              "claim": "The parity of a does not match d",
+              "proof_method": "A has terms with varying divisibility properties",
+              "missing_proofs": [
+                {
+                  "missing": "Detailed proof how parity of a is different from d",
+                  "score_m": 3
+                }
+              ]
+            }
+          },
+          {
+            "conclude": {
+              "claim": "S is not an integer",
+              "missing_proofs": [
+                {
+                  "missing": "Complete the argument for parity mismatch",
+                  "score_m": 4
+                }
+              ]
+            }
+          }
+        ],
+        "errors": [
+          {
+            "error": "Assumption that parity of a affects divisibility by d not correctly justified",
+            "score_e": 3
+          }
+        ]
+      }
+    }
+  ]
+}

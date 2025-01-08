@@ -1,4 +1,4 @@
-### Incorrect Proof:
+## Solution
 
 Let \( S = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} \). Writing \( S \) as a single fraction, we have:  
 \[
