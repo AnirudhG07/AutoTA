@@ -16,4 +16,5 @@ dependencies = [
     "streamlit>=1.41.1",
     "vertexai>=1.70.0",
     "watchdog>=6.0.0",
+    "xmltodict>=0.14.2",
 ]

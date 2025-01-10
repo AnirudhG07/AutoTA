@@ -1,7 +1,11 @@
+import json
 from os.path import join
 from pathlib import Path
 
-from gpt_structured_xml import gen_structure_proof
+import xmltodict
+
+from gpt_structured import gen_structure_proof as gen_json
+from gpt_structured_xml import gen_structure_proof as gen_xml
 
 homedir = Path("..")
 
@@ -34,10 +38,12 @@ def test_correct_solution(prob, xml: bool = False):
     with open (join(BERKELEY_DATA, prob, f"{prob}.md"), "r") as f:
         p = f.read()
 
+    gen_func = gen_xml if xml else gen_json
+
     prob_text = extract_problem(prob)
     sol_text = p.find("## Solution") + len("## Solution")
 
-    str_proof = gen_structure_proof(prob_text, p[sol_text:])
+    str_proof = gen_func(prob_text, p[sol_text:])
 
     if not Path(join(BERKELEY_DATA, prob)).exists():
         Path(join(BERKELEY_DATA, prob)).mkdir()
@@ -45,15 +51,20 @@ def test_correct_solution(prob, xml: bool = False):
     format_type = "xml" if xml else "json"
     with open(join(BERKELEY_DATA, prob, f"correct_str_{prob}.{format_type}"), "w") as f:
         f.write(str_proof)
+
+    if xml:
+        with open(join(BERKELEY_DATA, prob, f"correct_str_{prob}.json"), "w") as f:
+            f.write(json.dumps(xmltodict.parse(str_proof), indent=2))
     return str_proof
 
-def save_str_proof(prob, sol_path):
+def save_str_proof(prob, sol_path, xml: bool = False):
     prob_text = extract_problem(prob)
     sol_text = extract_solution(prob, sol_path)
     print(prob_text)
     print(sol_text)
 
-    structured_proof = gen_structure_proof(prob_text, sol_text)
+    gen_func = gen_xml if xml else gen_json
+    structured_proof = gen_func(prob_text, sol_text)
 
     with open(join(BERKELEY_DATA, prob, sol_path), "w") as f:
         f.write(structured_proof)

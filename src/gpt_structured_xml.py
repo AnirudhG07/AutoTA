@@ -1,10 +1,12 @@
 import base64
+import json
 import os
 import xml.etree.ElementTree as ET
 from itertools import groupby
 from os.path import join
 from pathlib import Path
 
+import xmltodict
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -99,9 +101,11 @@ def save_proof(path:str , text_proof:str, structured_proof, pid:str, thm:str, mo
         os.makedirs(path)
     with open(join(path, f"{pid}_sol.md"), "w") as f:
         f.write(f"## Theorem:\n {thm}\n\n## Proof:\n{text_proof}")
-
     with open(join(path, f"{pid}_gpt_sol.xml"), "w") as f:
         f.write(structured_proof)
+    json_proof = xmltodict.parse(structured_proof)
+    with open(join(path, f"{pid}_gpt_sol.json"), "w") as f:
+        f.write(json.dumps(json_proof, indent=4))
     
 def structure_prompt_proofshorterxml(thm, pf):
     return f"{PROOF_XML_SHORTER_PROMPT}\n---\n\n## Theorem: {thm}\n\n## Proof: {pf}\n"
