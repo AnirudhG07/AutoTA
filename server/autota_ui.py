@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pyperclip
+import requests
 import streamlit as st
 from dotenv import load_dotenv
 from PIL import Image
@@ -79,7 +80,7 @@ def download_file(file_content, file_name):
     st.download_button(label="Download File", data=file_content, file_name=file_name, mime="text/plain")
 
 # Step 1: Upload images
-st.header("Step 1: Upload Images for Proof")
+st.header("Upload Images for Proof")
 uploaded_images = st.file_uploader("Upload multiple images", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
 
 if "image_paths" not in st.session_state:
@@ -129,7 +130,7 @@ if st.session_state.proof:
         download_file(st.session_state.proof, "proof.txt")
 
 # Step 2: Upload theorem
-st.header("Step 2: Upload Theorem (Markdown File)")
+st.header("Upload Theorem (Markdown File)")
 uploaded_theorem = st.file_uploader("Upload a markdown file for the theorem", type="md")
 
 if "theorem" not in st.session_state:
@@ -173,16 +174,111 @@ if st.session_state.structured_proof:
     except Exception as e:
         st.warning(f"Failed to display structured proof: {e}")
 
-# Delete temporary directory
+# Lean Checker Tasks
+tasks = {
+    "echo": {
+        "input": {"data": "Json"},
+        "output": {"data": "Json"}
+    },
+    "translate_thm": {
+        "input": {"text": "String"},
+        "output": {"theorem": "String"},
+        "parameters": {
+            "greedy": "Bool (default: true)",
+            "fallback": "Bool (default: true)"
+        }
+    },
+    "translate_def": {
+        "input": {"text": "String"},
+        "output": {"definition": "String"},
+        "parameters": {
+            "fallback": "Bool (default: true)"
+        }
+    },
+    "theorem_doc": {
+        "input": {"name": "String", "command": "String"},
+        "output": {"doc": "String"}
+    },
+    "def_doc": {
+        "input": {"name": "String", "command": "String"},
+        "output": {"doc": "String"}
+    },
+    "theorem_name": {
+        "input": {"text": "String"},
+        "output": {"name": "String"}
+    },
+    "prove": {
+        "input": {"theorem": "String"},
+        "output": {"proof": "String"}
+    },
+    "structured_json_proof": {
+        "input": {"theorem": "String", "proof": "String"},
+        "output": {"json_structured": "Json"}
+    },
+    "lean_from_json_structured": {
+        "input": {"json_structured": "String"},
+        "output": {
+            "lean_code": "String",
+            "declarations": "List String",
+            "top_code": "String"
+        }
+    },
+    "elaborate": {
+        "input": {"lean_code": "String", "declarations": "List Name"},
+        "output": {
+            "logs": "List String",
+            "sorries": "List Json"
+        },
+        "parameters": {
+            "top_code": "String (default: \"\")",
+            "describe_sorries": "Bool (default: false)"
+        }
+    }
+}
+
+st.header("Drongo Magica")
+st.expander("Get Your Theorem Checked here. Don't miss this chance to meet Mr. Drongo!", expanded=False)
+
+st.subheader("Step 1: Select Input Tasks")
+selected_inputs = st.multiselect("Select Input Tasks:", list(tasks.keys()))
+
+inputs = {}
+parameters = {}
+if st.button("Give Input"):
+    for task in selected_inputs:
+        inputs[task] = {}
+        for key, value in tasks[task].get("input", {}).items():
+            inputs[task][key] = st.text_input(f"{task.capitalize()} - {key} ({value}):")
+        for param, param_type in tasks[task].get("parameters", {}).items():
+            parameters[param] = st.checkbox(f"{task} - {param} ({param_type})")
+
+
+st.subheader("Step 2: Select Processing Tasks")
+selected_tasks = [task for task in tasks.keys() if task not in selected_inputs]
+selected_tasks = st.multiselect("Select Processing Tasks:", selected_tasks)
+
+
+if st.button("Submit Request"):
+    request_payload = {"tasks": selected_tasks, **inputs, **parameters}
+    response = requests.post("http://localhost:7654", json=request_payload)
+    
+    if response.status_code == 200:
+        result = response.json()
+        
+        for task in selected_tasks:
+            if "output" in tasks[task]:
+                st.subheader(task.capitalize() + " Output")
+                for key, value in tasks[task]["output"].items():
+                    if isinstance(result.get(key), list):
+                        st.json(result.get(key, "No data available."))
+                    else:
+                        st.code(result.get(key, "No data available."), language="plaintext")
+    else:
+        st.error(f"Error: {response.status_code}, {response.text}")
+
+
 if os.path.exists(temp_dir):
     for file in os.listdir(temp_dir):
         os.remove(os.path.join(temp_dir, file))
     os.rmdir(temp_dir)
 
-# Footer
-st.markdown("""
-    <hr style="border: 0; border-top: 1px solid #ccc;" />
-    <div style="text-align: center; color: #888; font-size: 0.9em;">
-        Credits:
-    </div>
-""", unsafe_allow_html=True)
