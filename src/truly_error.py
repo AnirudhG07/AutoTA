@@ -43,9 +43,9 @@ def extract_error_json(str_proof_path: str):
     
     result = {
         "overall_score": overall_score,
-        "errors": errors
+        "errors": errors,
+        "missing": missing
     }
-    
     return result
 
 

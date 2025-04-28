@@ -174,6 +174,12 @@ if st.session_state.structured_proof:
     except Exception as e:
         st.warning(f"Failed to display structured proof: {e}")
 
+
+# Output the summary and missing errors properly.
+# TODO:
+if st.session_state.proof:
+    st.subheader("Response Summary: TODO")
+
 # Lean Checker Tasks
 tasks = {
     "echo": {
