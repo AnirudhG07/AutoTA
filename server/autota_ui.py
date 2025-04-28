@@ -12,9 +12,9 @@ from streamlit_sortables import sort_items
 
 load_dotenv()
 
-homedir = Path("..")
+homedir = str(Path(__file__).resolve().parent.parent)
 src_dir = os.path.join(homedir, "src")
-sys.path.append(src_dir)
+sys.path.insert(0, str(src_dir))
 from gpt_structured import gen_structure_proof, solution_from_images
 
 # Streamlit App

@@ -12,7 +12,7 @@ load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-homedir = Path("..")
+homedir = str(Path(__file__).resolve().parent.parent)
 data = join(homedir, "data")
 results = join(homedir, "results")
 

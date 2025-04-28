@@ -23,6 +23,8 @@ cd server # To navigate to the server directory
 
 3. Rename `.env.example` to `.env` and fill in the details.
 
+Note you have your API keys as mentioned in the `.env` file. Just upload the files and things should work just fine.
+
 4. (Recommended) Create a virtual environment and activate it
 
 ```bash
@@ -43,8 +45,6 @@ streamlit run autota_ui.py
 ```
 
 You can now access the server at `http://localhost:8501`(or any other port if specified).
-
-## Usage
 
 ## Notes
 
