@@ -1,7 +1,7 @@
 [project]
-name = "src"
+name = "AutoTA"
 version = "0.1.0"
-description = "Add your description here"
+description = "AutoTA: Automated grading and feedback of mathematical answer scripts using LLMs."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
