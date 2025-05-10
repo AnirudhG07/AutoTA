@@ -1,0 +1,362 @@
+{
+  "document": [
+    {
+      "Title": {
+        "title": "Distinguishing internally club and approachable on an Infinite interval"
+      }
+    },
+    {
+      "Metadata": {
+        "authors": [
+          {
+            "label": "HannesJakob",
+            "affiliation": "Mathematisches Institut, University of Freiburg, Freiburg im Breisgau, Germany"
+          },
+          {
+            "label": "MaxwellLevine",
+            "affiliation": "Mathematisches Institut, University of Freiburg, Freiburg im Breisgau, Germany"
+          }
+        ],
+        "keywords": [],
+        "msc_codes": [
+          "03E35",
+          "03E55"
+        ],
+        "publication_date": "2025-01-09",
+        "source": "Bulletin of the London Mathematical Society, DOI: 10.1112/blms.70013"
+      }
+    },
+    {
+      "Abstract": {
+        "abstract": "Krueger showed that PFA implies that for all regular \\(\\Theta \\ge \\aleph_2\\), there are stationarily many \\([H(\\Theta)]^{\\aleph_1}\\) that are internally club but not internally approachable. From countably many Mahlo cardinals, we force a model in which, for all positive \\(n < \\omega\\) and \\(\\Theta \\ge \\aleph_{n+1}\\), there is a stationary subset of \\([H(\\Theta)]^{\\aleph_n}\\) consisting of sets that are internally club but not internally approachable. The theorem is obtained using a new variant of Mitchell forcing. This answers questions of Krueger.\n\n\\textbf{MSC 2020:} 03E35, 03E55 (primary)"
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:intro",
+        "header": "1 INTRODUCTION",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "Skolem originally regarded what is now known as the Löwenheim–Skolem theorem as an illustration of the paradoxical nature of infinite cardinals, particularly when uncountable cardinals are considered as elements of countable models. Despite this original motivation, this theorem is nowadays used as an essential tool for proving numerous positive results in combinatorial set theory. Foreman and Todorčević deepened the study of the Löwenheim–Skolem theorem and introduced variations of the concept of internal approachability, which considers the internal composition of elementary submodels [4]. We are left with a situation in which the formal construction of sets gives rise to its own sort of geometry in which subtle distinctions can be made regarding the structure of such models."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Following the work of Foreman and Todorčević, Krueger wrote a series of papers exploring variations of internal approachability, in particular proving that the variations are distinct [10]. He showed that these distinctions can be obtained using mixed-support iterations, which resemble the forcings Mitchell used to obtain the tree property at double successor cardinals. Notable developments in the study of the tree property pertain to obtaining the tree property simultaneously on long intervals of cardinals, and this area of research requires analyses of variants of Mitchell’s forcing. In this spirit, Krueger raised the question of whether these properties could be separated for successive cardinals, or even an infinite sequence of cardinals [12]. We studied the case in which internally stationary is distinguished from internally club by using forcings that accomplish the work of mixed support iterations while more explicitly resembling Mitchell’s forcing [7, 13]."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "In this paper, we will demonstrate the robustness of this idea by addressing the separation of internally club from internally approachable. We introduce a new version of Mitchell forcing, for which we must consider somewhat elaborate termspaces. The benefit is derived from having an Abraham-style projection analysis. We hope that this concept will be useful for points in the literature where mixed support iterations are called for (see [5], for example)."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "The concepts we study here are framed in terms of the notion of stationarity for spaces of the form \\([X]^{\\leq \\mu}\\), which was formulated by Jech (see [9]). For a regular cardinal \\(\\mu\\), we say that some \\(N \\in [X]^{\\leq \\mu}\\) is:\n• \\(\\text{internally unbounded}\\) if \\([N]^{<\\mu} \\cap N\\) is unbounded in \\([N]^{<\\mu}\\),\n• \\(\\text{internally stationary}\\) if \\([N]^{<\\mu} \\cap N\\) is stationary in \\([N]^{<\\mu}\\),\n• \\(\\text{internally club}\\) if \\([N]^{<\\mu} \\cap N\\) contains a club in \\([N]^{<\\mu}\\),\n• \\(\\text{internally approachable}\\) if there is a continuous sequence \\(\\langle N_i : i<\\mu\\rangle\\) consisting of elements of \\([N]^{<\\mu}\\) such that for all \\(i < \\mu\\), \\(\\langle N_j : j \\le i\\rangle \\in N\\) and \\(N = \\bigcup_{i<\\mu} N_i\\)."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "For clarity, let \\(\\mathrm{ICNIA}(\\Theta,\\mu)\\) be the statement that \\(\\Theta \\ge \\mu^+\\) and that there exist stationarily many \\(N \\in [H(\\Theta)]^{\\le \\mu}\\) that are internally club but not internally approachable. In all cases, we will be assuming that \\(\\mu\\) is regular and uncountable for the following reason: If \\(\\mu\\) is singular, there cannot be stationarily many elementary substructures \\(N \\prec H(\\Theta)\\) with \\(|N|=\\mu\\) such that \\([N]^{<\\mu}\\cap N\\) is unbounded in \\([N]^{<\\mu}\\), since \\(N \\cap \\mu^+\\) (which is an ordinal for club many \\(N\\)) will always have cofinality \\(< \\mu\\). Additionally, the property can never hold for \\(\\mu=\\omega\\) because any countable \\(M \\prec H(\\Theta)\\) is internally approachable. Thus, if we work in a model without weakly inaccessible cardinals, the optimal global result can be achieved by just forcing the property \\(\\mathrm{ICNIA}(\\Theta,\\mu)\\) to hold for all successor cardinals \\(\\mu\\). Krueger showed that PFA implies \\(\\mathrm{ICNIA}(\\Theta,\\aleph_1)\\) for all \\(\\Theta \\ge \\aleph_2\\) [10] and later showed that \\(\\mathrm{ICNIA}(\\mu^+,\\mu)\\) is consistent from a Mahlo cardinal for regular \\(\\mu\\) [12]. We extend that result here."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "**Theorem 1.1.** Assume that there are countably many Mahlo cardinals in \\(V\\). Then, there is a forcing extension in which, for all \\(1 \\le n < \\omega\\), \\(\\mathrm{ICNIA}(\\Theta, \\aleph_n)\\) holds for all \\(\\Theta \\ge \\aleph_{n+1}\\).\n\nThis resolves a case of [12, Question 12.9], where the projection analysis allows us to obtain consecutive instances of \\(\\mathrm{ICNIA}(\\Theta,\\aleph_n)\\). It also resolves a case of [12, Question 12.7], where the idea of the solution is more or less that the image of the Mostowski collapse cannot distinguish between \\(H(\\Theta)\\)'s for large \\(\\Theta\\)."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:the-new-forcing",
+        "header": "2 THE NEW FORCING",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "In this section, we will define the new forcing and present a simple application before moving on to the proof of our main theorem."
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:defining-the-forcing",
+              "header": "2.1 Defining the forcing",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "The idea of our forcing is to take the two-step iteration used to establish \\(\\mathrm{ICNIA}(\\Theta,\\aleph_1)\\) and build it into a variant of Mitchell forcing that enjoys some of the nice properties of the more standard variants. First, we need the collapse that Krueger used, which forces a chain through a stationary set."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Definition 2.1 (See [10]).** Let \\(\\mu\\) be cardinals and \\(S \\subseteq [X]^{<\\mu}\\) be stationary for some set \\(X\\). The chain forcing \\(\\mathbb{P}(S)\\) consists of closed sequences of length \\(<\\mu\\) through \\(S\\), that is, it consists of sequences \\(s\\) such that \\(\\mathrm{dom}(s)\\) is a successor ordinal below \\(\\mu\\), \\(s(\\alpha)\\in S\\) for all \\(\\alpha\\in\\mathrm{dom}(s)\\), and \\(s(\\gamma) = \\bigcup_{\\alpha<\\gamma} s(\\alpha)\\) for all limit \\(\\gamma\\in\\mathrm{dom}(s)\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "The poset \\(\\mathbb{P}(S)\\) is used because it allows us to collapse \\(|X|\\) while retaining both the approximation property and the clubness of the \"old\" sets."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Fact 2.2.** Let \\(\\mu \\le \\delta\\) be cardinals and \\(S \\subseteq [H(\\delta)]^{<\\mu}\\) be stationary.\n1. \\(\\mathbb{P}(S)\\) adds an increasing and continuous sequence of elements \\(\\langle S_i : i<\\mu\\rangle\\) of \\(S\\) with union \\(H(\\delta))^V\\), thus collapsing \\(\\delta\\) to have cardinality \\(\\mu\\).\n2. If \\(\\delta^{<\\delta} = \\delta\\), then \\(\\mathbb{P}(S)\\) has cardinality \\(\\delta\\) and therefore is \\(\\delta^+\\)-c.c."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "Note that to obtain \\(<\\mu\\)-distributivity of \\(\\mathbb{P}(S)\\), \\(S\\) needs to satisfy some additional assumptions. Now we are ready to define our Mitchell forcing. We need to take some care regarding the model in which the Cohen sets are defined. This is analogous to constructions in which the tree property holds on an interval of cardinals (see [3]), and is done here in anticipation of the iteration used to prove Theorem 1.1. We will therefore use the following basic fact from here on without comment."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Fact 2.3.** Suppose that \\(W \\subseteq V\\) are models of set theory such that \\(\\tau\\) is regular and \\(\\kappa\\) is inaccessible in \\(W\\). Suppose also that \\(\\tau\\) and \\(\\kappa\\) are cardinals in \\(V\\) and that the extension \\(W \\subseteq V\\) has the \\(\\kappa\\)-covering property. Then, \\(\\mathrm{Add}_W(\\tau, \\kappa)\\), the version of \\(\\mathrm{Add}(\\tau, \\kappa)\\) defined in \\(W\\), has the \\(\\kappa\\)-Knaster property in \\(V\\). (See [3, Lemma 2.6] and [1].)"
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Definition 2.4.** Let \\(\\tau < \\mu < \\kappa\\) be cardinals in \\(V\\) such that \\(\\tau^{<\\tau} = \\tau\\) and \\(\\kappa\\) is inaccessible. Let \\(W \\subseteq V\\) be models of ZFC containing the ordinals such \\((\\mathrm{Add}(\\tau,\\kappa))^W\\) is \\(\\mu\\)-Knaster. Then, we define \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W)\\) in \\(V\\) to be the poset consisting of pairs \\((p,q)\\) such that:\n1. \\(p \\in (\\mathrm{Add}(\\tau,\\kappa))^W\\),\n2. \\(q\\) is a \\(<\\mu\\)-sized function on \\(\\kappa\\) such that:\n   a) for each \\(\\alpha\\in\\mathrm{dom}(q)\\), \\(\\alpha = \\delta+1\\) for an inaccessible cardinal \\(\\delta\\),\n   b) \\(q(\\alpha)\\) is an \\((\\mathrm{Add}(\\tau,\\alpha))^W\\)-name for an element in the chain forcing \\(\\mathbb{P}([H(\\delta)]^{<\\mu} \\cap V[(\\mathrm{Add}(\\tau,\\delta))^W])\\).\n\nWe let \\((p',q') \\le_{\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W)} (p,q)\\) if:\n1. \\(p' \\le_{(\\mathrm{Add}(\\tau,\\kappa))^W} p\\),\n2. \\(\\mathrm{dom}(q') \\supseteq \\mathrm{dom}(q)\\) and for all \\(\\alpha\\in\\mathrm{dom}(q)\\), \\(p' \\upharpoonright \\alpha \\Vdash q'(\\alpha) \\le q(\\alpha)\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "Next, we will establish strategic closure properties of our forcing. The subtlety here is that, even though \\(\\mathbb{P}(S)\\) is in most cases not \\(\\mu\\)-strategically closed (since it can destroy the stationarity of a subset of \\([\\delta]^{<\\mu}\\)), the \\emph{term ordering} on \\(\\mathrm{Add}(\\tau) * \\mathbb{P}([\\delta]^{<\\mu} \\cap V)\\) is strongly \\(\\mu\\)-strategically closed. The detailed proofs follow from known techniques."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Lemma 2.7.** Let \\(\\tau < \\mu < \\delta\\) be cardinals such that \\(\\tau^{<\\tau} = \\tau\\). Then, the term forcing \\(\\mathfrak{T}(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W))\\) is strongly \\(\\mu\\)-strategically closed.\n\n(Sketch) One shows that products of strongly \\(\\mu\\)-strategically closed forcings remain strongly \\(\\mu\\)-strategically closed, and that the direct extension ordering on \\(\\mathrm{Add}(\\tau,\\gamma+1)^W * \\mathbb{P}([\\delta]^{<\\mu} \\cap V[\\mathrm{Add}(\\tau,\\gamma)^W])\\) is strongly \\(\\mu\\)-strategically closed. The proof involves constructing a winning tactic for the completeness game, carefully merging conditions to keep the game alive at successor steps. (See [10], [7], and related arguments for details.)"
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "Now we can show that \\(\\mathfrak{M}^\\oplus\\) has similar properties to more standard versions of Mitchell forcing.\n\n**Proposition 2.8.** Let \\(\\mathfrak{M}^\\oplus = \\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W)\\):\n1. \\(\\mathfrak{M}^\\oplus\\) is \\(\\kappa\\)-Knaster,\n2. \\(\\mathfrak{M}^\\oplus\\) is a projection of the product \\((\\mathrm{Add}(\\tau,\\kappa))^W \\times \\mathfrak{T}(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W))\\),\n3. \\(\\mathfrak{M}^\\oplus\\) forces \\(\\kappa = 2^{\\tau} = \\mu^+ = (\\tau)^{++}\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Lemma 2.9.** \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W)\\) has the \\(<\\mu\\)-approximation property.\n\n(Sketch) The main idea is to exploit the iteration-like nature of \\(\\mathfrak{M}^\\oplus\\), making it possible to \"move disagreements\" in names to earlier coordinates. Techniques developed by Usuba, Unger, and others allow one to keep track of meltdown arguments carefully, showing that fresh sets of size \\(<\\mu\\) do not appear in small steps. In particular, one obtains that any \\(<\\mu\\)-sized partial approximation from the ground model cannot converge to a truly new set in the extension."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:considering-quotients",
+              "header": "2.2 Considering quotients",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "As is common when working with variants of Mitchell forcing, we give an explicit description of the quotient forcing. In this subsection, we will define and state what we need in order to carry out the proof of our main theorem, leaving out some of the details that are addressed elsewhere in the literature."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Definition 2.11.** Let \\(\\tau < \\mu < \\nu < \\kappa\\) be cardinals such that \\((\\mathrm{Add}(\\tau,\\kappa))^W\\) is \\(\\mu\\)-Knaster. Let \\(G \\subseteq \\mathfrak{M}^\\oplus(\\tau,\\mu,\\nu,W)\\) be a generic filter. In \\(V[G]\\), define \\(\\mathfrak{M}^\\oplus(G,\\tau,\\mu,\\kappa\\setminus\\nu,W)\\) to consist of \\((p,q)\\) such that:\n1. \\(p \\in (\\mathrm{Add}(\\tau,\\kappa\\setminus\\nu))^W\\),\n2. \\(q\\) is a partial function on \\(\\kappa\\setminus\\nu\\) of size \\(<\\mu\\) such that for each \\(\\alpha\\in\\mathrm{dom}(q)\\), \\(\\alpha = \\nu+1\\) for an inaccessible cardinal \\(\\nu\\) and \\(q(\\alpha)\\) is an \\(\\mathrm{Add}(\\tau,\\alpha\\setminus\\nu)\\)-name for an element of \\(\\mathbb{P}([\\nu]^{<\\mu} \\cap V[G][\\mathrm{Add}(\\tau, \\nu\\setminus\\nu)])\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Lemma 2.12.** Let \\(\\tau < \\mu < \\nu < \\kappa\\) be regular cardinals such that \\(\\tau^{<\\tau} = \\tau\\) and \\(\\nu,\\kappa\\) are inaccessible. There is a dense embedding from \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W)\\) into \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\nu,W) * \\mathfrak{M}^\\oplus(G,\\tau,\\mu,\\kappa\\setminus\\nu,W)\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Proposition 2.13.** Let \\(\\tau < \\mu < \\nu < \\kappa\\) be cardinals such that \\(\\tau^{<\\tau} = \\tau\\) and \\(\\nu,\\kappa\\) are inaccessible and let \\(G\\) be \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\nu,W)\\)-generic. Then, there is a filter \\(K_A\\) that is \\(\\mathrm{Add}(\\tau)\\)-generic over \\(V[G]\\) and a filter \\(K_C\\) that is \\(\\mathbb{P}([\\nu]^{<\\mu} \\cap V[G])\\)-generic over \\(V[G][K_A]\\) such that \\(V[G][H]\\) is a forcing extension of \\(V[G][K_A][K_C]\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "In \\(V[G]\\), \\(\\mathfrak{M}^\\oplus(G,\\tau,\\mu,\\kappa\\setminus\\nu,W)\\) has similar properties to \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,W)\\) using arguments similar to the ones we detailed. In particular, one obtains both a \\(\\kappa\\)-Knaster property and the \\(<\\mu\\)-approximation property (see Lemma 2.15 in the paper)."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:single-cardinal-distinction",
+              "header": "2.3 Distinguishing internally club and approachable for a single cardinal",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "In this subsection, we show that \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,V)\\) forces \\(\\mathrm{ICNIA}(\\kappa,\\mu)\\) to hold at \\(\\kappa = \\mu^+\\). Technically, the next theorem will become redundant after giving the proof of Lemma 3.6. However, the proof serves as a gentle introduction to these arguments."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Definition 2.16 ([6]).** Let \\(\\Theta\\) be a sufficiently large regular cardinal. We say that \\(M \\prec H(\\Theta)\\) is \\emph{rich} or rich with respect to \\(\\kappa\\) if the following hold:\n1. \\(\\kappa \\in M\\);\n2. \\(\\bar{\\kappa} := M \\cap \\kappa \\in \\kappa\\) and \\(\\bar{\\kappa} < \\kappa\\);\n3. \\(\\bar{\\kappa}\\) is an inaccessible cardinal;\n4. The cardinality of \\(M\\) is \\(\\bar{\\kappa}\\);\n5. \\(M\\) is closed under \\(<\\bar{\\kappa}\\)-sequences."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Fact 2.17.** If \\(\\kappa\\) is Mahlo and \\(\\Theta\\) is a sufficiently large regular cardinal, then for all \\(a \\in [H(\\Theta)]^{<\\kappa}\\), there is a model \\(M \\prec K\\) such that \\(a \\subseteq M\\) and \\(M\\) is rich with respect to \\(\\kappa\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Theorem 2.18.** \\(\\mathfrak{M}^\\oplus(\\tau,\\mu,\\kappa,V)\\) forces that there exist stationarily many \\(N \\in [H(\\kappa)]^{\\le \\mu}\\) such that \\(N\\) is internally club but not internally approachable.\n\n(Sketch) One picks a name \\(\\dot{C}\\) for a club in \\([H(\\kappa)]^{\\le \\mu}\\) and a companion name \\(\\dot{F}\\) for a function whose closure points are in \\(\\dot{C}\\). Working inside a rich model of size \\(<\\kappa\\), one chooses a suitable generic filter so that the quotient arguments ensure that the collapsed version of \\(H(\\kappa)\\) is in the club set. The subtlety is proving that the resulting set is not internally approachable, relying on the fact that no new \\(<\\mu\\)-sequences can appear. See the full text for the precise details."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:distinguishing-on-infinite-interval",
+        "header": "3 DISTINGUISHING INTERNALLY CLUB AND APPROACHABLE ON AN INFINITE INTERVAL",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "In this section, we apply the previous results to obtain the distinction between internally club and approachable on the interval \\([\\aleph_2, \\aleph_\\omega)\\), thus obtaining our main theorem."
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:preservation-of-distinction",
+              "header": "3.1 Preservation of the distinction",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "First, we do some preliminary work by establishing some conditions under which \\(\\mathrm{ICNIA}(\\Theta,\\aleph_n)\\) is preserved by sufficiently well-behaved forcings. A slight strengthening of \\(\\mathrm{ICNIA}\\) is introduced, called \\(\\mathrm{ICNIA}^+\\), which is easier to preserve downward in certain projection arguments."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Definition 3.1.** Let \\(\\mathrm{ICNIA}^+(\\Theta,\\mu)\\) be the statement that \\(\\Theta \\ge \\mu^+\\) and there exist stationarily many \\(N \\in [H(\\Theta)]^{\\le \\mu}\\) such that:\n1. \\(N\\) is internally club.\n2. There is no sequence \\((X_i)_{i<\\mu}\\) of elements of \\([\\Theta]^{<\\mu}\\) such that \\(\\bigcup_{i<\\mu} X_i = N \\cap \\Theta\\) and \\((X_i)_{i<j} \\in N\\) for all \\(j<\\mu\\). We say \\(N\\) is \\emph{not ordinal-internally approachable} if clause (2) holds."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Proposition 3.2.** Assume that \\(W\\) is a forcing extension of \\(V\\) by a forcing notion \\(\\mathbb{P}\\) that is \\(<\\mu^+\\)-distributive. If \\(\\mathrm{ICNIA}^+(\\Theta,\\mu)\\) holds in \\(W\\), then \\(\\mathrm{ICNIA}^+(\\Theta,\\mu)\\) holds in \\(V\\).\n\n(Sketch) One uses the fact that clubs in \\([H(\\Theta)]^{\\le \\mu}\\) remain clubs under \\(<\\mu^+\\)-distributive forcing. Moreover, a careful argument based on a suitable form of properness (or a covering-type argument) ensures that a candidate non-ordinal-approachable set in the extension remains so in the ground model. Thus, the distinction is passed downward."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:proving-main-theorem",
+              "header": "3.2 Proving the main theorem",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "We now set up the proof of Theorem 1.1. Let \\((\\kappa_n)_{n \\in \\omega}\\) be a sequence of Mahlo cardinals. We force with the full support iteration \\(\\mathbb{I} = \\langle \\mathbb{P}_n : n<\\omega \\rangle\\) where \\(\\mathbb{P}_0 = \\mathfrak{M}^\\oplus(\\omega, \\omega_1, \\kappa_0, V)\\) and given \\(\\mathbb{P}_n\\) we let\n\\(\\mathbb{P}_{n+1} = \\mathbb{P}_n * \\dot{\\mathfrak{M}}^\\oplus(\\kappa_{n-1}, \\kappa_n, \\kappa_{n+1}, V[\\mathbb{P}_{n-1}]),\\)\nwhere \\(\\kappa_{-2} = \\omega\\), \\(\\kappa_{-1} = \\omega_1\\), and \\(V[\\mathbb{P}_{-1}] = V\\) for simplicity. Observe that the iteration will turn \\(\\kappa_n\\) into \\(\\aleph_{n+2}\\) for all \\(0 \\le n < \\omega\\)."
+                },
+                {
+                  "Paragraph": {
+                    "text": "**Lemma 3.6.** Let \\(\\tau < \\mu < \\kappa\\) be cardinals such that \\(\\tau^{<\\tau} = \\tau\\), \\(\\mu^{<\\mu} = \\mu\\), and \\(\\kappa\\) is Mahlo. If \\(\\gamma\\) is any ordinal, \\(\\mathfrak{M}^\\oplus(\\tau, \\mu, \\kappa, V) \\times \\mathrm{Add}(\\mu, \\gamma)\\) forces \\(\\mathrm{ICNIA}^+(\\Theta, \\mu)\\) for all regular \\(\\Theta \\ge \\kappa\\). (Sketch) The argument is a relatively mild variation of Theorem 2.18, employing an additional product factor that is \\(\\mu\\)-distributive, ensuring no new sequences of length \\(<\\mu\\) appear. The end result is that one obtains stationarily many sets that remain unapproachable in an ordinal sense."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "To complete the proof of Theorem 1.1, one factors the iteration to isolate the relevant Mitchell-style forcing and uses the lemma above in a downward preservation argument (Proposition 3.2) to keep the distinction at each cardinal \\(\\aleph_n\\). Standard bookkeeping ensures that each new stage does not destroy the previously established distinction. Hence, one obtains a model in which, for all \\(1 \\le n < \\omega\\) and for all \\(\\Theta \\ge \\aleph_{n+1}\\), there is a stationary set of \\([H(\\Theta)]^{\\aleph_n}\\) comprising internally club, non-approachable sets."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Here is a related question:\n\\(\n\\textbf{Question 3.11.}\\;\n\\textit{Suppose that }\\mathbb{P}\\textit{ is a }\\nu^+\\text{-closed forcing and }S \\subseteq \\mathcal{P}_\\nu(H(\\Theta))\\textit{ is a stationary set of internally club sets. Is }S\\textit{ stationary in an extension by }\\mathbb{P}?\\)\n\nSuch preservation properties might be relevant for further developments in the theory of internal approachability and chain conditions."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Received: 30 May 2024 · Revised: 8 January 2025 · Accepted: 9 January 2025\nDOI: 10.1112/blms.70013"
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "*© 2025 The Author(s). Bulletin of the London Mathematical Society is copyright © London Mathematical Society. This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.*"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Bibliography": {
+        "header": "References",
+        "entries": [
+          {
+            "key": "[1]",
+            "formatted_entry": "U. Abraham, Aronszajn trees on \\(\\aleph_2\\) and \\(\\aleph_3\\), Ann. Pure Appl. Logic 24 (1983), no. 3, 213–230."
+          },
+          {
+            "key": "[2]",
+            "formatted_entry": "J. Cummings, Iterated forcing and elementary embeddings, Handbook of set theory, M. Foreman and A. Kanamori (eds.), Springer, Dordrecht, 2010, pp. 775–883."
+          },
+          {
+            "key": "[3]",
+            "formatted_entry": "J. Cummings and M. Foreman, The tree property, Adv. Math. 133 (1998), no. 1, 1–32."
+          },
+          {
+            "key": "[4]",
+            "formatted_entry": "M. Foreman and S. Todorcevic, A new Löwenheim-Skolem theorem, Trans. Amer. Math. Soc. 357 (2005), no. 5, 1693–1715."
+          },
+          {
+            "key": "[5]",
+            "formatted_entry": "S. Fuchino and A. O. M. Rodrigues, Reflection principles, generic large cardinals, and the continuum problem, in Symposium on Advances in Mathematical Logic, Springer, 2018, pp. 1–25."
+          },
+          {
+            "key": "[6]",
+            "formatted_entry": "L. Harrington and S. Shelah, Some exact equiconsistency results in set theory, Notre Dame J. Form. Log. 26 (1985), no. 2, 178–188."
+          },
+          {
+            "key": "[7]",
+            "formatted_entry": "H. Jakob, Disjoint stationary sequences on an interval of cardinals, arXiv:2309.01986, 2023."
+          },
+          {
+            "key": "[8]",
+            "formatted_entry": "H. Jakob, Variants of Mitchell forcing, Ph.D. thesis, University of Freiburg, 2023-2025."
+          },
+          {
+            "key": "[9]",
+            "formatted_entry": "T. Jech, Set Theory, Springer Monographs in Mathematics, Springer, Berlin, 3rd millennium ed., revised and expanded, 2003."
+          },
+          {
+            "key": "[10]",
+            "formatted_entry": "J. Krueger, Internally club and approachable, Adv. Math. 213 (2007), no. 2, 734–740."
+          },
+          {
+            "key": "[11]",
+            "formatted_entry": "J. Krueger, A general Mitchell style iteration, MLQ Math. Log. Q. 54 (2008), no. 6, 641–651."
+          },
+          {
+            "key": "[12]",
+            "formatted_entry": "J. Krueger, Some applications of mixed support iterations, Ann. Pure Appl. Logic 158 (2009), no. 1-2, 40–57."
+          },
+          {
+            "key": "[13]",
+            "formatted_entry": "M. Levine, On disjoint stationary sequences. Pac. J. Math. 332 (2024), no. 1, 147–165. https://doi.org/10.2140/pjm.2024.332.147"
+          },
+          {
+            "key": "[14]",
+            "formatted_entry": "S. Unger, Fragility and indestructibility ii, Ann. Pure Appl. Logic 166 (2015), no. 11, 1110–1122."
+          },
+          {
+            "key": "[15]",
+            "formatted_entry": "T. Usuba, The approximation property and the chain condition, RIMS Kokyuroku 1985 (2014), 130–134."
+          },
+          {
+            "key": "[16]",
+            "formatted_entry": "Y. Yoshinobu, The*-variation of the Banach–Mazur game and forcing axioms, Ann. Pure Appl. Logic 168 (2017), no. 6, 1335–1359."
+          }
+        ]
+      }
+    }
+  ]
+}

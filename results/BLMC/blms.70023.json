@@ -1,0 +1,432 @@
+{
+  "document": [
+    {
+      "Metadata": {
+        "authors": [
+          {
+            "label": "author1",
+            "name": "Izabella Łaba",
+            "affiliation": "Department of Mathematics, UBC, Vancouver, BC, Canada"
+          },
+          {
+            "label": "author2",
+            "name": "Dmitrii Zakharov",
+            "affiliation": "Department of Mathematics, Massachusetts Institute of Technology, Cambridge, Massachusetts, USA"
+          }
+        ],
+        "keywords": [
+          "integer tilings",
+          "periodicity",
+          "minimal tiling period"
+        ],
+        "msc_codes": [
+          "05B45",
+          "52C22"
+        ],
+        "publication_date": "2025-01-21",
+        "source": "Bulletin of the London Mathematical Society, DOI: 10.1112/blms.70023"
+      }
+    },
+    {
+      "Title": {
+        "title": "On the minimal period of integer tilings"
+      }
+    },
+    {
+      "Abstract": {
+        "abstract": "*If a finite set $A$ tiles the integers by translations, it also admits a tiling whose period $M$ has the same prime factors as $|A|$. We prove that the minimal period of such a tiling is bounded by $\\exp(c (\\log D)^2 / \\log \\log D)$, where $D$ is the diameter of $A$. In the converse direction, given $\\epsilon > 0$, we construct tilings whose minimal period has the same prime factors as $|A|$ and is bounded from below by $D^{3/2 - \\epsilon}$. We also discuss the relationship between minimal tiling period estimates and the Coven--Meyerowitz conjecture.*"
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:introduction",
+        "header": "1 INTRODUCTION",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "A finite set $A \\subset \\mathbb{Z}$ tiles the integers by translations if there exists a covering of $\\mathbb{Z}$ by pairwise disjoint translates of $A$. More formally, there exists a translation set $T \\subset \\mathbb{Z}$ such that every integer $n \\in \\mathbb{Z}$ has a unique representation $n = a + t$ with $a \\in A$ and $t \\in T$.\n\nNewman [13] proved that any tiling of $\\mathbb{Z}$ by a finite set $A$ must be periodic, so that $T = B \\oplus M \\mathbb{Z}$ for some $M \\in \\mathbb{N}$ and $B \\subset \\{0, 1, \\dots, M-1\\}$. His pigeonholing argument shows that the least period of the tiling must satisfy $M \\le 2D$, where\n\\[\nD := \\mathrm{diam}(A) = \\max(A) - \\min(A)\n\\]\nis the diameter of $A$. This bound was subsequently improved by Kolountzakis [6], Ruzsa [23, Appendix] and Biró [1]. The best estimate to date is due to Biró, who proved the following: for any $\\epsilon > 0$ there exists a number $D(\\epsilon)$ such that if $A \\oplus T = \\mathbb{Z}$ is a tiling and $D = \\mathrm{diam}(A) \\ge D(\\epsilon)$, then the least period of $T$ is at most $\\exp(D^{1/3 + \\epsilon})."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "In the other direction, Kolountzakis [6] constructed tilings with the least period $M$ bounded from below by $c D^2$ for some absolute constant $c$. Steinberger [19] gave an improved construction with\n\\[\nM \\ge \\exp \\bigl( (\\log D)^2 / (4 \\log \\log D) \\bigr);\n\\]\nin particular, there exist tilings whose least period is superpolynomial in $D$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "In the sequel, we will always assume that $A \\subset \\mathbb{Z}$ is finite and non-empty, and we will always use $D$ to denote the diameter of $A$. In order to avoid trivial cases, we will also assume that\n\\[\nD \\ge 2.\n\\]\nIf $D = 0$ (so that $A$ is a singleton) or $D = 1$ (with $A = \\{n, n+1\\}$ for some $n \\in \\mathbb{Z}$), $\\mathbb{Z}$ can only be tiled by translates of $A$ in one way, with period $M = D + 1."
+            }
+          },
+          {
+            "Definition": {
+              "label": "def:1",
+              "header": "Definition",
+              "definition": "Assume that $A$ tiles $\\mathbb{Z}$ by translation. We define the \\emph{minimal tiling period} of $A$ to be the smallest number $\\mathcal{P}(A)$ such that there exists a $\\mathcal{P}(A)$-periodic set $T \\subset \\mathbb{Z}$ satisfying $A \\oplus T = \\mathbb{Z}$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "If $A \\oplus T$ is a tiling and $M$ is the least period of $T$, we clearly have $\\mathcal{P}(A) \\le M$. The inequality may be strict, since there may exist a different tiling of $\\mathbb{Z}$ whose least period is smaller. For example, we have the following reduction, due to Coven and Meyerowitz [3] and based on the dilation theorem of Tijdeman [22]."
+            }
+          },
+          {
+            "Theorem": {
+              "label": "lem:1",
+              "header": "Lemma",
+              "claim": "**Lemma 1 [3, Lemma 2.3].** Assume that $A$ tiles $\\mathbb{Z}$ with period $M$, and suppose that $M = m M'$, where $M'$ has the same prime factors as $|A|$ and $m$ is relatively prime to $|A|$. Then $A$ also tiles $\\mathbb{Z}$ with period $M'$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "The tilings constructed in [6, 19] have long periods $M$, but in both cases we have $M = m|A|$ with $m$ relatively prime to $A$. It follows that $A$ also admits the tiling $A \\oplus |A| \\mathbb{Z} = \\mathbb{Z}$, so that the minimal tiling period for $A$ is $\\mathcal{P}(A) = |A| \\le D + 1.\n\nOur first result is an upper bound on $\\mathcal{P}(A)$ in terms of $D$."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Theorem": {
+        "label": "thm:1",
+        "header": "Theorem",
+        "claim": "**Theorem 1.** Assume that $A \\oplus T = \\mathbb{Z}$, and that the least period $M$ of $T$ has the same prime factors as $|A|$. (By Lemma 1, if $A$ tiles $\\mathbb{Z}$, then such a tiling always exists.) Assume further that $D \\ge 2$. Then\n\\[\n\\mathcal{P}(A) \\le M \\le \\exp\\bigl(c (\\log D)^2 / \\log \\log D\\bigr)\n\\]\nfor some absolute constant $c > 0.$"
+      }
+    },
+    {
+      "Paragraph": {
+        "text": "*One might ask whether the condition on the prime factors of $M$ prevents the tiling from having long periods altogether. We provide a partial answer in Theorem 2. Our lower bound on the tiling period is worse than that in [6] and especially in [19], but, unlike in [6, 19], $M$ does not have any new prime factors that are not already present in $|A|$. For a discussion of the formal similarity between our upper bound in Theorem 1 and Steinberger’s lower bound in [19], see the remark at the end of Section 2.*"
+      }
+    },
+    {
+      "Theorem": {
+        "label": "thm:2",
+        "header": "Theorem",
+        "claim": "**Theorem 2.** For any $0 < \\beta < 3/2$, there exists a tiling $A \\oplus T = \\mathbb{Z}$ with least period $M$ such that $M \\ge D^{\\beta}$ and $M$ has the same prime factors as $|A|$."
+      }
+    },
+    {
+      "Paragraph": {
+        "text": "We do not have examples of sets that tile only with long periods. The set $A$ constructed in the proof of Theorem 2 also tiles with period $|A|$, as do those in [6, 19]. Intuitively, a “simple” tile $A$ allows significant freedom in the choice of the tiling complement, ranging from simple to more complicated. (For an analogue of this in metric geometry, one may think of cube tilings in high-dimensional spaces.)"
+      }
+    },
+    {
+      "Paragraph": {
+        "text": "We further note that if a tile $A$ with $|A| \\ge 2$ satisfies the Coven–Meyerowitz conditions (T1) and (T2) [3], it admits a tiling with period at most $2D$. Thus any tile $A$ with $|A| \\ge 2$ and $\\mathcal{P}(A) > 2D$ would also have to provide a counterexample to the Coven–Meyerowitz conjecture. We discuss this connection in Section 4."
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:proof-thm1",
+        "header": "2 PROOF OF THEOREM 1",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "We will need the polynomial formulation of integer tilings. Assume that $A \\oplus T = \\mathbb{Z}$ and that $T$ is $M$-periodic, so that $T = B \\oplus M\\mathbb{Z}$ for some finite set $B \\subset \\mathbb{Z}$. Then $A \\oplus B \\bmod M$ is a factorization of the cyclic group $\\mathbb{Z}_M$. We write this as $A \\oplus B = \\mathbb{Z}_M.$ We also assume that $D \\ge 2$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "By translational invariance, we may assume that $A, B \\subset \\{0, 1, \\dots \\}$ and that $0 \\in A \\cap B$. The mask polynomials of $A$ and $B$ are\n\\[\nA(X) = \\sum_{a \\in A} X^a, \\quad B(X) = \\sum_{b \\in B} X^b.\n\\]\nThen $A \\oplus B = \\mathbb{Z}_M$ means that\n\\[\nA(X) B(X) \\equiv 1 + X + \\dots + X^{M-1} \\pmod{X^M - 1}.\n\\]\nEquivalently,\n\\[\n|A| \\, |B| = M \\quad \\text{and} \\quad \\Phi_s(X) \\mid A(X) B(X) \\quad \\forall\\, s \\mid M, s \\ne 1,\n\\]\nwhere $\\Phi_s(X)$ is the $s$th cyclotomic polynomial."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Since $\\Phi_s(X)$ are irreducible, each $\\Phi_s(X)$ with $s \\mid M$ must divide at least one of $A(X)$ and $B(X)$. Lemma 2 below shows that in fact each prime power dividing $M$ must divide $A(X)$."
+            }
+          },
+          {
+            "Theorem": {
+              "label": "lem:2",
+              "header": "Lemma",
+              "claim": "**Lemma 2.** Assume that $A \\oplus T = \\mathbb{Z}$ is a tiling with the least period $M$, and let $M = p_1^{n_1} \\cdots p_d^{n_d}$ be the prime factorization of $M$. Then for every $j \\in \\{1, \\dots, d\\}$ there exists $s \\mid M$ such that $\\Phi_s \\mid A$ and $p_j^{n_j} \\mid s$."
+            }
+          },
+          {
+            "Proof": {
+              "claim_label": "lem:2",
+              "proof_steps": [
+                {
+                  "Paragraph": {
+                    "text": "Proof. We argue by contradiction. Write $T = B \\oplus M \\mathbb{Z}$ for some $B \\subset \\{0, 1, \\dots, M-1\\}$, so that $A \\oplus B = \\mathbb{Z}_M$. Suppose that there is a $j \\in \\{1, \\dots, d\\}$ such that whenever $s \\mid M$ and $p_j^{n_j} \\mid s$, we have $\\Phi_s \\nmid A$."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "It follows that\n\\[\nP(X) := \\frac{X^M - 1}{X^{M / p_j} - 1} = \\prod_{\\substack{s \\mid M \\\\ p_j^{n_j} \\nmid s}} \\Phi_s(X)\n\\]\ndivides $B(X)$. Hence\n\\[\nB(X) = P(X) B_0(X) = \\Bigl(1 + X^{M/p_j} + X^{2M/p_j} + \\dots + X^{(p_j-1)M/p_j}\\Bigr) B_0(X)\n\\]\nfor some polynomial $B_0 \\in \\mathbb{Z}[X]$. If $B_0(X)$ had degree $M / p_j$ or higher, then $B(X)$ would have degree $M$ or higher, contradicting $B \\subset \\{0, 1, \\dots, M-1\\}$. Thus $B_0(X)$ is the mask polynomial of a set $B_0 \\subset \\{0, 1, \\dots, (M/p_j)-1\\}$, and $B$ is $(M/p_j)$-periodic, contradicting the minimality of $M$."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Recalling that $\\deg \\Phi_s = \\varphi(s)$, Lemma 2 implies that for each $j$ there is an $s_j$ dividing $M$ such that $p_j^{n_j} \\mid s_j$ and $\\Phi_{s_j} \\mid A$. Thus\n\\[\nD = \\deg A(X) \\ge \\deg \\Phi_{s_j} = \\varphi(s_j) \\ge \\varphi(p_j^{n_j}) = (1 - p_j^{-1}) p_j^{n_j} \\ge \\frac{1}{2} p_j^{n_j}.\n\\]\nTaking the product over all $j$ gives $M = p_1^{n_1} \\cdots p_d^{n_d} \\le (2D)^d.$"
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "On the other hand, since $|A|$ and $M$ have the same prime factors, we have\n\\[\nD \\ge |A| - 1 \\ge p_1 p_2 \\cdots p_d - 1 \\ge (d+1)! - 1,\n\\]\nso $d \\le c \\frac{\\log D}{\\log \\log D}$ for some absolute constant $c>0.$ Combining $M \\le (2D)^d$ with the bound on $d$ completes the proof of Theorem 1."
+            }
+          },
+          {
+            "Remark": {
+              "label": "rem:steinberger",
+              "header": "Remark",
+              "remark": "Our upper bound in Theorem 1, and Steinberger’s lower bound in [19], have the same form because they are both based on the same estimate for prime numbers. In essence, we use that if $p_1,\\dots,p_d$ are primes such that $p_1\\cdots p_d \\le D$, then $d$ obeys $d \\le c \\frac{\\log D}{\\log \\log D}$. We then combine this with $M \\ge (2D)^d$ in Steinberger’s construction to get his lower bound, while here we use $M \\le (2D)^d$ to get our upper bound."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:proof-thm2",
+        "header": "3 PROOF OF THEOREM 2",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "We now provide the construction that proves Theorem 2. Our goal is to construct a set $A$ and a tiling complement $B$ with the same prime factors as $|A|$, while ensuring a large minimal period."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Let $p_1, p_2, p_3$ be large primes such that $p_1 < p_2 < p_3 < 2p_1.$ Let $N = p_1 p_2 p_3$ and $M = (p_1 p_2 p_3)^n$ for some large $n$. We will use an explicit version of the Chinese remainder theorem and certain sets constructed in a three-dimensional representation that is $p_i^n$-periodic in each coordinate."
+            }
+          },
+          {
+            "Theorem": {
+              "label": "lem:3",
+              "header": "Lemma",
+              "claim": "**Lemma 3.** Let $M_j := M / p_j^n$ for $j=1,2,3$. Then the mapping $\\pi: \\mathbb{Z}_{p_1^n} \\times \\mathbb{Z}_{p_2^n} \\times \\mathbb{Z}_{p_3^n} \\to \\mathbb{Z}_M$ defined by\n\\[\n\\pi(x_1, x_2, x_3) = \\sum_{j=1}^3 x_j M_j\n\\]\nis an isomorphism."
+            }
+          },
+          {
+            "Proof": {
+              "claim_label": "lem:3",
+              "proof_steps": [
+                {
+                  "Paragraph": {
+                    "text": "Proof. If $(x_1, x_2, x_3) \\equiv (x_1', x_2', x_3') \\pmod{p_j^n}$ for each $j$, then $p_j^n$ divides $\\sum (x_j - x_j') M_j,$ so $\\pi(x_1, x_2, x_3) = \\pi(x_1', x_2', x_3')$ in $\\mathbb{Z}_M.$ Thus $\\pi$ is well defined.\n\nTo see that $\\pi$ is one-to-one, suppose $\\pi(x_1, x_2, x_3) \\equiv \\pi(y_1, y_2, y_3)$. Then for each $j$, $p_j^n$ divides $\\sum (x_i - y_i) M_i$. Because $p_j^n \\mid M_i$ for $i\\ne j$, it follows that $p_j^n \\mid (x_j - y_j) M_j$. Since $p_j \\nmid M_j$, we must have $x_j = y_j.$ This holds for each $j$, so $(x_1, x_2, x_3) = (y_1, y_2, y_3)$ and $\\pi$ is injective."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "We visualize $\\mathbb{Z}_M$ as a 3D lattice, with coordinates $(x_1,x_2,x_3)$ modulo $(p_1^n, p_2^n, p_3^n)$, using the isomorphism produced by $\\pi$. For a set $A \\subset \\mathbb{Z}_M$, define its divisor set\n\\[\n\\mathrm{Div}(A) = \\{ (a - a', M) : a,a' \\in A \\}.\n\\]\nBy a result of Sands [17] (see also [5, 7]), if $A, B \\subset \\mathbb{Z}_M$, then $A \\oplus B = \\mathbb{Z}_M$ if and only if\n\\[\n|A|\\, |B| = M \\quad \\text{and} \\quad \\mathrm{Div}(A) \\cap \\mathrm{Div}(B) = \\{M\\}.\n\\]\nWe will use this criterion (only the forward direction is needed here) to certify that our sets tile $\\mathbb{Z}_M$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Let us define\n\\[\nA = \\Bigl\\{ \\sum_{i=1}^3 a_i M_i : a_i \\in \\{0,1,\\dots,p_i-1\\} \\Bigr\\}, \\quad B^* = \\Bigl\\{ \\sum_{i=1}^3 b_i M_i : b_i \\in \\{0,p_i,2p_i,\\dots, (p_i^n - 1 - 1) p_i\\} \\Bigr\\}.\n\\]\nIt is straightforward to check that $|A| = p_1 p_2 p_3 = N$, $|B^*| = M/N$, and $A \\oplus B^* = \\mathbb{Z}_M$. Moreover, every element $b,b' \\in B^*$ differs by a multiple of $N$, and in turn $\\mathrm{Div}(A)$ is precisely the set of products of prime powers that divide $M$. Thus the divisor sets intersect only in $M$, verifying the Sands criterion."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "However, the resulting $B^*$ is clearly $M_i p_i$-periodic in each $i$, hence has period smaller than $M$. To make the tiling have minimal period exactly $M$, we perform three ‘column shifts’ to break the periodicity. Specifically, let\n\\[\n z(i) := (p_i^n - 1) M_i p_i, \\quad F_i := \\{0, \\; M_i p_i, \\; 2 M_i p_i, \\dots, (p_i^n - 1 - 1) M_i p_i\\},\n\\]\nand then define\n\\[\n\\tilde{B}_1 := z(3) + F_1,\\quad \\tilde{B}_2 := z(1) + F_2,\\quad \\tilde{B}_3 := z(2) + F_3,\n\\]\n\\[\nB_1 := z(3) + M_1 + F_1,\\quad B_2 := z(1) + M_2 + F_2,\\quad B_3 := z(2) + M_3 + F_3,\n\\]\n\\[\nB_0 := B^* \\setminus (\\tilde{B}_1 \\cup \\tilde{B}_2 \\cup \\tilde{B}_3),\\quad B := B_0 \\cup B_1 \\cup B_2 \\cup B_3.\n\\]\nWe then check carefully that these sets remain disjoint, $|B| = |B^*|$, and $\\mathrm{Div}(B) \\cap \\mathrm{Div}(A) = \\{M\\}$, ensuring a valid tiling by $A$ with complement $B$. Finally, $B$ is not periodic with any smaller period than $M$; one checks that $z(i) \\notin B$, yet $z(i) + M/p_i \\in B$, so the period cannot be $M/p_i$ for each prime factor $p_i$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "It remains to verify that $M$ can be chosen so large that $M \\ge D^{\\beta}$ for an arbitrary $0 < \\beta < 3/2$. Observe that $\\mathrm{diam}(A)$ is at most $3 \\frac{M}{p_1^{n-1}}$ in our construction. By choosing $n$ and $p_1$ sufficiently large (relative to $p_2, p_3$, which are also chosen large but still $< 2 p_1$), one obtains $M \\ge D^{\\beta}$ for the desired exponent. See the detailed computation in the paper above for how $\\beta$ is accommodated via an exponent argument in $p_1, p_2, p_3, n$."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:cm-conj",
+        "header": "4 THE MINIMAL TILING PERIOD AND THE COVEN–MEYEROWITZ CONJECTURE",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "Coven and Meyerowitz [3] proved the following theorem:"
+            }
+          },
+          {
+            "Theorem": {
+              "label": "thm:3",
+              "header": "Theorem",
+              "claim": "**Theorem 4 (Coven--Meyerowitz).** Let $S_A$ be the set of prime powers $p^\\alpha$ such that $\\Phi_{p^\\alpha}(X)$ divides $A(X)$. Consider the following conditions:\n- (T1) $A(1) = \\prod_{s \\in S_A} \\Phi_s(1)$;\n- (T2) if $s_1,\\dots,s_k \\in S_A$ are powers of different primes, then $\\Phi_{s_1 \\dots s_k}(X)$ divides $A(X)$.\n\nThen:\n1. If $A$ satisfies (T1), (T2), then $A$ tiles $\\mathbb{Z}$.\n2. If $A$ tiles $\\mathbb{Z}$, then (T1) holds.\n3. If $A$ tiles $\\mathbb{Z}$ and $|A|$ has at most two distinct prime factors, then (T2) holds."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "The conjecture that (T2) holds in general is open. Coven and Meyerowitz give a constructive proof that a set $A$ satisfying (T1) and (T2) does indeed tile $\\mathbb{Z}$ with period $\\mathrm{lcm}(S_A) = M.$ We note that if $A$ has at least one difference of size at least 1 (i.e., not all in a single residue class), then $\\mathrm{diam}(A) \\ge M/2$. Hence if $A$ satisfies (T2) and tiles $\\mathbb{Z}$, then it admits a tiling of period at most $2D$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "It is also sometimes claimed (often informally) that $M \\le p D / (p-1)$, where $p$ is the smallest prime factor of $|A|$. However, in general—unless the number of distinct prime factors of $|A|$ is at most 2—this statement does not hold in all known examples. Indeed, if $|A|$ has 3 or more distinct prime factors, examples exist where $\\Phi_M \\mid A$ but $A$ does not contain any ‘fibers’ (cosets of sub-lattices), causing $\\mathrm{diam}(A)$ to be far smaller than $M/2$."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "On the other hand, Biró has shown large classes of cases in which $\\mathrm{diam}(A)$ does indeed provide a lower bound on $M$, and also Steinberger [20] has refined results in this area. The relationship between minimal tiling period estimates and the Coven–Meyerowitz conjecture thus goes beyond simple diameter or prime considerations in the more complicated setting of 3 or more prime factors."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:ack",
+        "header": "ACKNOWLEDGMENTS",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "The authors are grateful to Rachel Greenfeld for stimulating discussions. The first author was supported by NSERC Discovery grant 22R80520. The second author was supported by the Jane Street Graduate Fellowship."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:dataavailability",
+        "header": "DATA AVAILABILITY STATEMENT",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "No new data were generated or analyzed during this study."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:journalinfo",
+        "header": "JOURNAL INFORMATION",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "The Bulletin of the London Mathematical Society is wholly owned and managed by the London Mathematical Society, a not-for-profit Charity registered with the UK Charity Commission. All surplus income from its publishing programme is used to support mathematicians and mathematics research in the form of research grants, conference grants, prizes, initiatives for early career researchers and the promotion of mathematics."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:orcid",
+        "header": "ORCID",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "• Izabella Łaba https://orcid.org/0000-0002-3810-6121"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Bibliography": {
+        "header": "References",
+        "entries": [
+          {
+            "key": "[1]",
+            "formatted_entry": "A. Biró, Divisibility of integer polynomials and tilings of the integers, Acta Arith. 118 (2005), no. 2, 117–127."
+          },
+          {
+            "key": "[2]",
+            "formatted_entry": "B. Bruce, I. Łaba, Keller properties for integer tilings, Electron. J. Combin. 31 (2024), https://doi.org/10.37236/13002."
+          },
+          {
+            "key": "[3]",
+            "formatted_entry": "E. Coven and A. Meyerowitz, Tiling the integers with translates of one finite set, J. Algebra 212 (1999), 161–174."
+          },
+          {
+            "key": "[4]",
+            "formatted_entry": "N. G. de Bruijn, On the factorization of cyclic groups, Indag. Math. 15 (1953), 370–377."
+          },
+          {
+            "key": "[5]",
+            "formatted_entry": "R. Greenfeld and T. Tao, A counterexample to the periodic tiling conjecture, Ann. of Math. 200 (2024), no. 1, 301–363."
+          },
+          {
+            "key": "[6]",
+            "formatted_entry": "M. N. Kolountzakis, Translational tilings of the integers with long periods, Electron. J. Combin. 10 (2003), no. 1, https://doi.org/10.37236/1715."
+          },
+          {
+            "key": "[7]",
+            "formatted_entry": "I. Łaba and I. Londner, Combinatorial and harmonic-analytic methods for integer tilings, Forum Math. Pi 10 (2022), 46 pp."
+          },
+          {
+            "key": "[8]",
+            "formatted_entry": "I. Łaba and I. Londner, The Coven–Meyerowitz tiling conditions for 3 odd prime factors, Invent. Math. 232 (2023), 365–470."
+          },
+          {
+            "key": "[9]",
+            "formatted_entry": "I. Łaba and I. Londner, The Coven–Meyerowitz tiling conditions for 3 prime factors: the even case, arXiv:2207.11809, 2024."
+          },
+          {
+            "key": "[10]",
+            "formatted_entry": "I. Łaba and I. Londner, Splitting for integer tilings, arXiv:2407.11374, 2024."
+          },
+          {
+            "key": "[11]",
+            "formatted_entry": "T. Y. Lam and K. H. Leung, On vanishing sums of roots of unity, J. Algebra 224 (2000), 91–109."
+          },
+          {
+            "key": "[12]",
+            "formatted_entry": "H. B. Mann, On linear relations between roots of unity, Mathematika 12 (1965), no. 2, 107–117."
+          },
+          {
+            "key": "[13]",
+            "formatted_entry": "D. J. Newman, Tesselation of integers, J. Number Theory 9 (1977), 107–111."
+          },
+          {
+            "key": "[14]",
+            "formatted_entry": "B. Poonen and M. Rubinstein, Number of intersection points made by the diagonals of a regular polygon, SIAM J. Disc. Math. 11 (1998), 135–156."
+          },
+          {
+            "key": "[15]",
+            "formatted_entry": "L. Rédei, Über das Kreisteilungspolynom, Acta Math. Hungar. 5 (1954), 27–28."
+          },
+          {
+            "key": "[16]",
+            "formatted_entry": "L. Rédei, Natürliche Basen des Kreisteilungskörpers, Abh. Math. Sem. Univ. Hamburg 23 (1959), 180–200."
+          },
+          {
+            "key": "[17]",
+            "formatted_entry": "A. Sands, On Keller’s conjecture for certain cyclic groups, Proc. Edinb. Math. Soc. 2 (1979), 17–21."
+          },
+          {
+            "key": "[18]",
+            "formatted_entry": "I. J. Schoenberg, A note on the cyclotomic polynomial, Mathematika 11 (1964), 131–136."
+          },
+          {
+            "key": "[19]",
+            "formatted_entry": "J. P. Steinberger, Tilings of the integers can have superpolynomial periods, Combinatorica 29 (2009), no. 4, 503–509."
+          },
+          {
+            "key": "[20]",
+            "formatted_entry": "J. P. Steinberger, The lowest-degree polynomial with nonnegative coefficients divisible by the n-th cyclotomic polynomial, Electron. J. Comb. 19 (2012), no. 4, https://doi.org/10.37236/2755."
+          },
+          {
+            "key": "[21]",
+            "formatted_entry": "S. Szabó, A type of factorization of finite abelian groups, Discrete Math. 54 (1985), 121–124."
+          },
+          {
+            "key": "[22]",
+            "formatted_entry": "R. Tijdeman, Decomposition of the integers as a direct sum of two subsets, Number theory (Paris 1992–1993), London Mathematical Society Lecture Note Series, vol. 215, Cambridge University Press, Cambridge, 1995, pp. 261–276."
+          },
+          {
+            "key": "[23]",
+            "formatted_entry": "R. Tijdeman, Periodicity and almost-periodicity, With appendix by I. Z. Ruzsa, in: E. Győri, G. O. H. Katona, L. Lovász, and T. Fleiner (eds.), More sets, graphs and numbers, Bolyai Society Mathematical Studies, vol. 15, Springer, Berlin, 2006. https://doi.org/10.1007/978-3-540-32439-3-18."
+          }
+        ]
+      }
+    }
+  ]
+}

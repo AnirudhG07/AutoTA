@@ -1,0 +1,508 @@
+{
+  "document": [
+    {
+      "title": "Webb’s conjecture and generalised Harish-Chandra theory"
+    },
+    {
+      "abstract": "Webb’s conjecture states that the orbit space of the Brown complex of a finite group at any given prime $\\ell$ is contractible. This conjecture was proved by Symonds in 1998. In this paper, we suggest a generalisation of Webb’s conjecture for finite reductive groups. This is done by associating to each irreducible character a new simplicial complex defined in terms of Deligne–Lusztig theory. We then show that our conjecture follows from a condition, called $(e\\text{-HC-conj})$ below, related to generalised Harish-Chandra theory. In particular, using earlier results of the author, we prove our conjecture and recover Symonds result for finite reductive groups under mild restrictions on the prime $\\ell$. Finally, we show that the condition $(e\\text{-HC-conj})$ is implied by the contractibility of the orbit spaces associated to our newly defined complex offering an unexplored topological approach to proving the uniqueness of $e$-cuspidal pairs up to conjugation."
+    },
+    {
+      "authors": [
+        {
+          "name": "Damiano Rossi",
+          "affiliation": "FB Mathematik, RPTU Kaiserslautern–Landau, Kaiserslautern, Germany"
+        }
+      ],
+      "keywords": [],
+      "msc_codes": [
+        "20G40",
+        "20C20",
+        "55P10",
+        "55P91"
+      ],
+      "publication_date": "2025-01-09",
+      "source": "Bulletin of the London Mathematical Society, DOI: 10.1112/blms.70017"
+    },
+    {
+      "type": "Section",
+      "label": "sec:intro",
+      "level": 1,
+      "header": "1 Introduction",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "The Brown complex of a finite group $G$ at a prime $\\ell$ is defined as the simplicial complex $\\Delta(\\mathcal{S}^*_\\ell(G))$ associated to the poset $\\mathcal{S}^*_\\ell(G)$ of non-trivial $\\ell$-subgroups of $G$ ordered by inclusion. Its study was initiated by Brown [6] while its importance in the study of finite group theory was highlighted by the work of Quillen [25]. Here, we are interested in a statement that was first conjectured by Webb. For this observe that $G$ has a natural action on the poset $\\mathcal{S}^*_\\ell(G)$ induced by conjugation that endows $\\Delta(\\mathcal{S}^*_\\ell(G))$ with a structure of a $G$-simplicial complex. Webb conjectured in [33] that the associated orbit space $\\Delta(\\mathcal{S}^*_\\ell(G))/G$ is contractible and proved in [34] that it is always mod $\\ell$ acyclic. Webb’s conjecture was fully proved by Symonds [32] and later extended to orbit spaces of fusion systems by Linckelmann [21]."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Suppose now that $G = \\mathbf{G}^F$ is a finite reductive group, for some connected reductive group $\\mathbf{G}$ defined over an algebraically closed field of positive characteristic and some Frobenius endomorphism $F\\colon \\mathbf{G}\\to\\mathbf{G}$ defining an $\\mathbb{F}_q$-structure on $\\mathbf{G}$, with $q$ a prime power. Let $e$ be any positive integer and $\\chi$ any irreducible complex character of $\\mathbf{G}^F$. In this paper, we associate to each choice of $e$ and $\\chi$ a $\\mathbf{G}^F$-simplicial complex $\\Delta(\\mathcal{L}^*_e(\\chi))$ defined in terms of Deligne–Lusztig theory (see Definition 2.1) in such a way that $\\Delta(\\mathcal{L}^*_e(1_{\\mathbf{G}^F}))$ is homotopy equivalent to the Brown complex $\\Delta(\\mathcal{S}^*_\\ell(\\mathbf{G}^F))$ whenever $\\ell$ is a good prime for $\\mathbf{G}$ not dividing $q$ and $e$ is the order of $q$ modulo $\\ell$ (see Corollary 2.4 for a precise statement). It is then natural to ask whether the orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F$ is contractible for every $e$ and $\\chi$. Our first result reduces this problem to a well-known condition, here denoted by $(e\\text{-HC-conj})$, arising in generalised Harish-Chandra theory stating that the so-called $e$-cuspidal pairs are unique up to conjugation (see Definition 3.1)."
+        },
+        {
+          "type": "Theorem",
+          "header": "Theorem",
+          "label": "thm:A",
+          "claim": "Let $\\mathbf{G}^F$ be a finite reductive group and consider a positive integer $e$ and an irreducible complex character $\\chi$ of $\\mathbf{G}^F$. If the condition $(e\\text{-HC-conj})$ holds below $\\chi$, then the orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F$ is contractible."
+        },
+        {
+          "type": "Paragraph",
+          "text": "While the condition $(e\\text{-HC-conj})$ is expected to hold in general, at the present time it is only known under particular assumptions. We recall the main known cases in Remark 3.3. In particular, by applying [28, Proposition 4.10], we obtain the following corollary. We refer the reader to Definition 3.2 for a description of the set of primes $\\Gamma(\\mathbf{G}, F)$ considered below."
+        },
+        {
+          "type": "Theorem",
+          "header": "Corollary",
+          "label": "cor:B",
+          "claim": "Let $\\mathbf{G}^F$ be a finite reductive group defined over $\\mathbb{F}_q$ and consider a positive integer $e$. If there exists some prime $\\ell\\in \\Gamma(\\mathbf{G}, F)$ with $\\ell \\ge 5$ and such that $e$ is the order of $q$ modulo $\\ell$, then the orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F$ is contractible for every irreducible complex character $\\chi$ of $\\mathbf{G}^F.$"
+        },
+        {
+          "type": "Paragraph",
+          "text": "As explained before, by considering $\\chi = 1_{\\mathbf{G}^F}$ in the above corollary, we recover the contractibility of $\\Delta(\\mathcal{S}^*_\\ell(\\mathbf{G}^F))/\\mathbf{G}^F$ as conjectured by Webb and proved by Symonds. Our proof of Theorem A, and hence of Corollary B, relies on Bestvina–Brady discrete Morse theory [2], that we apply through Bux’s work [7], together with techniques from Deligne–Lusztig theory and representation theory of finite reductive groups."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Before presenting our final result, we highlight the importance of the condition $(e\\text{-HC-conj})$ in group representation theory. In fact, using $(e\\text{-HC-conj})$ it is possible to determine a partition of the set of irreducible characters into so-called $e$-Harish-Chandra series. This partition has applications to several problems: from the parametrisation of the Brauer $\\ell$-blocks in non-defining characteristic (see [5, 8, 9] and [19]), to the study of the long-standing local-global conjectures (see [11, 12, 14, 18, 23, 26, 28] and [30]), to even the study of the representations of $p$-adic groups (see [20]). Given the numerous implications of the condition $(e\\text{-HC-conj})$, it would be desirable to prove it unconditionally. While this is beyond the scope of our paper, in the next result we obtain a converse of Theorem A which gives a criterion for the validity of $(e\\text{-HC-conj})$ in terms of topological properties that might be more easily verifiable."
+        },
+        {
+          "type": "Theorem",
+          "header": "Theorem",
+          "label": "thm:C",
+          "claim": "Let $\\mathbf{G}^F$ be a finite reductive group and consider a positive integer $e$ and an irreducible character $\\chi$ of $\\mathbf{G}^F$. If the orbit space $\\Delta(\\mathcal{L}^*_e(\\lambda))/\\mathbf{L}^F$ is contractible for every $e$-pair $(\\mathbf{L}, \\lambda) \\ll_e (\\mathbf{G}, \\chi)$, then the condition $(e\\text{-HC-conj})$ holds below $\\chi$."
+        },
+        {
+          "type": "Paragraph",
+          "text": "The paper is organised as follows. In Section 2, we introduce the relevant background material from Deligne–Lusztig theory and define the simplicial complex $\\Delta(\\mathcal{L}^*_e(\\chi))$. Here, we also show how to recover the Brown complex $\\Delta(\\mathcal{S}^*_\\ell(\\mathbf{G}^F))$ by taking $\\chi = 1_{\\mathbf{G}^F}$ (see Corollary 2.4). In Section 3, we introduce the required definitions from generalised Harish-Chandra theory and define the condition $(e\\text{-HC-conj})$. Section 4 is devoted to discrete Morse theory. We recall the necessary results using the language of directed graphs and flag complexes as presented in [7]. Finally, in Section 5 we obtain the proofs of Theorem A, Corollary B and Theorem C."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:2",
+      "level": 1,
+      "header": "2 Simplicial complexes defined by Deligne–Lusztig theory",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "Let $\\mathbf{G}$ be a connected reductive group defined over an algebraically closed field of positive characteristic $p$ and $F\\colon \\mathbf{G}\\to\\mathbf{G}$ a Frobenius endomorphism edowing the variety $\\mathbf{G}$ with an $\\mathbb{F}_q$-structure, where $q$ is a power of $p$. In their seminal papers [13] and [22], Deligne–Lusztig and Lusztig introduced a generalisation of Harish-Chandra induction defined in terms of $\\ell$-adic cohomology of Deligne–Lusztig varieties. This type of induction is defined for every $F$-stable Levi subgroup $\\mathbf{L}$ of $\\mathbf{G}$ contained in a parabolic subgroup $\\mathbf{P}$ and yields a functor"
+        },
+        {
+          "type": "Paragraph",
+          "text": "$$\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G}}\\colon \\mathbb{Z}\\mathrm{Irr}(\\mathbf{L}^F) \\to \\mathbb{Z}\\mathrm{Irr}(\\mathbf{G}^F)$$"
+        },
+        {
+          "type": "Paragraph",
+          "text": "with adjoint"
+        },
+        {
+          "type": "Paragraph",
+          "text": "$$\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G}\\,*}\\colon \\mathbb{Z}\\mathrm{Irr}(\\mathbf{G}^F) \\to \\mathbb{Z}\\mathrm{Irr}(\\mathbf{L}^F).$$"
+        },
+        {
+          "type": "Paragraph",
+          "text": "It is expected, and known in most cases, that the above functors are independent of the choice of the parabolic subgroup $\\mathbf{P}$ (see [16, Theorems 3.3.7 and 3.3.8]). All the arguments and statements considered below hold independently of the choice of the ambient parabolic subgroup and we will therefore suppress the symbol $\\mathbf{P}$ from the above notation."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Consider now a positive integer $e$. Following [3], for every $F$-stable torus $\\mathbf{T}$ of $\\mathbf{G}$, we denote by $\\mathbf{T}_e$ the (unique) Sylow $e$-torus of $\\mathbf{T}$. We then say that an $F$-stable Levi subgroup is $e$-split if it satisfies $\\mathbf{L} = \\mathbf{C}_{\\mathbf{G}}(\\mathbf{Z}^\\circ(\\mathbf{L})_e)$. One can show that the $e$-split Levi subgroups of $(\\mathbf{G}, F)$ are exactly the centralisers of $e$-tori, that is, tori satisfying $\\mathbf{T} = \\mathbf{T}_e$. We denote by $\\mathcal{L}_e(\\mathbf{G}, F)$ the set of all $e$-split Levi subgroups and by $\\mathcal{L}^*_e(\\mathbf{G}, F)$ the subset of proper $e$-split Levi subgroups, that is, subgroups strictly contained in $\\mathbf{G}$. Next, we say that $(\\mathbf{L}, \\lambda)$ is an $e$-pair of $(\\mathbf{G}, F)$ if $\\mathbf{L}$ is an $e$-split Levi subgroup of $(\\mathbf{G}, F)$ and $\\lambda$ is an irreducible character of $\\mathbf{L}^F$. Following [9, Notation 1.11], we can define a binary relation, denoted by $\\preceq_e,$ on the set of all $e$-pairs of $(\\mathbf{G}, F)$ by setting $(\\mathbf{L}, \\lambda) \\preceq_e (\\mathbf{M}, \\mu)$ whenever $\\mathbf{L}\\subseteq \\mathbf{M}$ and $\\mu$ appears as an irreducible constituent of $\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{M}}(\\lambda)$. To obtain a partial order relation on the set of $e$-pairs, we then consider the transitive closure $\\ll_e$ of $\\preceq_e$. Observe that the relation $\\preceq_e$ is expected to be transitive, however this is not yet known in full generality (see [28, Proposition 4.5] for a list of partial results)."
+        },
+        {
+          "type": "Definition",
+          "header": "Definition",
+          "label": "def:2_1",
+          "definition": "Let $e$ be a positive integer and $\\chi$ an irreducible character of $\\mathbf{G}^F$. We denote by $\\mathcal{L}_e(\\chi)$ the set of $e$-pairs $(\\mathbf{L}, \\lambda)$ of $(\\mathbf{G}, F)$ satisfying $(\\mathbf{L}, \\lambda) \\ll_e (\\mathbf{G}, \\chi)$. Furthermore, we denote by $\\mathcal{L}^*_e(\\chi)$ the subset of $\\mathcal{L}_e(\\chi)$ consisting of those pairs $(\\mathbf{L}, \\lambda)$ with $\\mathbf{L} < \\mathbf{G}$. The set $\\mathcal{L}^*_e(\\chi)$ is a poset with respect to $\\ll_e$ and we consider the associated order complex $\\Delta(\\mathcal{L}^*_e(\\chi))$. Observe that a simplex $\\sigma$ in $\\Delta(\\mathcal{L}^*_e(\\chi))$ is a totally ordered subset of $\\mathcal{L}^*_e(\\chi)$ with respect to $\\ll_e$. In particular, there exists a minimal $e$-pair in $\\sigma$ that we denote by $\\bigl(\\mathbf{L}(\\sigma), \\lambda(\\sigma)\\bigr)$. "
+        },
+        {
+          "type": "Lemma",
+          "header": "Lemma",
+          "label": "lem:2_2",
+          "claim": "The posets $\\mathcal{L}^*_e(\\mathbf{G}, F)$ and $\\mathcal{L}^*_e(1_{\\mathbf{G}^F})$ are naturally isomorphic. In particular, the complexes $\\Delta(\\mathcal{L}^*_e(\\mathbf{G}, F))$ and $\\Delta(\\mathcal{L}^*_e(1_{\\mathbf{G}^F}))$ are canonically homeomorphic."
+        },
+        {
+          "type": "Proof",
+          "claim_label": "lem:2_2",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Consider a pair $(\\mathbf{L}, \\lambda) \\in \\mathcal{L}^*_e(1_{\\mathbf{G}^F}).$ By definition, we know that $(\\mathbf{L}, \\lambda) \\ll_e (\\mathbf{G}, 1_{\\mathbf{G}^F}).$ As $1_{\\mathbf{G}^F}$ is unipotent, we deduce from [16, Theorem 4.6.20 (b)] that $(\\mathbf{L}, \\lambda) \\preceq_e (\\mathbf{G}, 1_{\\mathbf{G}^F}).$ In other words, $1_{\\mathbf{G}^F}$ is an irreducible constituent of the virtual character $\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G}}(\\lambda)$. Recalling that $\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G}}$ and $\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G},*}$ are adjoint, we obtain"
+            },
+            {
+              "type": "Paragraph",
+              "text": "$$0 \\neq \\langle\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G}}(\\lambda), 1_{\\mathbf{G}^F}\\rangle = \\langle\\lambda, \\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G},*}(1_{\\mathbf{G}^F})\\rangle.$$"
+            },
+            {
+              "type": "Paragraph",
+              "text": "On the other hand $\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G},*}(1_{\\mathbf{G}^F}) = 1_{\\mathbf{L}^F}$ (see, for instance, [16, Example 3.3.4]), and therefore we get $\\lambda = 1_{\\mathbf{L}^F}.$ It now follows that the map of posets $\\mathcal{L}^*_e(\\mathbf{G}, F) \\to \\mathcal{L}^*_e(1_{\\mathbf{G}^F})$ given by $\\mathbf{L} \\mapsto (\\mathbf{L}, 1_{\\mathbf{L}^F})$ is an isomorphism as required. The induced map of simplicial complexes is then a homeomorphism."
+            }
+          ]
+        },
+        {
+          "type": "Paragraph",
+          "text": "Recall that each irreducible character $\\chi \\in \\mathrm{Irr}(\\mathbf{G}^F)$ is invariant under $\\mathbf{G}^F$. In particular, the conjugation action of $\\mathbf{G}^F$ induces an action of $\\mathbf{G}^F$ on the poset $\\mathcal{L}^*_e(\\chi)$. This endows $\\Delta(\\mathcal{L}^*_e(\\chi))$ with a structure of a $\\mathbf{G}^F$-simplicial complex (see [1, Definition 6.1.1]) and we can therefore consider the corresponding orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F.$ Combining Lemma 2.2 with [27, Theorem A], we can show that this orbit space generalises, as far as finite reductive groups are concerned, the orbit space associated to the Brown complex as considered in Webb’s conjecture. First, we need to recall the definition of the set of primes $\\pi(\\mathbf{G}, F)$ from [27, Definition 2.1]."
+        },
+        {
+          "type": "Definition",
+          "header": "Definition",
+          "label": "def:2_3",
+          "definition": "Denote by $\\pi'(\\mathbf{G}, F)$ the set of odd primes $\\ell$ that are good for $\\mathbf{G}$, do not divide $q$ nor $|\\mathbf{Z}(\\mathbf{G}^{\\mathrm{sc}})^F|$, and with $\\ell \\neq 3$ when $(\\mathbf{G}, F)$ has a rational component of type $^3\\!D_4$. If $(\\mathbf{G}^*, F^*)$ is in duality with $(\\mathbf{G}, F)$, then we define $\\pi(\\mathbf{G}, F)$ as the subset of those $\\ell \\in \\pi'(\\mathbf{G}, F)$ not dividing $|\\mathbf{Z}(\\mathbf{G})^F : \\mathbf{Z}^\\circ(\\mathbf{G})^F|$ nor $|\\mathbf{Z}(\\mathbf{G}^*)^{F^*} : \\mathbf{Z}^\\circ(\\mathbf{G}^*)^{F^*}|.$"
+        },
+        {
+          "type": "Theorem",
+          "header": "Corollary",
+          "label": "cor:2_4",
+          "claim": "Let $\\ell \\in \\pi(\\mathbf{G}, F)$ not dividing the order of $\\mathbf{Z}(\\mathbf{G})^F$ and denote by $e = e_\\ell(q)$ the order of $q$ modulo $\\ell$. Then, there is a $\\mathbf{G}^F$-homotopy equivalence $\\Delta(\\mathcal{L}^*_e(1_{\\mathbf{G}^F})) \\simeq \\Delta(\\mathcal{S}^*_\\ell(\\mathbf{G}^F)).$ In particular, we have a homotopy equivalence of orbit spaces $\\Delta(\\mathcal{L}^*_e(1_{\\mathbf{G}^F}))/\\mathbf{G}^F \\simeq \\Delta(\\mathcal{S}^*_\\ell(\\mathbf{G}^F))/\\mathbf{G}^F.$"
+        },
+        {
+          "type": "Paragraph",
+          "text": "To conclude this section, we point out that the simplicial complex $\\Delta(\\mathcal{L}^*_e(\\chi))$ can be seen as a refinement of the complex $\\Delta(\\mathcal{L}^*_e(\\mathbf{B}))$ introduced in [29, Definition 3.3], where $\\mathbf{B}$ is a Brauer $\\ell$-block and $e$ the order of $q$ modulo $\\ell$. In fact, under suitable assumptions, it is possible to show that $\\mathcal{L}^*_e(\\mathbf{B})$ is the union of those $\\mathcal{L}^*_e(\\chi)$ with $\\chi$ belonging to $\\mathbf{B}$ (see [28, Corollary 4.9])."
+        },
+        {
+          "type": "Remark",
+          "header": "Remark",
+          "label": "rmk:2_5",
+          "remark": "As a consequence of Corollary 2.4, when $\\ell$ is a good prime not dividing $q$ and $e$ is the order of $q$ modulo $\\ell,$ the new complex $\\Delta(\\mathcal{L}^*_e(\\chi))$ recovers and generalises the Brown complex $\\Delta(\\mathcal{S}^*_\\ell(\\mathbf{G}^F))$ up to homotopy."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:3",
+      "level": 1,
+      "header": "3 Generalised Harish-Chandra theory",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "Generalised Harish-Chandra theory provides a powerful tool for the study of modular representation theory of finite reductive groups in non-defining characteristic (see [16, Chapter 3] and [10, Part V] for an introduction to the theory). It can be roughly divided into two parts: the first part gives a partition of the irreducible characters into so-called generalised Harish-Chandra series, the second part describes each such series in terms of a relative Weyl group and its associated cyclotomic Hecke algebra (see [4]). In this paper, we are interested in the first of these two statements and in its connection to the contractibility of the orbit space associated with the complex introduced in Definition 2.1."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Let $\\mathbf{G}, F, q$ be as in the previous section and consider a positive integer $e$. An irreducible character $\\chi \\in \\mathrm{Irr}(\\mathbf{G}^F)$ is called $e$-cuspidal if $\\mathrm{R}_{\\mathbf{L}}^{\\mathbf{G},*}(\\chi) = 0$ for all proper $e$-split Levi subgroups $\\mathbf{L} < \\mathbf{G}$. Then, we say that an $e$-pair $(\\mathbf{L}, \\lambda)$ of $(\\mathbf{G}, F)$ is $e$-cuspidal if $\\lambda$ is an $e$-cuspidal character of $\\mathbf{L}^F$. Observe that an $e$-pair $(\\mathbf{L}, \\lambda)$ is $e$-cuspidal if and only if it is a minimum with respect to the order relation $\\ll_e$. In particular, notice that the poset $\\mathcal{L}^*_e(\\chi)$ from Definition 2.1 is empty if and only if $\\chi$ is $e$-cuspidal."
+        },
+        {
+          "type": "Paragraph",
+          "text": "The following condition describes the uniqueness of $e$-cuspidal pairs, up to conjugation, and is a fundamental part of generalised Harish-Chandra theory."
+        },
+        {
+          "type": "Definition",
+          "header": "Definition",
+          "label": "def:3_1",
+          "definition": "(e-HC-conj). Consider an irreducible character $\\chi \\in \\mathrm{Irr}(\\mathbf{G}^F)$. We say that $\\chi$ satisfies $(e\\text{-HC-conj})$ in $\\mathbf{G}^F$ if all $e$-cuspidal pairs $(\\mathbf{L}, \\lambda)$ with $(\\mathbf{L}, \\lambda) \\preceq_e (\\mathbf{G}, \\chi)$ are $\\mathbf{G}^F$-conjugate. Then, we say that $(e\\text{-HC-conj})$ holds below $\\chi$, if for every $e$-pair $(\\mathbf{K}, \\kappa) \\ll_e (\\mathbf{G}, \\chi)$, the character $\\kappa$ satisfies $(e\\text{-HC-conj})$ in $\\mathbf{K}^F.$"
+        },
+        {
+          "type": "Paragraph",
+          "text": "While the above condition is expected for every $e \\ge 1$ and any $\\chi \\in \\mathrm{Irr}(\\mathbf{G}^F)$, at present it is only known under particular assumptions. Below we collect the main cases where $(e\\text{-HC-conj})$ has been verified. For this we recall the definition of a set of primes closely related to $\\pi(\\mathbf{G}, F)$."
+        },
+        {
+          "type": "Definition",
+          "header": "Definition",
+          "label": "def:3_2",
+          "definition": "Let $\\gamma(\\mathbf{G}, F)$ be the set of odd primes, good for $\\mathbf{G}$ (as defined in [16, 2.7.14]), and not dividing $q$ nor $|\\mathbf{Z}(\\mathbf{G})^F : \\mathbf{Z}^\\circ(\\mathbf{G})^F|.$ Consider a pair $(\\mathbf{G}^*, F^*)$ in duality with $(\\mathbf{G}, F)$ and define $\\Gamma(\\mathbf{G}, F)$ to be ($\\gamma(\\mathbf{G}, F) \\cap \\gamma(\\mathbf{G}^*, F^*)$) $\\setminus \\{3\\}$, if $\\mathbf{G}^{\\mathrm{ad}}$ has a rational component of type $^3\\!D_4$, or $\\gamma(\\mathbf{G}, F) \\cap \\gamma(\\mathbf{G}^*, F^*)$ otherwise."
+        },
+        {
+          "type": "Remark",
+          "header": "Remark",
+          "label": "rmk:3_3",
+          "remark": "**Known cases for $(e\\text{-HC-conj})$:**\n1. $e = 1$ (see [16, Corollary 3.1.17]).\n2. $\\chi$ is unipotent (see [5, Theorem 3.2]).\n3. $\\chi$ belongs to a Lusztig series associated to a semisimple element of $\\mathbf{G}^*$ of order prime to $\\ell$, $\\ell \\ge 5$ does not divide $q$, and $e = e_\\ell(q)$ (see [9, Theorem 4.1]).\n4. $\\chi$ belongs to a Lusztig series associated to a quasi-isolated semisimple element of $\\mathbf{G}^*$ of order prime to $\\ell$ bad for $\\mathbf{G}$, with $\\mathbf{G}$ simple, simply connected and of exceptional type, and $e = e_\\ell(q)$ (see [18, Theorem 1.4 (a)]).\n5. $\\ell \\in \\Gamma(\\mathbf{G}, F)$ with $\\ell \\ge 5$, and $e = e_\\ell(q)$ (see [28, Proposition 4.10])."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:4",
+      "level": 1,
+      "header": "4 A Morse theoretic criterion for the contractibility of orbit spaces",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "Discrete Morse theory, developed in the 1990s by Bestvina–Brady [2] and Forman [15], is an adaptation of the classical Morse theory for differentiable manifolds to the setting of cell complexes. Morse theoretic techniques have been successfully exploited to obtain results on the contractibility of orbit spaces for subgroup complexes. In [7], Bux used discrete Morse theory, as developed by Bestvina and Brady [2], to obtain a new proof of Webb’s conjecture on the contractibility of the orbit space of the $\\ell$-subgroups complex. Recently, another proof of Webb’s conjecture was given by Steinberg [31] utilising, instead, the discrete Morse theory of Forman [15]. We also mention Grodal’s result [17, Proposition A.3], where Webb’s conjecture is proved by removing (or pruning) a conjugacy class of $\\ell$-subgroups at a time. In this paper, we make use of discrete Morse theory by applying a criterion obtain by Bux in [7]."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Let $\\Gamma$ be a directed graph. For any two vertices $u, v \\in \\Gamma,$ we write $u \\leftarrow v$ if there is an edge in $\\Gamma$ from $v$ to $u$. A **clique** in $\\Gamma$ is a subset $S$ of vertices of $\\Gamma$ such that for any pair of distinct elements $u, v \\in S$ we have either $u \\leftarrow v$ or $v \\leftarrow u$. We can then associate a simplicial complex $\\mathrm{Fl}(\\Gamma)$, called the **flag complex** (or the clique complex), to $\\Gamma$ as follows: the vertices of $\\mathrm{Fl}(\\Gamma)$ are those of $\\Gamma$ and a simplex $\\sigma$ in $\\mathrm{Fl}(\\Gamma)$ is a finite clique of $\\Gamma$. Consider now a group $G$ and assume that $\\Gamma$ is a directed $G$-graph, that is, $G$ acts by automorphisms of directed graphs on $\\Gamma$. If $\\Gamma$ is **well-founded**, that is, $\\Gamma$ has no directed paths of infinite length, then $\\mathrm{Fl}(\\Gamma)$ is a $G$-simplicial complex and we can form the orbit space $\\mathrm{Fl}(\\Gamma)/G$. While the latter might not be a simplicial complex, it turns out to be a CW-complex, to which discrete Morse theory applies. Bux’s [7, Corollary 13], provides a criterion for the contractibility of $\\mathrm{Fl}(\\Gamma)/G$ in terms of the action of $G$ on certain subgraphs of $\\Gamma$."
+        },
+        {
+          "type": "Paragraph",
+          "text": "More precisely, for any $u \\in \\Gamma,$ let $\\Gamma^\\downarrow_u$ be the subgraph of $\\Gamma$ spanned by those vertices $v \\in \\Gamma$ such that $v \\leftarrow u$. For a simplex $\\sigma \\in \\mathrm{Fl}(\\Gamma)$, we set"
+        },
+        {
+          "type": "Paragraph",
+          "text": "$$\\Gamma^\\downarrow_\\sigma := \\bigcap_{u \\in \\sigma} \\Gamma^\\downarrow_u,$$
+where $u$ runs over the vertices of $\\sigma$. Furthermore, we say that a vertex $u$ is **minimal** if $\\Gamma^\\downarrow_u$ is empty, or equivalently, if there are no edges in $\\Gamma$ with $u$ as starting vertex. Then, we say that a simplex $\\sigma \\in \\mathrm{Fl}(\\Gamma)$ is **minimal** if it contains a minimal vertex."
+        },
+        {
+          "type": "Proposition",
+          "header": "Proposition",
+          "label": "prop:4_1",
+          "claim": "(Bux) Let $G$ be a group and $\\Gamma$ a well-founded directed $G$-graph. Suppose that $G$ acts transitively on the set of minimal vertices of $\\Gamma$ and that, for each non-minimal $\\sigma \\in \\mathrm{Fl}(\\Gamma)$, the stabiliser $G_\\sigma$ acts transitively on the set of minimal elements of $\\Gamma^\\downarrow_\\sigma$. Then the orbit space $\\mathrm{Fl}(\\Gamma)/G$ is contractible."
+        },
+        {
+          "type": "Paragraph",
+          "text": "The above result relies on the following two statements that will also serve as the main ingredients of the proof Theorem C."
+        },
+        {
+          "type": "Lemma",
+          "header": "Lemma",
+          "label": "lem:4_2",
+          "claim": "(Bux) Let $\\Gamma$ be a well-founded directed $G$-graph, consider the flag complex $\\mathrm{Fl}(\\Gamma)$ and suppose that $\\mathrm{Fl}(\\Gamma^\\downarrow_\\sigma)/G_\\sigma$ is contractible for all simplices $\\sigma \\in \\mathrm{Fl}(\\Gamma)$. Denote by $(\\mathrm{Fl}(\\Gamma)/G)^\\leq_0$ the discrete space whose points correspond to the $G$-orbits of minimal elements in $\\mathrm{Fl}(\\Gamma)$. Then the inclusion $(\\mathrm{Fl}(\\Gamma)/G)^\\leq_0 \\hookrightarrow \\mathrm{Fl}(\\Gamma)/G$ is a homotopy equivalence."
+        },
+        {
+          "type": "Paragraph",
+          "text": "*Sketch of proof.* This follows immediately by [7, Lemma 9] applied to the CW-complex $X = \\mathrm{Fl}(\\Gamma)/G$ after noticing that $\\mathrm{Fl}(\\Gamma^\\downarrow_\\sigma)/G_\\sigma$ coincides with the descending link in $X$ of the image $\\sigma$ of $\\sigma$ in $X$ (see [7, Observation 10] and the equality in the paragraph preceding [7, Remark 11])."
+        },
+        {
+          "type": "Theorem",
+          "header": "Theorem",
+          "label": "thm:4_3",
+          "claim": "(Bux) Let $\\Gamma$ be a well-founded directed $G$-graph. Then the following are equivalent:\n1. For every non-minimal simplex $\\sigma$ in $\\mathrm{Fl}(\\Gamma)$, the orbit space $\\mathrm{Fl}(\\Gamma^\\downarrow_\\sigma)/G_\\sigma$ is contractible.\n2. For every non-minimal simplex $\\sigma$ in $\\mathrm{Fl}(\\Gamma)$, the stabiliser $G_\\sigma$ acts transitively on the set of minimal vertices in $\\Gamma^\\downarrow_\\sigma$."
+        },
+        {
+          "type": "Paragraph",
+          "text": "*Sketch of proof.* This follows from [7, Theorem 12] after noticing the equality in the paragraph preceding [7, Remark 11]."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:5",
+      "level": 1,
+      "header": "5 Proof of Theorem A and Theorem C",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "To prove Theorem A, we will make use of Bux’s criterion from the previous section. For this, we first need to provide a connection between the flag complex of a directed graph and the order complex of a poset. This is done by using the comparability graph."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Let $\\mathcal{P}$ be a poset with respect to the order relation $\\le$. The **comparability graph** of $\\mathcal{P}$ is the directed graph $\\Gamma(\\mathcal{P})$ with vertex set $\\mathcal{P}$ and with an edge $u \\leftarrow v$ whenever $u \\le v$ as elements in the poset $\\mathcal{P}$. We can then associate a simplicial complex $\\mathrm{Fl}(\\Gamma(\\mathcal{P}))$, called **the flag complex** of the comparability graph, to $\\Gamma(\\mathcal{P})$."
+        },
+        {
+          "type": "Lemma",
+          "header": "Lemma",
+          "label": "lem:5_1",
+          "claim": "For any poset $\\mathcal{P}$ there is a canonical homeomorphism between $\\Delta(\\mathcal{P})$ and $\\mathrm{Fl}(\\Gamma(\\mathcal{P}))$."
+        },
+        {
+          "type": "Proof",
+          "claim_label": "lem:5_1",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Let $\\sigma$ be a simplex in $\\Delta(\\mathcal{P})$. By definition $\\sigma$ is a totally ordered subset of $\\mathcal{P}$. In particular, when we see $\\sigma$ as a set of vertices in $\\Gamma(\\mathcal{P})$, we have that either $u \\leftarrow v$ or $v \\leftarrow u$, for any $u \\neq v$ in $\\sigma$. In other words, $\\sigma$ is a clique in $\\Gamma(\\mathcal{P})$ and so a simplex in $\\mathrm{Fl}(\\Gamma(\\mathcal{P}))$. Conversely, if we consider a simplex $\\sigma$ in $\\mathrm{Fl}(\\Gamma(\\mathcal{P}))$, then we can view $\\sigma$ as a totally ordered subset of $\\mathcal{P}$, that is, as a simplex of $\\Delta(\\mathcal{P})$. Therefore, the assignment $\\sigma \\mapsto \\sigma$ induces a homeomorphism between $\\Delta(\\mathcal{P})$ and $\\mathrm{Fl}(\\Gamma(\\mathcal{P}))$ as desired."
+            }
+          ]
+        },
+        {
+          "type": "Paragraph",
+          "text": "Thanks to Lemma 5.1, we can now apply Proposition 4.1 to the orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F$ and prove Theorem A."
+        },
+        {
+          "type": "Proof",
+          "claim_label": "thm:A",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Consider a positive integer $e$ and an irreducible character $\\chi \\in \\mathrm{Irr}(\\mathbf{G}^F)$. Assuming that $(e\\text{-HC-conj})$ holds below $\\chi$, we want to show that the orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F$ is contractible. Thanks to Lemma 5.1 we know that $\\Delta(\\mathcal{L}^*_e(\\chi))$ is canonically homeomorphic to the flag complex $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\chi)))$. Therefore, it suffices to verify the hypothesis of Proposition 4.1 with respect to the graph $\\Gamma(\\mathcal{L}^*_e(\\chi)).$"
+            },
+            {
+              "type": "Paragraph",
+              "text": "First, observe that $\\Gamma(\\mathcal{L}^*_e(\\chi))$ is a directed $\\mathbf{G}^F$-graph and that it is well-founded because its edges are induced by an order relation and $\\mathcal{L}^*_e(\\chi)$ is a finite set. Next, consider a minimal vertex $(\\mathbf{L}, \\lambda)$ of $\\Gamma(\\mathcal{L}^*_e(\\chi))$. The minimality of $(\\mathbf{L}, \\lambda)$ implies that no $e$-pair $(\\mathbf{K}, \\kappa)$ can be found such that $(\\mathbf{K}, \\kappa) \\ll_e (\\mathbf{L}, \\lambda)$ and $\\mathbf{K} \\neq \\mathbf{L}$. Therefore, $(\\mathbf{L}, \\lambda)$ is an $e$-cuspidal pair of $(\\mathbf{G}, F)$. As, by assumption, $(e\\text{-HC-conj})$ holds for $\\chi$, we deduce that $\\mathbf{G}^F$ acts transitively on the minimal vertices of $\\Gamma(\\mathcal{L}^*_e(\\chi)).$"
+            },
+            {
+              "type": "Paragraph",
+              "text": "Next, consider a non-minimal simplex $\\sigma$ in $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\chi)))$. We claim that there is a vertex in $\\sigma$, that we denote by $(\\mathbf{L}(\\sigma), \\lambda(\\sigma))$, such that $(\\mathbf{L}(\\sigma), \\lambda(\\sigma)) \\leftarrow (\\mathbf{K}, \\kappa)$ for every vertex $(\\mathbf{K}, \\kappa)$ in $\\sigma$. Indeed, $\\sigma$ has vertices that are minimal amongst those of $\\sigma$, otherwise we could find an infinite path in $\\Gamma(\\mathcal{L}^*_e(\\chi))$. This minimal vertex in $\\sigma$ must be unique; hence we denote it by $(\\mathbf{L}(\\sigma), \\lambda(\\sigma))$. It follows from [7, Remark 11] that $\\Gamma(\\mathcal{L}^*_e(\\chi))^\\downarrow_\\sigma = \\Gamma(\\mathcal{L}^*_e(\\chi))^\\downarrow_{(\\mathbf{L}(\\sigma), \\lambda(\\sigma))}$. Therefore, it remains to show that the stabiliser $\\mathbf{G}^F_\\sigma$ acts transitively on the minimal elements of $\\Gamma(\\mathcal{L}^*_e(\\chi))^\\downarrow_{\\sigma}$. By definition, $\\Gamma(\\mathcal{L}^*_e(\\chi))^\\downarrow_{\\sigma}$ is the subgraph spanned by the vertices $(\\mathbf{K}, \\kappa)$ of $\\Gamma(\\mathcal{L}^*_e(\\chi))$ such that $(\\mathbf{K}, \\kappa) \\leftarrow (\\mathbf{L}(\\sigma), \\lambda(\\sigma))$. In other words, it coincides with the comparability graph $\\Gamma(\\mathcal{L}^*_e(\\lambda(\\sigma)))$ of the subposet $\\mathcal{L}^*_e(\\lambda(\\sigma))$ of $\\mathcal{L}^*_e(\\chi)$. Observe that $(\\mathbf{L}(\\sigma), \\lambda(\\sigma))$ is not $e$-cuspidal because $\\sigma$ is a non-minimal simplex. In particular, $\\mathcal{L}^*_e(\\lambda(\\sigma))$ is non-empty. As argued before, any minimal vertex of $\\Gamma(\\mathcal{L}^*_e(\\lambda(\\sigma)))$ is an $e$-cuspidal pair in $(\\mathbf{L}(\\sigma), F)$ and assumption $(e\\text{-HC-conj})$ holds below $\\chi$, so that $\\lambda(\\sigma)$ also satisfies $(e\\text{-HC-conj})$ in $\\mathbf{L}(\\sigma)^F$. This implies that $\\mathbf{L}(\\sigma)^F$ acts transitively on the set of minimal vertices of $\\Gamma(\\mathcal{L}^*_e(\\lambda(\\sigma)))$. By construction $\\mathbf{L}(\\sigma)^F \\subseteq \\mathbf{G}^F_\\sigma$, since $(\\mathbf{L}(\\sigma), \\lambda(\\sigma)) \\leftarrow (\\mathbf{K}, \\kappa)$ for every $(\\mathbf{K}, \\kappa)$ in $\\sigma$. Therefore, $\\mathbf{G}^F_\\sigma$ acts transitively on the minimal vertices of $\\Gamma(\\mathcal{L}^*_e(\\chi))^\\downarrow_{\\sigma}$ as required. By Proposition 4.1, the orbit space $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\chi)))/\\mathbf{G}^F$ is contractible. This completes the proof of Theorem A."
+            }
+          ]
+        },
+        {
+          "type": "Paragraph",
+          "text": "As a consequence of Theorem A, we obtain that the orbit space $\\Delta(\\mathcal{L}^*_e(\\chi))/\\mathbf{G}^F$ is contractible, whenever any of the conditions of Remark 3.3 is satisfied. In particular, we obtain Corollary B as a consequence of Remark 3.3 (v). Finally, we prove Theorem C."
+        },
+        {
+          "type": "Proof",
+          "claim_label": "thm:C",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Suppose that the statement fails to hold. Then, we can find some $e$-pair $(\\mathbf{K}, \\kappa)$ of $(\\mathbf{G}, F)$ with $(\\mathbf{K}, \\kappa) \\ll_e (\\mathbf{G}, \\chi)$ such that $(e\\text{-HC-conj})$ does not hold for $\\kappa$ in $\\mathbf{K}^F$. Notice that $(\\mathbf{K}, \\kappa)$ cannot be an $e$-cuspidal pair and hence $\\mathcal{L}^*_e(\\kappa)$ is non-empty. We may also assume that the $e$-pair $(\\mathbf{K}, \\kappa)$ has been minimised with respect to $\\dim(\\mathbf{K})$, so that $(e\\text{-HC-conj})$ holds for $\\lambda$ in $\\mathbf{L}^F$ whenever $(\\mathbf{L}, \\lambda) \\ll_e (\\mathbf{G}, \\chi)$ and $\\dim(\\mathbf{L}) < \\dim(\\mathbf{K})$."
+            },
+            {
+              "type": "Paragraph",
+              "text": "We now consider the flag complex $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa)))$ and fix one of its simplices, say $\\tau$. We claim that $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa))^\\downarrow_\\tau)/\\mathbf{K}^F_\\tau$ is contractible. Without loss of generality, we may assume that $\\tau$ is non-minimal. Then, the claim follows from Theorem 4.3, provided that, for every non-minimal simplex $\\rho$ in $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa)))$, the stabiliser $\\mathbf{K}^F_\\rho$ acts transitively on the set of minimal vertices of $\\Gamma(\\mathcal{L}^*_e(\\kappa))^\\downarrow_\\rho$. Indeed, given any such simplex $\\rho$, we can find a unique vertex $(\\mathbf{L}(\\rho), \\lambda(\\rho))$ in $\\rho$ such that $(\\mathbf{L}(\\rho), \\lambda(\\rho)) \\leftarrow (\\mathbf{M}, \\mu)$ for every $(\\mathbf{M}, \\mu)$ in $\\rho$. By [7, Remark 11] we get $\\Gamma(\\mathcal{L}^*_e(\\kappa))^\\downarrow_\\rho = \\Gamma(\\mathcal{L}^*_e(\\kappa))^\\downarrow_{(\\mathbf{L}(\\rho), \\lambda(\\rho))}$. The minimal vertices of this subgraph are precisely the $e$-cuspidal pairs $(\\mathbf{L}, \\lambda)$ of $(\\mathbf{K}, F)$ satisfying $(\\mathbf{L}, \\lambda) \\ll_e (\\mathbf{L}(\\rho), \\lambda(\\rho))$. Since $\\mathbf{L}(\\rho) < \\mathbf{K}$, we obtain $\\dim(\\mathbf{L}(\\rho)) < \\dim(\\mathbf{K})$ and therefore $(e\\text{-HC-conj})$ holds for $\\lambda(\\rho)$ in $\\mathbf{L}(\\rho)^F$ by the minimality of $\\mathbf{K}$. This shows that $\\mathbf{K}^F_\\rho$ (which contains $\\mathbf{L}(\\rho)^F$) acts transitively on the set of these minimal vertices. Thus, $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa))^\\downarrow_\\tau)/\\mathbf{K}^F_\\tau$ is contractible, as claimed."
+            },
+            {
+              "type": "Paragraph",
+              "text": "Applying Lemma 4.2 to $\\Gamma(\\mathcal{L}^*_e(\\kappa))$ shows that the orbit space $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa)))/\\mathbf{K}^F$ is homotopy equivalent to $(\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa)))/\\mathbf{K}^F)^\\le_0$, the discrete space whose points correspond to the $\\mathbf{K}^F$-orbits of minimal vertices in $\\Gamma(\\mathcal{L}^*_e(\\kappa))$. Recall that these are precisely the $e$-cuspidal pairs $(\\mathbf{L}, \\lambda)$ of $(\\mathbf{K}, F)$ satisfying $(\\mathbf{L}, \\lambda) \\ll_e (\\mathbf{K}, \\kappa)$. Since $\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa)))/\\mathbf{K}^F \\simeq \\Delta(\\mathcal{L}^*_e(\\kappa))/\\mathbf{K}^F$ is contractible by hypothesis and using Lemma 5.1, it follows that $(\\mathrm{Fl}(\\Gamma(\\mathcal{L}^*_e(\\kappa)))/\\mathbf{K}^F)^\\le_0$ consists of a single point. Hence $(e\\text{-HC-conj})$ holds for $\\kappa$ in $\\mathbf{K}^F$. This contradicts our choice of $(\\mathbf{K}, \\kappa)$ and completes the proof of Theorem C."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:ack",
+      "level": 1,
+      "header": "Acknowledgements",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "This work is supported by the Walter Benjamin Programme of the DFG – Project number 525464727. I am grateful to Jesper Grodal and Gunter Malle for providing helpful comments on an earlier version of the manuscript."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:journal-info",
+      "level": 1,
+      "header": "Journal Information",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "The Bulletin of the London Mathematical Society is wholly owned and managed by the London Mathematical Society, a not-for-profit Charity registered with the UK Charity Commission. All surplus income from its publishing programme is used to support mathematicians and mathematics research in the form of research grants, conference grants, prizes, initiatives for early career researchers and the promotion of mathematics."
+        },
+        {
+          "type": "Paragraph",
+          "text": "**ORCID**: [\\[ORCID\\]](https://orcid.org/0000-0003-2832-2477)  \n**Received**: 21 August 2024  \n**Accepted**: 9 January 2025"
+        }
+      ]
+    },
+    {
+      "type": "Bibliography",
+      "header": "References",
+      "entries": [
+        {
+          "key": "1",
+          "formatted_entry": "D. J. Benson, Representations and cohomology. II, 2nd ed., Cambridge Studies in Advanced Mathematics, vol. 31, Cambridge University Press, Cambridge, 1998."
+        },
+        {
+          "key": "2",
+          "formatted_entry": "M. Bestvina and N. Brady, Morse theory and finiteness properties of groups, Invent. Math. 129 (1997), no. 3, 445–470."
+        },
+        {
+          "key": "3",
+          "formatted_entry": "M. Broué and G. Malle, Théorèmes de Sylow génériques pour les groupes réductifs sur les corps finis, Math. Ann. 292 (1992), no. 2, 241–262."
+        },
+        {
+          "key": "4",
+          "formatted_entry": "M. Broué and G. Malle, Zyklotomische Heckealgebren, Astérisque (1993), no. 212, 119–189."
+        },
+        {
+          "key": "5",
+          "formatted_entry": "M. Broué, G. Malle, and J. Michel, Generic blocks of finite reductive groups, Astérisque (1993), no. 212, 7–92."
+        },
+        {
+          "key": "6",
+          "formatted_entry": "K. S. Brown, Euler characteristics of groups: the p-fractional part, Invent. Math. 29 (1975), no. 1, 1–5."
+        },
+        {
+          "key": "7",
+          "formatted_entry": "K.-U. Bux, Orbit spaces of subgroup complexes, Morse theory, and a new proof of a conjecture of Webb, Topology Proc. 24 (1999), 39–51."
+        },
+        {
+          "key": "8",
+          "formatted_entry": "M. Cabanes and M. Enguehard, On unipotent blocks and their ordinary characters, Invent. Math. 117 (1994), no. 1, 149–164."
+        },
+        {
+          "key": "9",
+          "formatted_entry": "M. Cabanes and M. Enguehard, On blocks of finite reductive groups and twisted induction, Adv. Math. 145 (1999), no. 2, 189–229."
+        },
+        {
+          "key": "10",
+          "formatted_entry": "M. Cabanes and M. Enguehard, Representation theory of finite reductive groups, New Mathematical Monographs, vol. 1, Cambridge University Press, Cambridge, 2004."
+        },
+        {
+          "key": "11",
+          "formatted_entry": "M. Cabanes and B. Späth, Equivariance and extendibility in finite reductive groups with connected center, Math. Z. 275 (2013), no. 3–4, 689–713."
+        },
+        {
+          "key": "12",
+          "formatted_entry": "M. Cabanes and B. Späth, Equivariant character correspondences and inductive McKay condition for type A, J. Reine Angew. Math. 728 (2017), 153–194."
+        },
+        {
+          "key": "13",
+          "formatted_entry": "P. Deligne and G. Lusztig, Representations of reductive groups over finite fields, Ann. Math. (2) 103 (1976), no. 1, 103–161."
+        },
+        {
+          "key": "14",
+          "formatted_entry": "Z. Feng, C. Li, Y. Liu, G. Malle, and J. Zhang, Robinson’s conjecture on heights of characters, Compos. Math. 155 (2019), no. 6, 1098–1117."
+        },
+        {
+          "key": "15",
+          "formatted_entry": "R. Forman, Morse theory for cell complexes, Adv. Math. 134 (1998), no. 1, 90–145."
+        },
+        {
+          "key": "16",
+          "formatted_entry": "M. Geck and G. Malle, The character theory of finite groups of Lie type: a guided tour, Cambridge Studies in Advanced Mathematics, vol. 187, Cambridge University Press, Cambridge, 2020."
+        },
+        {
+          "key": "17",
+          "formatted_entry": "J. Grodal, Endotrivial modules for finite groups via homotopy theory, J. Amer. Math. Soc. 36 (2023), no. 1, 177–250."
+        },
+        {
+          "key": "18",
+          "formatted_entry": "R. Kessar and G. Malle, Quasi-isolated blocks and Brauer’s height zero conjecture, Ann. Math. (2) 178 (2013), no. 1, 321–384."
+        },
+        {
+          "key": "19",
+          "formatted_entry": "R. Kessar and G. Malle, Lusztig induction and ℓ-blocks of finite reductive groups, Pacific J. Math. 279 (2015), no. 1–2, 269–298."
+        },
+        {
+          "key": "20",
+          "formatted_entry": "T. Lanard, Unipotent ℓ-blocks for simply connected p-adic groups, Algebra Number Theory 17 (2023), no. 9, 1533–1572."
+        },
+        {
+          "key": "21",
+          "formatted_entry": "M. Linckelmann, The orbit space of a fusion system is contractible, Proc. Lond. Math. Soc. (3) 98 (2009), no. 1, 191–216."
+        },
+        {
+          "key": "22",
+          "formatted_entry": "G. Lusztig, On the finiteness of the number of unipotent classes, Invent. Math. 34 (1976), no. 3, 201–213."
+        },
+        {
+          "key": "23",
+          "formatted_entry": "G. Malle and B. Späth, Characters of odd degree, Ann. of Math. (2) 184 (2016), no. 3, 869–908."
+        },
+        {
+          "key": "24",
+          "formatted_entry": "G. Malle and D. Testerman, Linear algebraic groups and finite groups of Lie type, Cambridge Studies in Advanced Mathematics, vol. 133, Cambridge University Press, Cambridge, 2011."
+        },
+        {
+          "key": "25",
+          "formatted_entry": "D. Quillen, Homotopy properties of the poset of nontrivial p-subgroups of a group, Adv. Math. 28 (1978), no. 2, 101–128."
+        },
+        {
+          "key": "26",
+          "formatted_entry": "D. Rossi, Inductive local-global conditions and generalized Harish-Chandra theory, arXiv:2204.10301, 2022."
+        },
+        {
+          "key": "27",
+          "formatted_entry": "D. Rossi, The Brown complex in non-defining characteristic and applications, arXiv:2303.13973, 2023."
+        },
+        {
+          "key": "28",
+          "formatted_entry": "D. Rossi, Counting conjectures and e-local structures in finite reductive groups, Adv. Math. 436 (2024), Paper No. 109403, 61."
+        },
+        {
+          "key": "29",
+          "formatted_entry": "D. Rossi, The simplicial complex of Brauer pairs of a finite reductive group, Math. Z. 308 (2024), Paper No. 27."
+        },
+        {
+          "key": "30",
+          "formatted_entry": "D. Rossi, A local-global principle for unipotent characters, Forum Math. Sigma 12 (2024), Paper No. e125."
+        },
+        {
+          "key": "31",
+          "formatted_entry": "B. Steinberg, Contractibility of the orbit space of the p-subgroup complex via Brown-Forman discrete Morse theory, Proc. Amer. Math. Soc. 152 (2024), no. 2, 515–519."
+        },
+        {
+          "key": "32",
+          "formatted_entry": "P. Symonds, The orbit space of the p-subgroup complex is contractible, Comment. Math. Helv. 73 (1998), no. 3, 400–405."
+        },
+        {
+          "key": "33",
+          "formatted_entry": "P. J. Webb, A local method in group cohomology, Comment. Math. Helv. 62 (1987), no. 1, 135–167."
+        },
+        {
+          "key": "34",
+          "formatted_entry": "P. J. Webb, A split exact sequence of Mackey functors, Comment. Math. Helv. 66 (1991), no. 1, 34–69."
+        }
+      ]
+    }
+  ]
+}

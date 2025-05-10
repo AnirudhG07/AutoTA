@@ -1,0 +1,241 @@
+{
+  "document": [
+    {
+      "Title": {
+        "title": "A short proof of Helson’s conjecture"
+      }
+    },
+    {
+      "Metadata": {
+        "authors": [
+          {
+            "label": "author1",
+            "name": "Ofir Gorodetsky",
+            "affiliation": "Department of Mathematics, Technion – Israel Institute of Technology, Haifa, Israel"
+          },
+          {
+            "label": "author2",
+            "name": "Mo Dick Wong",
+            "affiliation": "Department of Mathematical Sciences, Durham University, Durham, UK"
+          }
+        ],
+        "keywords": [
+          "Helson’s conjecture",
+          "Random multiplicative functions",
+          "Gaussian multiplicative chaos"
+        ],
+        "msc_codes": [
+          "11K65 (primary)",
+          "11N37",
+          "60G15",
+          "60G50"
+        ],
+        "publication_date": "2025-01-15",
+        "source": "Bulletin of the London Mathematical Society; Received: 10 June 2024; Revised: 5 January 2025; Accepted: 15 January 2025; DOI: 10.1112/blms.70015"
+      }
+    },
+    {
+      "Abstract": {
+        "abstract": "Let \\(\\alpha: \\mathbb{N}\\to S^1\\) be the Steinhaus multiplicative function: a completely multiplicative function such that \\((\\alpha(p))_{p \\text{ prime}}\\) are i.i.d. random variables uniformly distributed on the complex unit circle \\(S^1\\). Helson conjectured that \\(\\mathbb{E}\\big|\\sum_{n\\le x}\\alpha(n)\\big| = o(\\sqrt{x})\\) as \\(x\\to\\infty\\), and this was solved in a strong form by Harper. We give a short proof of the conjecture using a result of Saksman and Webb on a random model for the zeta function."
+      }
+    },
+
+    {
+      "Section": {
+        "label": "sec:intro",
+        "header": "1 INTRODUCTION",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "Let \\(\\alpha\\) be the Steinhaus random multiplicative function, defined as follows. If \\(n\\) is a positive integer that factorises as \\(\\prod_{i=1}^k p_i^{a_i}\\) (\\(p_1 < p_2 < \\dots < p_k\\) are primes) then \\(\\alpha(n) := \\prod_{i=1}^k \\alpha(p_i)^{a_i}\\), where \\((\\alpha(p))_{p\\text{ prime}}\\) are i.i.d. random variables with the uniform distribution on \\(S^1\\), the complex unit circle \\(\\{z\\in\\mathbb{C}:|z| = 1\\}.\\) It is not hard to see that for any given positive integers \\(n\\) and \\(m\\),\n\\[\n\\mathbb{E}[\\alpha(n)\\alpha(m)] = \\begin{cases}1 & \\text{if } n = m,\\\\0 & \\text{otherwise.}\\end{cases}\n\\tag{1.1}\\]\nLet\n\\[\nS_x := \\frac{1}{\\sqrt{x}} \\sum_{n\\le x} \\alpha(n).\n\\]\nBy \\((1.1)\\), \\(\\mathbb{E}[|S_x|^2] \\asymp 1\\). In [8], Helson conjectured that \\(\\lim_{x\\to\\infty} \\mathbb{E}|S_x| = 0\\). This conjecture was solved in a strong form by Harper [6]. An elegant and simplified variant of Harper’s results, in a model case, was established by Soundararajan and Zaman [14].† In this note we give a short proof of the following result."
+            }
+          },
+          {
+            "Theorem": {
+              "label": "thm:1.1",
+              "header": "Theorem",
+              "claim": "Fix \\(\\delta\\in(0, 1).\\) We have \\(\\mathbb{E}[|S_x|^{2q}] \\ll (\\log\\log x)^{-q/2}\\) uniformly in \\(x\\ge 3\\) and \\(q\\in [0, 1-\\delta].\\)"
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Harper’s result is stronger than Theorem 1.1 in two ways: it is uniform in \\(q\\in [0, 1]\\) (which requires modifying the upper bound in the statement), and it contains a matching lower bound. However, Theorem 1.1 readily implies Helson’s conjecture. The proof of Theorem 1.1 still follows the broad strategy in [6], and in fact was anticipated by Harper [6, p. 11]. To prove Theorem 1.1 we combine two inequalities. Define the function\n\\[\nA_y(s) := \\prod_{p\\le y} \\bigl(1 - \\alpha(p)\\,p^{-s}\\bigr)^{-1},\\quad\\Re s> 0.\n\\]\n\nLemma 1.2. Fix \\(\\delta\\in(0, 1).\\) Uniformly for \\(y\\in [2, \\sqrt{x}]\\) and \\(q\\in [0, 1 - \\delta]\\) we have, for some absolute \\(C\\ge 0\\) and \\(c> 0\\),\n\\[\n\\mathbb{E}[|S_x|^{2q}] \\ll \\mathbb{E}\\biggl[\\Bigl(\\frac{1}{\\log y}\\int_{\\mathbb{R}} \\biggl|\\biggl|\\bigl| \\frac{A_y\\bigl(\\tfrac12 + i t\\bigr)}{\\tfrac12 + i t}\\bigr|\\bigl|\\biggr|^2 d t\\Bigr)^q\\biggr] + \\bigl((\\log y)^C e^{-c\\,\\frac{\\log x}{\\log y}}\\bigr)^q.\n\\tag{1.2}\\]\n\nLemma 1.3. Fix \\(\\delta\\in(0, 1).\\) Uniformly for \\(y\\ge 3\\) and \\(q\\in [0, 1 - \\delta]\\) we have\n\\[\n\\mathbb{E}\\Bigl[\\Bigl(\\frac{1}{\\log y}\\int_{\\mathbb{R}} \\biggl|\\biggl|\\bigl|\\frac{A_y\\bigl(\\tfrac12 + i t\\bigr)}{\\tfrac12 + i t}\\bigr|\\bigl|\\biggr|^2 d t \\Bigr)^q\\Bigr] \\ll (\\log\\log y)^{-q/2}.\n\\tag{1.3}\\]\n\nTaking \\(\\log y = \\frac{\\log x}{(\\log\\log x)^2}\\) in Lemmas 1.2 and 1.3 gives Theorem 1.1.\n\n†See [5] for generalisations of the bounds in [14], and [11, Lemma 7.5] for a different derivation of some of the bounds in [14].\n\n\\(\\textbf{MSC 2020:}\\) 11K65 (primary), 11N37, 60G15, 60G50."
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "Section": {
+        "label": "sec:lemma12",
+        "header": "2 PROOF OF LEMMA 1.2",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "We recall two number-theoretic facts. A positive integer is called \\(y\\)-smooth (resp., \\(y\\)-rough) if any prime dividing it is at most \\(y\\) (resp., strictly greater than \\(y\\)). Let \\(\\Psi(x, y)\\) (resp., \\(\\Phi(x, y)\\)) be the number of \\(y\\)-smooth (resp., \\(y\\)-rough) integers in \\([1, x]\\). The first fact, due to Rankin [2, Theorem 5.3.1], is the upper bound (for \\(x, y\\ge 2\\))\n\\[\n\\Psi(x, y) \\ll x (\\log y)^A e^{-c\\,\\frac{\\log x}{\\log y}}\n\\tag{2.1}\\]\nfor some absolute \\(A\\ge 0\\) and \\(c> 0\\). We reproduce the proof: if \\(\\alpha> 0\\) then \\(\\Psi(x, y) \\le x^\\alpha \\sum_{p\\mid n\\implies p\\le y} n^{-\\alpha} = x^\\alpha \\prod_{p\\le y} (1 - p^{-\\alpha})^{-1}.\\) Take \\(\\alpha = 1 - \\frac{c}{\\log y}\\) and note \\(\\sum_{p\\le y} -\\log(1 - p^{-\\alpha}) \\ll \\sum_{p\\le y} p^{-1} \\ll \\log\\log y\\) by Mertens’ theorem [10, Theorem 2.7]. The second fact, due to Brun [2, Theorem 6.2.5], is the upper bound\n\\[\n\\Phi(x+H, y) - \\Phi(x, y) \\ll \\frac{H}{\\min\\{\\log y, \\log H\\}} \\quad (x, y, H\\ge 2).\n\\tag{2.2}\\]\n\nWe turn to the proof of Lemma 1.2, which we establish with \\(C = A + 1\\). Given \\(y\\ge 2\\) let \\(\\mathcal{F}_y\\) be the \\(\\sigma\\)-algebra generated by \\(\\{\\alpha(p) : p\\le y\\}\\). As long as \\(n, m\\) are both \\(y\\)-rough, the identity\n\\[\n\\mathbb{E}[\\alpha(n)\\alpha(m) \\mid \\mathcal{F}_y] = \\begin{cases}1 & \\text{if } n = m,\\\\0 & \\text{otherwise,}\\end{cases}\n\\tag{2.3}\\]\nstill holds despite the conditioning, using the same argument that gives \\((1.1)\\). Given \\(y\\ge 2\\) we define\n\\[\nS_{x,y} := \\frac{1}{\\sqrt{x}} \\sum_{\\substack{n\\le x \\\\ \\text{\\(n\\) is \\(y\\)-smooth}}} \\alpha(n).\n\\]\nSince a positive integer can be written uniquely as \\(mm'\\) where \\(m\\) is \\(y\\)-rough and \\(m'\\) is \\(y\\)-smooth, we have\n\\[\nS_x = \\sum_{\\substack{1\\le m\\le x\\\\ m\\text{ is \\(y\\)-rough}}} \\alpha(m)\\,\\frac{1}{\\sqrt{m}}\\,S_{x/m, y}.\n\\tag{2.4}\\]\nFrom \\((2.3)\\) and \\((2.4)\\),\n\\[\n\\mathbb{E}[|S_x|^2 \\mid \\mathcal{F}_y] = |S_{x,y}|^2 + \\sum_{\\substack{y < m\\le x\\\\ m\\text{ is \\(y\\)-rough}}} m^{-1} |S_{x/m, y}|^2.\n\\tag{2.5}\\]\nFrom \\((1.1)\\) and \\((2.1)\\), \\(\\mathbb{E}[|S_{x,y}|^2] = x^{-1}\\,\\Psi(x, y) \\ll (\\log y)^A e^{-c\\,\\frac{\\log x}{\\log y}}.\\)\n\nWe introduce a parameter \\(T\\in [\\sqrt{x}\\,y,\\, x]\\) and write the \\(m\\)-sum in \\((2.5)\\) as \\(T_x^{(1)} + T_x^{(2)}\\) where\n\\(\nT_x^{(1)} := \\sum_{\\substack{y< m\\le T \\\\ m\\text{ is \\(y\\)-rough}}} m^{-1} |S_{x/m, y}|^2, \\quad\nT_x^{(2)} := \\sum_{\\substack{T < m\\le x \\\\ m\\text{ is \\(y\\)-rough}}} m^{-1} |S_{x/m, y}|^2.\n\\)\nThe expectation of \\(T_x^{(1)}\\) satisfies\n\\(\n\\mathbb{E}[T_x^{(1)}] = x^{-1} \\sum_{\\substack{y < m\\le T \\\\ m\\text{ is \\(y\\)-rough}}} \\Psi(x/m, y) \\ll (\\log y)^A \\sum_{\\substack{y < m\\le T}} m^{-1} e^{-c\\,\\frac{\\log(x/m)}{\\log y}}\n\\tag{2.6}\\)\nby \\((1.1)\\) and \\((2.1)\\). The sum can be bounded geometrically:\n\\(\n(\\log y)^A \\sum_{y < m\\le T} m^{-1} e^{-c\\,\\frac{\\log(x/m)}{\\log y}} = (\\log y)^A e^{-c\\,\\frac{\\log x}{\\log y}} \\sum_{y < m\\le T} m^{-1} e^{\\frac{c\\,\\log m}{\\log y}} \\approx\n(\\log y)^A e^{-c\\,\\frac{\\log x}{\\log y}} \\sum_{k:\\,y/e < e^k\\le e^T} e^{\\frac{c}{\\log y}\\,k} \\ll (\\log y)^{A+1} e^{-c\\,\\frac{\\log(x/T)}{\\log y}}.\n\\)\nWe now treat \\(T_x^{(2)}\\). Observe \\(\\frac{S_{t,y}}{\\sqrt{t}} = \\sum_{\\substack{n\\le t,\\, n\\text{ is \\(y\\)-smooth}}} \\alpha(n)\\,\\frac{1}{\\sqrt{t}}\\) is a function of \\(\\lfloor t\\rfloor\\) only; setting \\(r := \\lfloor x/m\\rfloor\\) we may write\n\\(\nT_x^{(2)} \\ll \\sum_{1\\le r< x/T} |S_{r,y}|^2 \\sum_{\\substack{T < m\\le x \\\\ m\\text{ is \\(y\\)-rough} \\wedge m \\in (x/(r+1), x/r]}} m^{-1}\\ \\le \\sum_{1\\le r< x/T} |S_{r,y}|^2\\,[\\Phi(x/r, y) - \\Phi(x/(r+1), y)]\\,\\frac{1}{x/r}.\n\\tag{2.7}\\)\nBy the assumption \\(T\\ge \\sqrt{x}\\,y\\) and \\((2.2)\\) we can upper bound the right-hand side of \\((2.7)\\) by\n\\(\nT_x^{(2)} \\ll \\frac{1}{\\log y}\\ \\sum_{1\\le r< x/T} |S_{r,y}|^2\\,\\frac{1}{r} \\ll \\frac{1}{\\log y}\\ \\int_{0}^{\\,x/T} \\frac{|S_{t,y}|^2}{t}\\,\\mathrm{d}t.\n\\)\nHence\n\\(\n\\mathbb{E}[|S_x|^2 \\mid \\mathcal{F}_y] \\ll \\frac{1}{\\log y}\\ \\int_{0}^{x/T} \\frac{|S_{t,y}|^2}{t}\\,\\mathrm{d}t \\; + \\; X,\n\\)\nwhere\n\\(\\displaystyle X := |S_{x,y}|^2 + T_x^{(1)}\\,\\ge 0,\\quad \\mathbb{E}[X] \\ll (\\log y)^{A+1}\\ e^{-c\\,\\frac{\\log(x/T)}{\\log y}}.\\)\nBy Hölder’s inequality and subadditivity of \\(a\\mapsto a^q\\),\n\\(\n\\mathbb{E}[|S_x|^{2q}\\mid \\mathcal{F}_y] \\le \\bigl(\\mathbb{E}[|S_x|^2\\mid \\mathcal{F}_y]\\bigr)^q \\ll \\Bigl(\\frac{1}{\\log y}\\ \\int_{0}^{x/T} \\frac{|S_{t,y}|^2}{t}\\,\\mathrm{d}t\\Bigr)^q + X^q.\n\\)\nTaking total expectation and again employing Hölder’s inequality,\n\\(\n\\mathbb{E}[|S_x|^{2q}] \\ll \\mathbb{E}\\Bigl[\\Bigl(\\frac{1}{\\log y}\\ \\int_{0}^{x/T} \\frac{|S_{t,y}|^2}{t}\\,\\mathrm{d}t\\Bigr)^q\\Bigr] + (\\mathbb{E}[X])^q \\ll \\mathbb{E}\\Bigl[\\Bigl(\\frac{1}{\\log y}\\ \\int_{0}^{\\infty} \\frac{|S_{t,y}|^2}{t}\\,\\mathrm{d}t\\Bigr)^q\\Bigr] + \\biggl[(\\log y)^{A+1}\\ e^{-c\\,\\frac{\\log(x/T)}{\\log y}}\\biggr]^q.\n\\)\nWe choose \\(T= x^{3/4}\\) and then apply Parseval’s theorem [10, Equation (5.26)] (in the form \\(\\sum_{n\\le t} f(n)\\longleftrightarrow \\sum_{n} f(n) n^{-s}\\)), which yields\n\\(\n\\int_{0}^{\\infty} \\frac{|S_{t,y}|^2}{t}\\,\\mathrm{d}t \\;\\sim\\; \\int_{\\mathbb{R}} \\Bigl|\\Bigl|\\Bigl| \\frac{A_y\\bigl(\\tfrac12 + i t\\bigr)}{\\tfrac12 + i t}\\Bigr|\\Bigr|\\Bigr|^2 \\mathrm{d}t.\n\\)\nThus we have proved Lemma 1.2."
+            }
+          },
+          {
+            "Remark": {
+              "label": "rmk:2.1",
+              "header": "Remark",
+              "remark": "By a classical result of de Bruijn [3, Equation (1.9)], one can take A = 0 in (2.1). Moreover, a factor of log y can be saved in (2.6) by applying (2.2) more precisely. This shows Lemma 1.2 also holds with C = 0."
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "Section": {
+        "label": "sec:lemma13",
+        "header": "3 PROOF OF LEMMA 1.3",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "Our approach to Lemma 1.3 is based on the theory of multiplicative chaos, the connection to which becomes evident if one considers the Taylor series expansion\n\\[\nA_y(\\sigma + i s) = \\prod_{p\\le y} \\Bigl(1 - \\alpha(p)\\,p^{-\\sigma - i s}\\Bigr)^{-1} = \\exp\\Bigl\\{-\\sum_{p\\le y} \\log\\bigl(1 - \\alpha(p)\\,p^{-\\sigma - i s}\\bigr)\\Bigr\\}, \\qquad (\\sigma\\ge 1/2),\n\\]\nand expands the logarithm in a series. This leads to a decomposition in three parts, which can be interpreted in terms of Gaussian multiplicative chaos (GMC) once appropriate approximations by Gaussian fields are employed. In particular, we highlight the following key theorem from Saksman and Webb."
+            }
+          },
+          {
+            "Lemma": {
+              "label": "lem:3.1-cited",
+              "header": "Lemma",
+              "definition": "Lemma 3.1. We have\n\\(\n\\sup_{n\\in\\mathbb{Z},\\,y\\ge 3,\\,\\sigma\\ge 1/2}\\mathbb{E}\\Bigl[\\sup_{t\\in[n,\\,n+1]} e^{\\lambda\\,\\mathcal{G}^{\\mathrm{R}}_{y,2}(t;\\,\\sigma)}\\Bigr] < \\infty\\quad \\forall\\,\\lambda\\in\\mathbb{R}.\n\\)\n(Here \\(\\mathcal{G}^{\\mathrm{R}}_{y,2}\\) is a certain structured partial sum in the exponent, bounding part of \\(\\log(A_y(s))\\).)"
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "The above lemma (3.1) is a uniform exponential moment estimate for the partial sums (associated with the term \\(\\mathcal{G}^{\\mathrm{R}}_{y,2}\\)) and is proved using Hoeffding’s inequality, chaining arguments, and covering lemmas. We omit the detailed steps here for brevity."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Next we recall a coupling result of Saksman and Webb [12, 13]."
+            }
+          },
+          {
+            "Theorem": {
+              "label": "thm:3.3",
+              "header": "Theorem",
+              "claim": "On some suitable probability space one can construct i.i.d. random variables \\((\\alpha(p))_p\\) (uniformly distributed on \\(S^1\\)) and a collection of (real-valued) random fields \\(\\widetilde{\\mathcal{G}}^{\\mathrm{R}}_{y,1}\\) and \\(E_y\\) on \\([0, 1]\\) such that\n\\[\n\\mathcal{G}^{\\mathrm{R}}_{y,1}(t) = \\widetilde{\\mathcal{G}}^{\\mathrm{R}}_{y,1}(t) + E_y(t), \\qquad \\text{for all } y\\ge 3,\\, t\\in[0,1],\n\\]\nalmost surely, where \\(E_y\\) converges uniformly almost surely as \\(y\\to\\infty\\) and possesses (uniform) exponential integrability, and \\(\\widetilde{\\mathcal{G}}^{\\mathrm{R}}_{y,1}\\) is a sequence of continuous Gaussian fields whose covariance approximates \\(\\tfrac12 \\log\\bigl(1/(|s-t|)\\wedge \\log y\\bigr).\\)"
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "We also need the following fact about critical Gaussian multiplicative chaos."
+            }
+          },
+          {
+            "Lemma": {
+              "label": "lem:3.4",
+              "header": "Lemma",
+              "remark": "Let \\((G_T(\\cdot))_{T>0}\\) be a family of continuous Gaussian fields on \\([0, 1]\\) whose covariance kernel (for each \\(T\\)) approximates \\(\\log(1/|x-y|)\\) up to \\(T\\). Then for any \\(0 < q < 1\\), we have\n\\(\\displaystyle \\sup_{T>0}\\, \\mathbb{E}\\Bigl[\\bigl(\\sqrt{T}\\int_0^1 e^{\\sqrt{2}\\,G_T(x) - \\mathbb{E}[G_T(x)^2]}\\,dx\\bigr)^q\\Bigr] < \\infty.\\)\nThe proof uses Kahane’s convexity inequality and known moment criteria for critical Gaussian multiplicative chaos, as discussed in [4]."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Combining Theorem 3.3 and Lemma 3.4 (with a suitable choice of Hölder's inequality in between) yields the necessary uniform (in \\(y\\)) bound for the integral\n\\(\\int_0^1 e^{2\\,\\mathcal{G}^{\\mathrm{R}}_{y,1}(t)}\\,\\mathrm{d}t\\),\nup to factors like \\(\\sqrt{\\log\\log y}/\\log y\\). Inserting additional bounded terms (like \\(\\mathcal{G}^{\\mathrm{R}}_{y,2}\\) and a short tail expansion \\(\\mathcal{G}^{\\mathrm{R}}_{y,3}\\)) into the exponent alters the estimate by a multiplicative constant factor only, thanks to uniform exponential integrability arguments. This establishes the crux of the proof of Lemma 1.3, showing\n\\[\n\\mathbb{E}\\Bigl[\\Bigl(\\frac{1}{\\log y}\\int_{\\mathbb{R}}\\Bigl|\\Bigl|\\Bigl|\\frac{A_y\\bigl(\\tfrac12 + i t\\bigr)}{\\tfrac12 + i t}\\Bigr|\\Bigr|\\Bigr|^2 d t\\Bigr)^q\\Bigr] \\ll (\\log\\log y)^{-q/2},\n\\]\nand completes the argument."
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "Section": {
+        "label": "sec:appendixA",
+        "header": "APPENDIX A: PROBABILITY RESULTS",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "We collect here some standard probability estimates used in the proofs."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "• \\(\\textbf{Theorem A.1 (Hoeffding [9])}\\). Let \\((X_i)_{i\\le n}\\) be independent r.v.s with mean 0 and bounded support. Then the sum \\(S_n = \\sum_{i=1}^n X_i\\) satisfies\n\\[\n\\mathbb{E}[e^{\\lambda S_n}] \\le \\exp\\Bigl(\\frac{\\lambda^2}{2}\\sum_{i=1}^n c_i^2\\Bigr),\\quad \\forall\\,\\lambda \\in\\mathbb{R},\\]\n\\(\\text{and}\\)\n\\[\n\\mathbb{P}(|S_n| \\ge u) \\le 2\\exp\\Bigl(-\\frac{u^2}{2\\sum_{i=1}^n c_i^2}\\Bigr),\\quad \\forall\\,u\\ge 0.\\]\n\n• \\(\\textbf{Theorem A.2 (Generic chaining bound, cf. [15])}\\). Let \\((X_t)_{t\\in T}\\) be a family of zero-mean random variables indexed by a metric space \\((T, d)\\), satisfying\n\\(\n\\mathbb{P}(|X_s - X_t| \\ge u) \\le 2\\exp\\Bigl(-\\frac{u^2}{2\\,d(s,t)^2}\\Bigr),\\quad \\forall\\,s, t\\in T,\\;u\\ge 0.\n\\)\nThen there is an absolute constant \\(C_1>0\\) such that\n\\(\\displaystyle \\mathbb{P}\\Bigl(\\sup_{s, t\\in T} |X_s - X_t| \\ge u\\Bigr) \\le C_1 \\exp\\Bigl(-\\frac{u^2}{C_1\\,\\gamma_2(T,d)^2}\\Bigr),\\) \\(\\forall\\,u\\ge 0,\\)\nwhere \\(\\gamma_2(T,d)\\) is bounded above by Dudley’s entropy integral."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "These results play key roles in controlling the suprema of partial sums of random variables via chaining arguments, and hence controlling moment generating functions that arise in the multiplicative chaos context."
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "Bibliography": {
+        "header": "References",
+        "entries": [
+          {
+            "key": "[1]",
+            "formatted_entry": "N. Berestycki, “An elementary approach to Gaussian multiplicative chaos,” Electron. Commun. Probab. 22 (2017), 1–12."
+          },
+          {
+            "key": "[2]",
+            "formatted_entry": "A. C. Cojocaru and M. R. Murty, An introduction to sieve methods and their applications, Lond. Math. Soc. Stud. Texts, vol. 66, Cambridge University Press, Cambridge, 2006."
+          },
+          {
+            "key": "[3]",
+            "formatted_entry": "N. G. de Bruijn, “On the number of positive integers ≤ x and free of prime factors > y,” Nederl. Akad. Wet., Proc., Ser. A 54 (1951), 50–60."
+          },
+          {
+            "key": "[4]",
+            "formatted_entry": "B. Duplantier, R. Rhodes, S. Sheffield, and V. Vargas, “Renormalization of critical Gaussian multiplicative chaos and KPZ relation,” Commun. Math. Phys. 330 (2014), no. 1, 283–330."
+          },
+          {
+            "key": "[5]",
+            "formatted_entry": "H. Gu and Z. Zhang, “Universality and phase transitions in low moments of secular coefficients of critical holomorphic multiplicative chaos,” arXiv:2401.05681, 2024."
+          },
+          {
+            "key": "[6]",
+            "formatted_entry": "A. J. Harper, “Moments of random multiplicative functions. I: low moments, better than square-root cancellation, and critical multiplicative chaos,” Forum Math. Pi 8 (2020), 95, e1."
+          },
+          {
+            "key": "[7]",
+            "formatted_entry": "A. J. Harper, “The typical size of character and zeta sums is o(√x),” arXiv:2301.04390, 2023."
+          },
+          {
+            "key": "[8]",
+            "formatted_entry": "H. Helson, “Hankel forms,” Stud. Math. 198 (2010), no. 1, 79–84."
+          },
+          {
+            "key": "[9]",
+            "formatted_entry": "W. Hoeffding, “Probability inequalities for sums of bounded random variables,” J. Am. Stat. Assoc. 58 (1963), 13–30."
+          },
+          {
+            "key": "[10]",
+            "formatted_entry": "H. L. Montgomery and R. C. Vaughan, Multiplicative number theory. I. Classical theory, Cambridge Studies in Advanced Mathematics, vol. 97, Cambridge University Press, Cambridge, 2007."
+          },
+          {
+            "key": "[11]",
+            "formatted_entry": "J. Najnudel, E. Paquette, and N. Simm, “Secular coefficients and the holomorphic multiplicative chaos,” Ann. Probab. 51 (2023), no. 4, 1193–1248."
+          },
+          {
+            "key": "[12]",
+            "formatted_entry": "E. Saksman and C. Webb, “Multiplicative chaos measures for a random model of the Riemann zeta function,” arXiv:1604.08378, 2016."
+          },
+          {
+            "key": "[13]",
+            "formatted_entry": "E. Saksman and C. Webb, “The Riemann zeta function and Gaussian multiplicative chaos: statistics on the critical line,” Ann. Probab. 48 (2020), no. 6, 2680–2754."
+          },
+          {
+            "key": "[14]",
+            "formatted_entry": "K. Soundararajan and A. Zaman, “A model problem for multiplicative chaos in number theory,” Enseign. Math. (2) 68 (2022), no. 3–4, 307–340."
+          },
+          {
+            "key": "[15]",
+            "formatted_entry": "M. Talagrand, Upper and lower bounds for stochastic processes: modern methods and classical problems, Ergebnisse der Mathematik und ihrer Grenzgebiete, 3. Folge, vol. 60, Springer, Berlin, 2014."
+          }
+        ]
+      }
+    }
+  ]
+}

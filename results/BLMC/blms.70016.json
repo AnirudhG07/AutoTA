@@ -1,0 +1,311 @@
+{
+  "document": [
+    {
+      "title": "An observation on the existence of stable generalized complex structures on ruled surfaces"
+    },
+    {
+      "abstract": "We point out that any stable generalized complex structure on a sphere bundle over a closed surface of genus at least two must be of constant type."
+    },
+    {
+      "Metadata": {
+        "authors": [
+          {
+            "name": "Rafael Torres",
+            "affiliation": "Scuola Internazionale Superiori di Studi Avanzati (SISSA), Trieste, Italy",
+            "label": "Torres"
+          }
+        ],
+        "keywords": [
+          "stable generalized complex structures",
+          "sphere bundles over surfaces",
+          "type change locus",
+          "symplectic Kodaira dimension",
+          "minimal genus embeddings",
+          "irrational ruled 4-manifolds"
+        ],
+        "msc_codes": [
+          "53D18",
+          "57K43",
+          "53C15",
+          "57R40"
+        ],
+        "publication_date": "2025-01-10",
+        "source": "Bulletin of the London Mathematical Society, DOI: 10.1112/blms.70016. (Received: 2024-10-11, Revised: 2024-12-10, Accepted: 2025-01-10)"
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:intro",
+        "header": "1 INTRODUCTION",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "The canonical line bundle K(𝓘) ⊂ ∧•T*ₐ(M) of a stable generalized complex structure 𝓘 on a smooth n-manifold M is generated pointwise by the complex differential form $$\\rho = e^B + i\\omega\\wedge\\Omega,$$ where B and \\omega are real two forms and the complex form on the right side of (1.1) decomposes into $$\\Omega = \\theta_1 \\wedge \\cdots \\wedge \\theta_k$$ for (\\theta_1, …, \\theta_k) a basis for L ∩ T*ₐ, and L is the +i-eigenbundle of 𝓘 (see [9, 10] and Cavalcanti–Gualtieri [4] for background and further details). A fundamental invariant of a stable generalized complex structure (M, 𝓘) is its type, defined by Type(𝓘) = deg(\\Omega) = k, as in [10, Section 3.1]. In dimension 4, the possible constant types are k ∈ {0, 1, 2}. The value k = 0 corresponds to a stable generalized complex structure induced by a symplectic structure, while k = 2 corresponds to one induced by a complex structure. Stable generalized complex structures of type k = 1 have been studied by Bailey–Cavalcanti–Gualtieri [1] and Chen–Nie [6]."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "Moreover, there is now a myriad of examples of stable generalized complex structures in dimension 4 whose type jumps from k = 0 to k = 2 [2, 3, 5, 8, 10, 16, 17]. As Cavalcanti–Gualtieri have shown, for these kinds of stable generalized complex structures, the underlying smooth four-manifold need not support a symplectic nor a complex structure [2, 3]. The type change occurs along a smoothly embedded torus T ⊂ M, which is a path-connected component of the type change locus of 𝓘. All known examples of such stable generalized complex structures in the literature share the common trait that the underlying closed four-manifold has nonnegative Euler characteristic. This raises the following question."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "**Question 1.** Does there exist a closed four-manifold of negative Euler characteristic that admits a stable generalized complex structure with nonempty type change locus?"
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "The main result of this short note puts Question 1 into perspective by exhibiting four-manifolds of negative Euler characteristic that solely admit stable generalized complex structures of constant type, a behavior that was not previously known to occur; cf. Remark 7."
+            }
+          },
+          {
+            "Theorem": {
+              "label": "thm:A",
+              "header": "Theorem",
+              "claim": "**Theorem A.** The type change locus of a stable generalized complex structure on a sphere bundle over a closed surface of genus strictly greater than one is empty. In particular, any stable generalized complex structure on such a four-manifold arises from a Kähler structure."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "This note aims to make well-known classification theorems and results addressing the minimal genus function of a symplectic four-manifold (see [7, Chapter 2]) more widespread within the generalized complex geometry community. The main ingredient in the proof of Theorem A is Li–Li’s solution to the minimal genus problem of smooth embeddings in sphere bundles over surfaces in [12] (see Theorems 4 and 5). The other ingredients in the proof are a pair of generalized complex cut-and-paste constructions of Cavalcanti–Gualtieri [2, 3], the symplectic Thom conjecture due to Oszváth–Szabó [15, Theorem 1.1], and Liu’s classification of irrational ruled symplectic four-manifolds [14] (see Theorem 3)."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:background",
+        "header": "2 BACKGROUND RESULTS",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "Key background results that are used in the proof of Theorem A are collected in this section with the purpose of making the short note as self-contained as possible."
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:cg-surgery",
+              "header": "2.1 A relation between the symplectic Kodaira dimension and a stable generalized complex surgery",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "Cavalcanti–Gualtieri introduced in [2, Section 3] and [3, Section 4] a four-dimensional cut-and-paste operation that has been a fruitful source of examples of stable generalized complex four-manifolds; cf. Goto-Hayano [8]. Their main results can be rephrased as follows."
+                  }
+                },
+                {
+                  "Theorem": {
+                    "label": "thm:1",
+                    "header": "Theorem",
+                    "claim": "**Theorem 1 (Cavalcanti–Gualtieri [2, 3]).** Let $$(\\widehat{M}, \\mathcal{I})$$ be a stable generalized complex four-manifold whose type change locus has path-connected components $$\\{\\widehat{T}_1,\\dots,\\widehat{T}_n\\}$$ for some $$n\\in \\mathbb{N}.$$ Suppose that each of these tori has self-intersection zero. There is a symplectic four-manifold $$(M,\\omega)$$ with Euler characteristic and signature given by $$\\chi(\\widehat{M}) = \\chi(M)\\text{ and }\\sigma(\\widehat{M}) = \\sigma(M),$$ as well as symplectically embedded tori $$T_1,\\dots,T_n\\subset (M,\\omega)$$ of self-intersection zero."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "The second Stiefel–Whitney class of the four-manifolds of Theorem 1 need not coincide. Indeed, the setting of the example considered by Cavalcanti–Gualtieri [2, Example 4.2] is $$\\widehat{M} = 3\\mathbb{CP}^2 \\# 19\\overline{\\mathbb{CP}}^2$$ and $$M$$ is a K3 surface."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "Before discussing a relation between the symplectic Kodaira dimension of M and the characteristic numbers of $$\\widehat{M},$$ recall the definition of the symplectic Kodaira dimension. Let $$(M,\\omega)$$ be a minimal symplectic four-manifold and let $$K_\\omega$$ be its canonical class (the first Chern class of any almost-complex structure on M compatible with \\omega)."
+                  }
+                },
+                {
+                  "Definition": {
+                    "label": "def:2",
+                    "header": "Definition",
+                    "definition": "**Definition 2. The symplectic Kodaira dimension (Li [13, Definition 2.2]).** The symplectic Kodaira dimension $$\\mathrm{Kod}(M,\\omega)$$ of a minimal symplectic four-manifold $$(M,\\omega)$$ is defined by:\n\n• $$\\mathrm{Kod}(M,\\omega) = -\\infty$$ if $$K_\\omega \\cdot [\\omega] < 0$$ or $$K_\\omega \\cdot K_\\omega < 0.$$\n• $$\\mathrm{Kod}(M,\\omega) = 0$$ if $$K_\\omega \\cdot [\\omega] = 0$$ and $$K_\\omega \\cdot K_\\omega = 0.$$\n• $$\\mathrm{Kod}(M,\\omega) = 1$$ if $$K_\\omega \\cdot [\\omega] > 0$$ and $$K_\\omega \\cdot K_\\omega = 0.$$\n• $$\\mathrm{Kod}(M,\\omega) = 2$$ if $$K_\\omega \\cdot [\\omega] > 0$$ and $$K_\\omega \\cdot K_\\omega > 0.$$\n\nThe symplectic Kodaira dimension of a nonminimal symplectic four-manifold is defined as that of any of its minimal models."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "A minimal symplectic four-manifold (M, \\omega) with \\(\\pi_1(M)\\) of exponential growth has $$\\mathrm{Kod}(M,\\omega) = -\\infty$$ if and only if M is irrationally ruled by a result of Liu [14]. All such four-manifolds admit a Kähler structure and are diffeomorphic to either the product $$S^2 \\times \\Sigma_g$$ or the nontrivial bundle $$S^2\\widetilde\\times \\Sigma_g$$ in the absence of smoothly embedded spheres of self-intersection −1 (see [13, Section 3] for a guide to the literature). We state Liu’s classification as follows."
+                  }
+                },
+                {
+                  "Theorem": {
+                    "label": "thm:3",
+                    "header": "Theorem",
+                    "claim": "**Theorem 3 (Liu [14]).** Let $$(M,\\omega)$$ be a symplectic four-manifold with $$\\mathrm{Kod}(M,\\omega) = -\\infty$$ and whose fundamental group has exponential growth. Then M is diffeomorphic to $$M_g \\#\\,k\\,\\mathbb{CP}^2$$ where $$M_g$$ is a sphere bundle over a surface of genus at least two and $$k \\in \\mathbb{Z}_{\\ge 0}.$$"
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "The Euler characteristic of a minimal symplectic four-manifold $$(M,\\omega)$$ with $$\\mathrm{Kod}(M,\\omega) = -\\infty$$ is negative if and only if its fundamental group has exponential growth. The precise diffeomorphism type of the four-manifold of Theorem 3 is determined from its intersection form over \\(\\mathbb{Z}\\) [7, Definition 1.2.1] and/or its Euler characteristic, signature, and second Stiefel–Whitney class."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Section": {
+              "label": "sec:min-genus",
+              "header": "2.2 The minimal genus of symplectic surfaces in irrational ruled symplectic four-manifolds",
+              "level": 2,
+              "content": [
+                {
+                  "Paragraph": {
+                    "text": "The main ingredient in the proof of Theorem A is work of B.-H. Li and T.-J. Li [12, Theorems 1 and 2] that solves the minimal genus problem for smooth embeddings of surfaces in irrational ruled symplectic four-manifolds. We recall their statements below."
+                  }
+                },
+                {
+                  "Theorem": {
+                    "label": "thm:4",
+                    "header": "Theorem",
+                    "claim": "**Theorem 4 (Li-Li [12, Theorem 1]).** Let a and b be nonnegative integers, and consider the second homology classes\n\\( x = [\\{pt\\} \\times \\Sigma_g] \\quad \\text{and} \\quad y = [S^2 \\times \\{pt\\}]. \\)\nThe minimal genus \\(g_\\xi\\) of \\(\\xi = a x + b y \\in H_2(S^2 \\times \\Sigma_g)\\) is given by:\n\\[\n   g_\\xi = \\begin{cases}\n       (a - 1)(g - 1 + b) + g & \\text{if } a \\neq 0,\\\\\n       0 & \\text{otherwise.}\\end{cases}\n\\]"
+                  }
+                },
+                {
+                  "Theorem": {
+                    "label": "thm:5",
+                    "header": "Theorem",
+                    "claim": "**Theorem 5 (Li-Li [12, Theorem 2]).** Let \\(S^2\\widetilde\\times \\Sigma_g\\) be the nontrivial sphere bundle over a surface of genus \\(g > 0\\). Let x be the homology class of its section and y the homology class of a fiber. The minimal genus \\(g_\\xi\\) of \\(\\xi = a x + b y \\in H_2(S^2\\widetilde\\times \\Sigma_g)\\) is given by:\n\\[\n  g_\\xi = \\begin{cases}\n     (a' - 1)\\bigl( (g - 1) + \\tfrac12 |a' + 2 b'| \\bigr) + g & \\text{if } a \\neq 0,\\\\\n     0 & \\text{otherwise,}\\end{cases}\n\\]\nwhere \\(a' = |a|\\) and \\(b' = \\tfrac{a}{|a|} b\\) when \\(a \\neq 0\\)."
+                  }
+                },
+                {
+                  "Paragraph": {
+                    "text": "From these theorems, we obtain the following corollary, pointed out by the referee."
+                  }
+                },
+                {
+                  "Theorem": {
+                    "label": "cor:6",
+                    "header": "Corollary",
+                    "claim": "**Corollary 6.** Let M be a sphere bundle over a surface of genus strictly greater than one. If a homology class \\(\\xi \\in H_2(M)\\) is represented by a torus T, then \\(\\xi\\) is a multiple of the homology class of the fiber of M. In particular, \\(\\xi^2 = 0\\) and T is not a minimum genus representative of \\(\\xi\\)."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:proof-thmA",
+        "header": "3 PROOF OF THEOREM A",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "There are stable generalized complex structures of constant type \\(k\\in\\{0,2\\}\\) on both bundles \\(S^2\\times\\Sigma_g\\) and \\(S^2\\widetilde\\times\\Sigma_g\\) that come from their structure as irrational ruled complex surfaces. They can also be equipped with stable generalized complex structures of constant type \\(k=1\\) by considering the sphere as the complex projective line and the volume form on the closed surface of genus g."
+            }
+          },
+          {
+            "Paragraph": {
+              "text": "To see that neither of these four-manifolds admits a stable generalized complex structure with at least one connected component in its type change locus, we argue by contradiction. Let \\(\\widehat{M}\\) be a sphere bundle over a closed surface of genus at least two and suppose there is a stable generalized complex structure \\((\\widehat{M},\\mathcal{I})\\) whose type change locus has at least one connected component. Two scenarios must be considered:\n\n1. There is at least one path-connected component \\(\\widehat{T}\\subset\\widehat{M}\\) of the type change locus of \\(\\mathcal{I}\\) with nonzero self-intersection.\\\n2. Every path-connected component \\(\\widehat{T}\\) of the type change locus of \\(\\mathcal{I}\\) has self-intersection zero.\n\nThe first scenario is immediately ruled out by Corollary 6. To rule out the second, we apply Theorem 1 to \\((\\widehat{M},\\mathcal{I})\\) and obtain a symplectic four-manifold \\((M,\\omega)\\) with signature \\(\\sigma(M)=\\sigma(\\widehat{M})=0\\) and Euler characteristic \\(\\chi(M)=\\chi(\\widehat{M})<0.\\) These values imply that \\((M,\\omega)\\) is a minimal symplectic four-manifold whose fundamental group has exponential growth. By Liu’s classification (Theorem 3), M is either \\(S^2\\times\\Sigma_g\\) or \\(S^2\\widetilde\\times\\Sigma_g\\). Theorem 1 guarantees a symplectic torus \\(T\\subset M\\) of self-intersection zero, and by the symplectic Thom conjecture of Oszváth–Szabó [15], that torus would be genus-minimizing. However, this contradicts Corollary 6. Thus, the second scenario is impossible, and the proof is complete."
+            }
+          },
+          {
+            "Remark": {
+              "label": "rem:7",
+              "header": "Remark",
+              "remark": "It is well known that the number of path-connected components of the type change locus of a stable generalized complex structure on \\(S^2\\times S^2\\) and \\(S^2\\times T^2\\) can be chosen to be arbitrarily large [8, 16, 17]."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:journal-info",
+        "header": "JOURNAL INFORMATION",
+        "level": 1,
+        "content": [
+          {
+            "Paragraph": {
+              "text": "The Bulletin of the London Mathematical Society is wholly owned and managed by the London Mathematical Society, a not-for-profit Charity registered with the UK Charity Commission. All surplus income from its publishing programme is used to support mathematicians and mathematics research in the form of research grants, conference grants, prizes, initiatives for early career researchers and the promotion of mathematics."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Section": {
+        "label": "sec:references",
+        "header": "References",
+        "level": 1,
+        "content": [
+          {
+            "Bibliography": {
+              "header": "References",
+              "entries": [
+                {
+                  "key": "[1]",
+                  "formatted_entry": "M. Bailey, G. R. Cavalcanti, and M. Gualtieri, Type one generalized Calabi-Yaus, J. Geom. Phys. 120 (2017), 89–95."
+                },
+                {
+                  "key": "[2]",
+                  "formatted_entry": "G. R. Cavalcanti and M. Gualtieri, A surgery for generalized complex 4-manifolds, J. Differential Geom. 76 (2007), 35–43."
+                },
+                {
+                  "key": "[3]",
+                  "formatted_entry": "G. R. Cavalcanti and M. Gualtieri, Blow up of generalized complex 4-manifolds, J. Topol. 2 (2009), 840–864."
+                },
+                {
+                  "key": "[4]",
+                  "formatted_entry": "G. R. Cavalcanti and M. Gualtieri, Stable generalized complex structures, Proc. Lond. Math. Soc. 116 (2018), 1075–1111."
+                },
+                {
+                  "key": "[5]",
+                  "formatted_entry": "G. R. Cavalcanti, R. L. Klaasse, and A. Witte, Self-crossing stable generalized complex structures, J. Symplectic Geom. 20 (2022), 761–811."
+                },
+                {
+                  "key": "[6]",
+                  "formatted_entry": "H. Chen and X. Nie, Odd type generalized complex structures on 4-manifolds, J. Geom. Anal. 31 (2021), 457–474."
+                },
+                {
+                  "key": "[7]",
+                  "formatted_entry": "R. E. Gompf and A. I. Stipsicz, 4-Manifolds and Kirby Calculus, Graduate Studies in Mathematics, vol. 20, Amer. Math. Soc., Providence, RI, 1999."
+                },
+                {
+                  "key": "[8]",
+                  "formatted_entry": "R. Goto and K. Hayano, C∞-log transforms and generalized complex structures, J. Sympl. Geom. 14 (2016), 341–357."
+                },
+                {
+                  "key": "[9]",
+                  "formatted_entry": "M. Gualtieri, Generalized complex geometry, Ph.D. thesis, Oxford University, 2004."
+                },
+                {
+                  "key": "[10]",
+                  "formatted_entry": "M. Gualtieri, Generalized complex geometry, Ann. of Math. 174 (2011), 75–123."
+                },
+                {
+                  "key": "[11]",
+                  "formatted_entry": "N. Hitchin, Generalized Calabi-Yau manifolds, Quart. J. Math. Oxford 54 (2003), 281–308."
+                },
+                {
+                  "key": "[12]",
+                  "formatted_entry": "B. H. Li and T.-J. Li, Minimal genus embeddings in S2-bundles over surfaces, Math. Res. Lett. 4 (1997), 379–394."
+                },
+                {
+                  "key": "[13]",
+                  "formatted_entry": "T.-J. Li, The Kodaira dimension of symplectic 4-manifolds, in: Floer homology, gauge theory, and low-dimensional topology, Clay Math. Proc., vol. 5, Amer. Math. Soc., Providence, RI, 2006, pp. 249–261."
+                },
+                {
+                  "key": "[14]",
+                  "formatted_entry": "A.-I. Liu, Some new applications of general wall crossing formula, Gompf’s conjecture and its applications, Math. Res. Lett. 3 (1996), 569–585."
+                },
+                {
+                  "key": "[15]",
+                  "formatted_entry": "P. Oszváth and Z. Szabó, The symplectic Thom conjecture, Ann. of Math. 151 (2000), 93–124."
+                },
+                {
+                  "key": "[16]",
+                  "formatted_entry": "R. Torres, Constructions of generalized complex structures in dimension four, Comm. Math. Phys. 314 (2012), 351–371."
+                },
+                {
+                  "key": "[17]",
+                  "formatted_entry": "R. Torres and J. Yazinski, On the number of type change loci of a generalized complex structure, Lett. Math. Phys. 104 (2014), 451–464."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
